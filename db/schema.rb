@@ -57,14 +57,14 @@ ActiveRecord::Schema.define(version: 2022_03_01_140741) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "gym_id"
-    t.string "first_name"
-    t.string "last_name"
     t.string "location"
     t.integer "age"
     t.string "gender"
     t.string "nickname"
     t.string "quote"
     t.string "sport"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["gym_id"], name: "index_users_on_gym_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
