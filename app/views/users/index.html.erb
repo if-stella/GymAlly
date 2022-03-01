@@ -1,0 +1,7 @@
+<%= render "filter_form", user: @user %>
+<% @users.each do |user| %>
+  <%= user.email %><br/>
+  <%= user.gender %><br/>
+  <%= user.age %><br/>
+
+<% end %>
