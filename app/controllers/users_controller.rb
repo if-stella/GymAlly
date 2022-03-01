@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @genders = []
     User.all.each do |user|
       @gyms << user.gym
-      @locations << user.gym.name
       @sports << user.sport
       @genders << user.gender
     end
@@ -35,7 +34,6 @@ class UsersController < ApplicationController
     @genders = []
     User.all.each do |user|
       @gyms << user.gym
-      @locations << user.gym.name
       @sports << user.sport
       @genders << user.gender
     end
