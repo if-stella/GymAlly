@@ -9,15 +9,20 @@
 require 'faker'
 
 User.destroy_all
-
+Gym.destroy_all
+Gym.create(name: "gym", city: "Berlin")
 puts 'Creating 25 fake users...'
 25.times do
   user = User.new(
-    username: Faker::Internet.username(5..8),
+    nickname: Faker::Internet.username(5..8),
     age: rand(18..39),
     email: Faker::Internet.safe_email,
     gender: Faker::Gender.type,
-    quote: Faker::Hipster.sentence
+    quote: Faker::Hipster.sentence,
+    location: "Berlin",
+    password: "123456",
+    gym: Gym.first,
+    sport: ["basketball", "football", "fitness"].sample
   )
   user.save!
 end

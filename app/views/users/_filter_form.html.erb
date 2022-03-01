@@ -1,0 +1,12 @@
+<%= simple_form_for :user, url: users_path, method: :get do |f| %>
+  <div>
+    <%= f.input :gender, collection: @genders.uniq, :required => false %>
+    <%= f.input :sport, collection: @sports.uniq, :required => false %>
+    <%= f.input :location, collection: @locations.uniq, :required => false %>
+    <%= f.input :gym, collection: @gym.uniq, :required => false %>
+
+    <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+    <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
