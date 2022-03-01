@@ -31,7 +31,7 @@
 # end
 # puts 'Finished with the users!'
 
-################## KANG's PART for TESTS ###################
+###### KANG's PART for TESTS (DELETE, WHEN ACTUAL SEED CONFIG IS DONE) ###################
 
 puts "Destroying gyms and users"
 Gym.destroy_all
