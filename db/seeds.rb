@@ -8,24 +8,29 @@
 
 puts 'Creating gyms...'
 Gym.destroy_all
-gym = Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' }, { name: 'JohnReed Gesundbrunnen', city: 'Berlin' }, { name: 'McFit Kurfürstendamm', city: 'Berlin' }, { name: 'SuperFit Alexa', city: 'Berlin' }, { name: 'FitnessFirst Pankow' , city: 'Berlin'}, { name: 'FitX Schöneberg', city: 'Berlin' }, { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
+Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' }, { name: 'JohnReed Gesundbrunnen', city: 'Berlin' }, { name: 'McFit Kurfürstendamm', city: 'Berlin' }, { name: 'SuperFit Alexa', city: 'Berlin' }, { name: 'FitnessFirst Pankow' , city: 'Berlin'}, { name: 'FitX Schöneberg', city: 'Berlin' }, { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
 
 puts 'Finished!'
 
- require 'faker'
+require 'faker'
 
- User.destroy_all
+User.destroy_all
 
- puts 'Creating 25 fake users...'
- 25.times do
-   user = User.new(
-     nickname: Faker::Internet.username(5..8),
-     age: rand(18..39),
-     email: Faker::Internet.safe_email,
-     gender: Faker::Gender.type,
-     quote: Faker::Hipster.sentence
-   )
-    user.gym = Gym.all.sample
-    user.save!
- end
- puts 'Finished with the users!'
+puts 'Creating 25 fake users...'
+25.times do
+  user = User.new(
+    nickname: Faker::Internet.username(5..8),
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    age: rand(18..39),
+    email: Faker::Internet.safe_email,
+    gender: ["male", "female", "divers"].sample,
+    quote: Faker::Hipster.sentence,
+    password: "123456",
+    sport: ["Fitness", "Bodybuilding", "Cycling", "Cardio"].sample
+  )
+  user.gym = Gym.all.sample
+  user.save!
+end
+
+puts 'Finished with the users!'

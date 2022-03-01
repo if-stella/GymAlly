@@ -2,8 +2,7 @@
   <div>
     <%= f.input :gender, collection: @genders.uniq, :required => false %>
     <%= f.input :sport, collection: @sports.uniq, :required => false %>
-    <%= f.input :location, collection: @locations.uniq, :required => false %>
-    <%= f.input :gym, collection: @gym.uniq, :required => false %>
+    <%= f.input :gym, collection: @gyms.uniq, :required => false %>
 
     <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
     <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
