@@ -5,6 +5,7 @@
   <%= f.input :sport, collection: @sports.uniq %>
   <%= f.input :age, collection: @age.uniq  %>
   <%= f.input :sport, collection: @sports.uniq  %>
-  <%= f.input :gym, collection: @gyms.uniq  %>
+  <%= f.association :gym %>
+  <%= f.input :gender, collection: @genders.uniq  %>
   <%= f.submit %>
 <% end %>
