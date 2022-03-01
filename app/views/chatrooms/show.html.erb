@@ -1,20 +1,18 @@
-<div class="container chatroom">
+<div class="container chatroom"
+  data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <h1>#<%= "Chat of #{@chatroom.friendship.user_one.first_name} & #{@chatroom.friendship.user_two.first_name}" %></h1>
 
-  <div class="messages">
+  <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.first_name %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.text %></p>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
-  <%= simple_form_for [@chatroom, @message] do |f| %>
-    <%= f.input :text, label: false, placeholder: "Message ##{@chatroom}" %>
+  <%= simple_form_for [@chatroom, @message],
+    remote: true,
+    html: {data: {chatroom_subscription_target: "form"}} do |f| %>
+    <%= f.input :text, label: false, placeholder: "Send a message" %>
     <%= f.submit %>
   <% end %>
 </div>
