@@ -2,7 +2,7 @@
   <h1>Your Profile</h1>
   <%= @user.email%>
   <%= @user.first_name %>
-  <%= @user.gym.name %>
+
   <%= link_to "Edit your profile", edit_user_path(@user) %>
 <% else %>
   <%= @user.email%>
