@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :sport, :age, :gym_id, :gender)
+    params.require(:user).permit(:quote, :sport, :gym_id, :location)
   end
 
   def filtering_params(params)

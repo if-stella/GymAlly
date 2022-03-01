@@ -33,6 +33,7 @@ puts 'Creating 25 fake users...'
     sport: ["Fitness", "Bodybuilding", "Cycling", "Cardio"].sample
   )
   user.gym = Gym.all.sample
+  user.location = user.gym.city
   user.save!
 end
 
