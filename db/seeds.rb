@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "creating gyms..."
-# Gym.destroy_all
-# gym = Gym.create([{ name: 'McFit Hellersdorf' }, { name: 'JohnReed Gesundbrunnen' }, { name: 'McFit Kurfürstendamm' }, { name: 'SuperFit Alexa' }, { name: 'FitnessFirst Pankow' }, { name: 'FitX Schöneberg' }, { name: 'JohnReed Prenzlauer Berg' }])
-# gym.save!
-# puts "created new seeds"
+puts 'Creating gyms...'
+Gym.destroy_all
+gym = Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' }, { name: 'JohnReed Gesundbrunnen', city: 'Berlin' }, { name: 'McFit Kurfürstendamm', city: 'Berlin' }, { name: 'SuperFit Alexa', city: 'Berlin' }, { name: 'FitnessFirst Pankow' , city: 'Berlin'}, { name: 'FitX Schöneberg', city: 'Berlin' }, { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
+#gym.save
+puts 'Finished!'
 
 
 ################## STELLA's PART ########################
