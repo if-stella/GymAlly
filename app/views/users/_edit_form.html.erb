@@ -1,0 +1,10 @@
+
+<%= simple_form_for(user) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :sport, collection: @sports.uniq %>
+  <%= f.input :age, collection: @age.uniq  %>
+  <%= f.input :sport, collection: @sports.uniq  %>
+  <%= f.input :gym, collection: @gyms.uniq  %>
+  <%= f.submit %>
+<% end %>
