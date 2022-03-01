@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :friendships_as_user_one, class_name: "Friendship", foreign_key: :user_one_id
   has_many :friendships_as_user_two, class_name: "Friendship", foreign_key: :user_two_id
   has_many :messages
-  has_one :gym
+  belongs_to :gym
 end
