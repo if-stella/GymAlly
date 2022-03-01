@@ -39,6 +39,7 @@ User.destroy_all
 
 puts "Creating new gyms and users"
 gym = Gym.new(name: "mcfit", city: "berlin")
+
 kang = User.create(first_name: "Kang", last_name: "Hsieh", email: "kang@hsieh.com", password: "123456", gym: gym)
 kang.save
 lydia = User.create(first_name: "Lydia", last_name: "Alles", email: "lydia@alles.com", password: "123456", gym: gym)
