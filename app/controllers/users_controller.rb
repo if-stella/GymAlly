@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @age = (18..100).to_a
@@ -22,11 +23,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
     @age = (18..100).to_a
     @gyms = []
     @locations = []
@@ -51,8 +50,12 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :sport, :age, :gym, :gender)
+    params.require(:user).permit(:first_name, :last_name, :sport, :age, :gym_id, :gender)
   end
 
   def filtering_params(params)
