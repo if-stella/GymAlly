@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @locations = []
     @sports = []
     @genders = []
+    
     User.all.each do |user|
       @gym << user.gym
       @locations << user.location
@@ -15,8 +16,10 @@ class UsersController < ApplicationController
       @genders << user.gender
     end
 
-    filtering_params(params[:user]).each do |key, value|
-      @users = @users.public_send("filter_by_#{key}", value) if value.present?
+    if params[:commit]
+      filtering_params(params[:user]).each do |key, value|
+        @users = @users.public_send("filter_by_#{key}", value) if value.present?
+      end
     end
 
   end

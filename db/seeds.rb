@@ -37,32 +37,27 @@ puts "Destroying gyms and users"
 Gym.destroy_all
 User.destroy_all
 
-Gym.destroy_all
-Gym.create(name: "gym", city: "Berlin")
+puts "Creating new gyms and users"
+gyms = []
+10.times do
+  gyms << Gym.create(name: Faker::Name.name, city: Faker::Address.name)
+end
+
 puts 'Creating 25 fake users...'
 25.times do
   user = User.new(
     nickname: Faker::Internet.username(5..8),
     age: rand(18..39),
     email: Faker::Internet.safe_email,
-    gender: Faker::Gender.type,
+    gender: ["female", "male", "divers"].sample,
     quote: Faker::Hipster.sentence,
-    location: "Berlin",
+    location: ["Berlin", "Hamburg", "Münster", "Rostock", "München"].sample,
     password: "123456",
-    gym: Gym.first,
+    gym: gyms.sample,
     sport: ["basketball", "football", "fitness"].sample
   )
   user.save!
 end
 puts 'Finished with the users!'
-
-
-puts "Creating new gyms and users"
-gym = Gym.new(name: "mcfit", city: "berlin")
-
-kang = User.create(first_name: "Kang", last_name: "Hsieh", email: "kang@hsieh.com", password: "123456", gym: gym)
-kang.save
-lydia = User.create(first_name: "Lydia", last_name: "Alles", email: "lydia@alles.com", password: "123456", gym: gym)
-lydia.save
 
 puts "Seed finished"
