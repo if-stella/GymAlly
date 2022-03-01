@@ -31,7 +31,7 @@
 # end
 # puts 'Finished with the users!'
 
-################## KANG's PART for TESTS ###################
+###### KANG's PART for TESTS (DELETE, WHEN ACTUAL SEED CONFIG IS DONE) ###################
 
 puts "Destroying gyms and users"
 Gym.destroy_all
@@ -39,9 +39,10 @@ User.destroy_all
 
 puts "Creating new gyms and users"
 gym = Gym.new(name: "mcfit", city: "berlin")
-kang = User.create(email: "kang@hsieh.com", password: "123456", gym: gym)
+
+kang = User.create(first_name: "Kang", last_name: "Hsieh", email: "kang@hsieh.com", password: "123456", gym: gym)
 kang.save
-lydia = User.create(email: "lydia@alles.com", password: "123456", gym: gym)
+lydia = User.create(first_name: "Lydia", last_name: "Alles", email: "lydia@alles.com", password: "123456", gym: gym)
 lydia.save
 
 puts "Seed finished"
