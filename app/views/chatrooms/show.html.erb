@@ -1,0 +1,20 @@
+<div class="container chatroom">
+  <h1>#<%= "Chat of #{@chatroom.friendship.user_one.first_name} & #{@chatroom.friendship.user_two.first_name}" %></h1>
+
+  <div class="messages">
+    <% @chatroom.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.first_name %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.text %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@chatroom, @message] do |f| %>
+    <%= f.input :text, label: false, placeholder: "Message ##{@chatroom}" %>
+    <%= f.submit %>
+  <% end %>
+</div>

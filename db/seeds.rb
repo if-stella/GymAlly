@@ -55,13 +55,21 @@
 # puts 'Finished with the users!'
 
 ###### KANG's PART for TESTS (DELETE, WHEN ACTUAL SEED CONFIG IS DONE) ###################
+Gym.destroy_all
+User.destroy_all
+Friendship.destroy_all
+Chatroom.destroy_all
 
-puts "Creating new gyms and users"
+puts "Creating new gyms, users, friendship, chatroom"
 gym = Gym.new(name: "mcfit", city: "berlin")
 
 kang = User.create(first_name: "Kang", last_name: "Hsieh", email: "kang@hsieh.com", password: "123456", gym: gym)
 kang.save
 lydia = User.create(first_name: "Lydia", last_name: "Alles", email: "lydia@alles.com", password: "123456", gym: gym)
 lydia.save
+
+friendship = Friendship.create(user_one: kang, user_two: lydia)
+chatroom = Chatroom.create(friendship: friendship)
+
 
 puts "Seed finished"
