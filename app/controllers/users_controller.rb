@@ -5,19 +5,24 @@ class UsersController < ApplicationController
   def index
     @age = (18..100).to_a
     @users = User.all
-    @gyms = []
+    @gyms = Gym.all.map do |gym|
+      gym
+    end
+
     @locations = []
     @sports = []
     @genders = []
     User.all.each do |user|
-      @gyms << user.gym
       @sports << user.sport
       @genders << user.gender
     end
-
-    if params[:commit].present?
+    if params[:user].present?
       filtering_params(params[:user]).each do |key, value|
-        @users = @users.public_send("filter_by_#{key}", value) if value.present?
+        if key == "sport"
+          @users = @users.public_send("filter_by_#{key}", value) if value.second.present?
+        else
+          @users = @users.public_send("filter_by_#{key}", value) if value.present?
+        end
       end
     end
   end
@@ -32,7 +37,7 @@ class UsersController < ApplicationController
     @sports = []
     @genders = []
     User.all.each do |user|
-      @gyms << user.gym
+      @gyms << user.gym.name
       @sports << user.sport
       @genders << user.gender
     end
@@ -55,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:quote, :sport, :gym_id, :location)
+    params.require(:user).permit(:quote, :sport, :gym_name, :location)
   end
 
   def filtering_params(params)
