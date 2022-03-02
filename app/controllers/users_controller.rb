@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!
 
   def index
     @age = (18..100).to_a
@@ -10,6 +9,7 @@ class UsersController < ApplicationController
     User.all.each do |user|
       @genders << user.gender
     end
+
     if params[:user].present?
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @age = (18..100).to_a
-    @users = User.where(gym: current_user.gym)
+    @users = User.where(gym_id: current_user.gym_id)
     @gyms = Gym.all
     @sports = Sport.all
     @genders = []
@@ -48,17 +48,6 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       render 'edit'
-    end
-  end
-
-  def filter
-    @users = User.where(gym: current_user.gym)
-    @gyms = Gym.all
-    @sports = Sport.all
-    @locations = []
-    @genders = []
-    User.all.each do |user|
-      @genders << user.gender
     end
   end
 

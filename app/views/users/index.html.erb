@@ -1,15 +1,27 @@
-<div data-controller="render-filter-form" >
-  <%= link_to "set filters", filter_path %>
-  <% @users.each do |user| %>
-    <%= user.first_name %><br/>
-    <%= user.last_name %><br/>
-    <%= user.email %><br/>
-    <%= user.gender %><br/>
-    <%= user.age %><br/>
-    <% user.sports.each do |sport| %>
-    <%= sport.name %>
-    <% end %><br/>
-    <%= user.location %><br/>
-    <%= link_to "Details", user_path(user) %>
-  <% end %>
+<div data-controller="filter">
+  <div data-action ="click->filter#showForm" class="color-black">set filters</div>
+  <div>
+    <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "gender"}, class: "d-none"} do |f| %>
+    <div>
+      <%= f.input :gender, collection: @genders.uniq, :required => false %>
+      <%= f.input :sport, collection: @sports, value: current_user.sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+      <%= f.input :gym, collection: @gyms.uniq, value: current_user.gym, :required => false %>
+      <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+      <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+      <%= f.submit "Search" %>
+    </div>
+    <% end %>
+  </div>
 </div>
+<% @users.each do |user| %>
+  <%= user.first_name %><br/>
+  <%= user.last_name %><br/>
+  <%= user.email %><br/>
+  <%= user.gender %><br/>
+  <%= user.age %><br/>
+  <% user.sports.each do |sport| %>
+    <%= sport.name %>
+  <% end %><br/>
+  <%= user.location %><br/>
+  <%= link_to "Details", user_path(user) %>
+<% end %>
