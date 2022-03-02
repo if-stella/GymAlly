@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_03_02_125933) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,7 +103,6 @@ ActiveRecord::Schema.define(version: 2022_03_02_125933) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   create_table "users_sports", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "sport_id", null: false
@@ -113,11 +111,9 @@ ActiveRecord::Schema.define(version: 2022_03_02_125933) do
     t.index ["sport_id"], name: "index_users_sports_on_sport_id"
     t.index ["user_id"], name: "index_users_sports_on_user_id"
   end
-  
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-
   add_foreign_key "chatrooms", "friendships"
   add_foreign_key "friendships", "users", column: "user_one_id"
   add_foreign_key "friendships", "users", column: "user_two_id"
