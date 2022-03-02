@@ -16,10 +16,10 @@ class User < ApplicationRecord
   has_many :friendships_as_user_two, dependent: :destroy, class_name: "Friendship", foreign_key: :user_two_id
   has_many :messages, dependent: :destroy
 
-  has_many :users_sports
+  has_many :users_sports, dependent: :destroy
   has_many :sports, through: :users_sports
 
-  has_many :users_weekdays
+  has_many :users_weekdays, dependent: :destroy
   has_many :weekdays, through: :users_weekdays
 
   has_one_attached :photo
