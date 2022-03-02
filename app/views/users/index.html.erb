@@ -5,7 +5,9 @@
   <%= user.email %><br/>
   <%= user.gender %><br/>
   <%= user.age %><br/>
-  <%= user.sport %><br/>
+  <% user.sports.each do |sport| %>
+  <%= sport.name %>
+  <% end %><br/>
   <%= user.location %><br/>
   <%= link_to "Details", user_path(user) %>
 <% end %>

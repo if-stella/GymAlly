@@ -23,6 +23,8 @@ Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' },
             { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
 
 # User.destroy_all
+puts "creating all sports"
+Sport.create([{ name: 'Running' }, { name: 'Weights' }, { name: 'Boxing' }, { name: 'Cycling' }, { name: 'Swimming' }, { name: 'Arms/Chest' }, { name: 'Yoga' }, { name: 'Legs/Bum' }, { name: 'Cardio' }, { name: 'Crossfit' }, { name: 'Core' }, { name: 'MMA' }])
 
 puts 'Creating 15 fake users...'
 15.times do
@@ -34,9 +36,10 @@ puts 'Creating 15 fake users...'
     email: Faker::Internet.safe_email,
     gender: ["male", "female", "divers"].sample,
     quote: Faker::Hipster.sentence,
-    password: "123456",
-    sport: ["Fitness", "Bodybuilding", "Cycling", "Cardio"].sample
+    password: "123456"
   )
+  i = rand(1..3)
+  user.sports = Sport.all.sample(i)
   user.gym = Gym.all.sample
   user.location = user.gym.city
   user.save!

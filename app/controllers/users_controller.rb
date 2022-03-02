@@ -1,26 +1,25 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!
+
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @age = (18..100).to_a
     @users = User.where(gym: current_user.gym)
-    @gyms = Gym.all.map do |gym|
-      gym
-    end
-
+    @gyms = Gym.all
+    @sports = Sport.all
     @locations = []
-    @sports = []
     @genders = []
     User.all.each do |user|
-      @sports << user.sport
       @genders << user.gender
     end
     if params[:user].present?
+
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
         if key == "sport"
-          @users = @users.public_send("filter_by_#{key}", value) if value.second.present?
+          value.drop(1)
+          v = UsersSport.where(sport_id: value)
+          @users = @users.public_send("filter_by_#{key}", v) if value.second.present?
         else
           @users = @users.public_send("filter_by_#{key}", value) if value.present?
         end
@@ -35,11 +34,9 @@ class UsersController < ApplicationController
     @age = (18..100).to_a
     @gyms = []
     @locations = []
-    @sports = []
     @genders = []
     User.all.each do |user|
       @gyms << user.gym.name
-      @sports << user.sport
       @genders << user.gender
     end
   end

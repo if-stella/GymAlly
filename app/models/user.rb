@@ -5,7 +5,7 @@ class User < ApplicationRecord
   scope :filter_by_age1, ->(age1) { where("age >= #{age1}") }
   scope :filter_by_age2, ->(age2) { where("age <= #{age2}") }
   scope :filter_by_gender, ->(gender) { where(gender: gender) }
-  scope :filter_by_sport, ->(sports) { where(sport: sports) }
+  scope :filter_by_sport, ->(sports) { where(users_sports: sports) }
   scope :filter_by_nickname, ->(nickname) { where(nickname: nickname) }
   scope :filter_by_gym, ->(gym = current_user.gym) { where(gym: gym) }
 
@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :friendships_as_user_one, dependent: :destroy, class_name: "Friendship", foreign_key: :user_one_id
   has_many :friendships_as_user_two, dependent: :destroy, class_name: "Friendship", foreign_key: :user_two_id
   has_many :messages, dependent: :destroy
+  has_many :users_sport
+  has_many :sports, through: :users_sport
 
   validates :email, uniqueness: true
   # def filter_by_location(location)
