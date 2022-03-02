@@ -25,6 +25,8 @@ Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' },
             { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
 
 # User.destroy_all
+puts "creating all sports"
+Sport.create([{ name: 'Running' }, { name: 'Weights' }, { name: 'Boxing' }, { name: 'Cycling' }, { name: 'Swimming' }, { name: 'Arms/Chest' }, { name: 'Yoga' }, { name: 'Legs/Bum' }, { name: 'Cardio' }, { name: 'Crossfit' }, { name: 'Core' }, { name: 'MMA' }])
 
 puts 'Creating 10 fake users...'
 10.times do
@@ -36,9 +38,11 @@ puts 'Creating 10 fake users...'
     email: Faker::Internet.safe_email,
     gender: ["male", "female", "divers"].sample,
     quote: Faker::Hipster.sentence,
-    password: "123456",
-    sport: ["Fitness", "Bodybuilding", "Cycling", "Cardio"].sample
+    password: "123456"
   )
+
+  i = rand(1..3)
+  user.sports = Sport.all.sample(i)
   file = URI.open('https://i.pravatar.cc/80')
   user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
   user.gym = Gym.all.sample
