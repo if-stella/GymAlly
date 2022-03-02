@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if params[:user].present?
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
-        if key == "sport" || key == "day"
+        if key == "sport" || key == "weekday"
           value.drop(1)
           v = UsersSport.where(sport_id: value)
           @users = @users.public_send("filter_by_#{key}", v) if value.second.present?
