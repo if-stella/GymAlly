@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @age = (18..100).to_a
     @users = User.where(gym: current_user.gym)
     @gyms = Gym.all
+    @sports = Sport.all
     @weekdays = Weekday.all
     @days = Day.all
     @genders = []
