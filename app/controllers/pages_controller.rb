@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @my_friendships = Friendship.where("user_one_id = ? or user_two_id = ?", current_user.id, current_user.id)
+    @my_gyms = current_user.gym
     @user = current_user
-    @my_gyms = policy_scope(Gym).where(user: @user)
-    @my_friendships = policy_scope(Friendship).where(user: @user)
   end
 end

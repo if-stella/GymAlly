@@ -1,10 +1,29 @@
-<h1><%= @user.first_name.capitalize %>'s Dashboard</h1>
+<div class="container">
+    <%= @my_gyms.name %>
 
-<h2>My gyms</h2>
-   <% @my_gyms.each do |gym| %>
-   <% end %>
+      <div class="container">
+        <h1>Welcome <%= @user.first_name.capitalize %> to GymAlly!</h1>
+        <h3>This is your Dashboard. Search for your future gym buddy and plan your next training together!</h3>
+      </div>
 
+    <div class="container">
+      <div class="cards-dashboard">
+        <h2>Your GymAlly's</h2>
+        <% @my_friendships.each do |friendship| %>
+        <%= link_to "Friendship", friendship_path(friendship) %>
+        <%= link_to "Chatroom", chatroom_path(friendship.chatroom) %>
+        <% end %>
+      </div>
+    </div>
 
- <h2>My friendships</h2>
-  <% @my_friendships.each do |friendship| %>
-  <% end %>
+    <div class="container">
+      <h2>Home</h2>
+        <%= link_to "Home", user_path(@user) %>
+        <h2>Search</h2>
+        <%= link_to "Friendship", friendship_path(@my_friendships) %>
+        <h2>Chats</h2>
+         <%# <%= link_to "Chatroom", chatroom_path(@chatroom) %>
+        <h2>Training</h2>
+        <%# <%= link_to "Gym", gym_path(@my_gyms) %>
+    </div>
+</div>
