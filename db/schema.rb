@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_223345) do
+ActiveRecord::Schema.define(version: 2022_03_02_231916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,6 @@ ActiveRecord::Schema.define(version: 2022_03_02_223345) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friendship_id"], name: "index_chatrooms_on_friendship_id"
-  end
-
-  create_table "days", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -109,15 +103,6 @@ ActiveRecord::Schema.define(version: 2022_03_02_223345) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_days", force: :cascade do |t|
-    t.bigint "day_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["day_id"], name: "index_users_days_on_day_id"
-    t.index ["user_id"], name: "index_users_days_on_user_id"
-  end
-
   create_table "users_sports", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "sport_id", null: false
@@ -127,6 +112,21 @@ ActiveRecord::Schema.define(version: 2022_03_02_223345) do
     t.index ["user_id"], name: "index_users_sports_on_user_id"
   end
 
+  create_table "users_weekdays", force: :cascade do |t|
+    t.bigint "weekday_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_users_weekdays_on_user_id"
+    t.index ["weekday_id"], name: "index_users_weekdays_on_weekday_id"
+  end
+
+  create_table "weekdays", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chatrooms", "friendships"
@@ -134,8 +134,8 @@ ActiveRecord::Schema.define(version: 2022_03_02_223345) do
   add_foreign_key "friendships", "users", column: "user_two_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "users_days", "days"
-  add_foreign_key "users_days", "users"
   add_foreign_key "users_sports", "sports"
   add_foreign_key "users_sports", "users"
+  add_foreign_key "users_weekdays", "users"
+  add_foreign_key "users_weekdays", "weekdays"
 end

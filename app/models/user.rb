@@ -6,7 +6,7 @@ class User < ApplicationRecord
   scope :filter_by_age2, ->(age2) { where("age <= #{age2}") }
   scope :filter_by_gender, ->(gender) { where(gender: gender) }
   scope :filter_by_sport, ->(sports) { where(users_sports: sports) }
-  scope :filter_by_day, ->(days) { where(users_days: days) }
+  scope :filter_by_weekday, ->(days) { where(users_weekdays: days) }
   scope :filter_by_nickname, ->(nickname) { where(nickname: nickname) }
   scope :filter_by_gym, ->(gym = current_user.gym) { where(gym: gym) }
 
@@ -19,8 +19,8 @@ class User < ApplicationRecord
   has_many :users_sports
   has_many :sports, through: :users_sports
 
-  has_many :users_days
-  has_many :days, through: :users_days
+  has_many :users_weekdays
+  has_many :weekdays, through: :users_weekdays
 
   has_one_attached :photo
 

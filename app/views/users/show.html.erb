@@ -4,7 +4,7 @@
   <%= @user.gender %><br/>
   <p><%= @user.age %> years old</p>
   <p><%= @user.quote %></p>
-  <p>Likes to train on: <% @user.days.order(:id).each do |day| %>
+  <p>Likes to train on: <% @user.weekdays.order(:id).each do |day| %>
     <%= day.name %>
   <% end %></p>
   <p>Favorite sports: <% @user.sports.each do |sport| %>
@@ -17,7 +17,7 @@
   <%= @user.gender %><br/>
   <p><%= @user.age %> years old</p>
   <p><%= @user.quote %></p>
-  <p>Likes to train on: <% @user.days.order(:id).each do |day| %>
+  <p>Likes to train on: <% @user.weekdays.order(:id).each do |day| %>
     <%= day.name %>
   <% end %></p>
   <p>Favorite sports: <% @user.sports.each do |sport| %>

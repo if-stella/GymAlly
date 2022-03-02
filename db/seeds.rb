@@ -30,7 +30,7 @@ Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' },
 puts "creating all sports"
 Sport.create([{ name: 'Running' }, { name: 'Weights' }, { name: 'Boxing' }, { name: 'Cycling' }, { name: 'Swimming' }, { name: 'Arms/Chest' }, { name: 'Yoga' }, { name: 'Legs/Bum' }, { name: 'Cardio' }, { name: 'Crossfit' }, { name: 'Core' }, { name: 'MMA' }])
 puts "creating all dayssss"
-Day.create([{ name: 'Monday' }, { name: 'Tuesday' }, { name: 'Wednesday' }, { name: 'Thursday' }, { name: 'Friday' }, { name: 'Saturday' }, { name: 'Sunday' }])
+Weekday.create([{ name: 'Monday' }, { name: 'Tuesday' }, { name: 'Wednesday' }, { name: 'Thursday' }, { name: 'Friday' }, { name: 'Saturday' }, { name: 'Sunday' }])
 
 puts 'Creating 10 fake users...'
 10.times do
@@ -48,7 +48,7 @@ puts 'Creating 10 fake users...'
   i = rand(1..3)
   user.sports = Sport.all.sample(i)
   e = rand(1..7)
-  user.days = Day.all.sample(e)
+  user.weekdays = Weekday.all.sample(e)
 
   file = URI.open('https://i.pravatar.cc/80')
   user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
@@ -117,7 +117,7 @@ admins.each do |admin|
   i = rand(1..3)
   user.sports = Sport.all.sample(i)
   e = rand(1..7)
-  user.days = Day.all.sample(e)
+  user.weekdays = Weekday.all.sample(e)
   user.gym = Gym.all.sample
   user.location = user.gym.city
   user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
