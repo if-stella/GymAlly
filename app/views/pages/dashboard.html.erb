@@ -1,29 +1,39 @@
 <div class="container">
-    <%= @my_gyms.name %>
+  <div class="container">
+    <h3><%= @my_gyms.name %></h3>
+  </div>
 
       <div class="container">
-        <h1>Welcome <%= @user.first_name.capitalize %> to GymAlly!</h1>
-        <h3>This is your Dashboard. Search for your future gym buddy and plan your next training together!</h3>
+      <h1><%= @user.first_name.capitalize %>, welcome to GymAlly!</h1>
+      </div>
+      <div class="container">
+      <h3>This is your Dashboard. Search for your future gym buddy and plan your next training together!</h3>
       </div>
 
     <div class="container">
       <div class="cards-dashboard">
-        <h2>Your GymAlly's</h2>
+        <h2>Your GymAlly's:</h2>
         <% @my_friendships.each do |friendship| %>
-        <%= link_to "Friendship", friendship_path(friendship) %>
+        <%= link_to "Friendships", friendship_path(friendship) %>
         <%= link_to "Chatroom", chatroom_path(friendship.chatroom) %>
+
         <% end %>
       </div>
     </div>
 
-    <div class="container">
-      <h2>Home</h2>
-        <%= link_to "Home", user_path(@user) %>
-        <h2>Search</h2>
-        <%= link_to "Friendship", friendship_path(@my_friendships) %>
-        <h2>Chats</h2>
-         <%# <%= link_to "Chatroom", chatroom_path(@chatroom) %>
-        <h2>Training</h2>
+    <div class="container dashboard-box">
+        <div id="a"><h2>Profile</h2>
+        <%= link_to "Profilerofile", user_path(@user) %>
+        </div>
+
+        <div id="b"><h2>Buddy's</h2>
+        <%= link_to "Friendships", friendship_path(@my_friendships) %>
+        </div>
+        <div id="c"><h2>Chats</h2>
+        <%# <%= link_to "Chatroom", chatroom_path(@chatroom) %>
+        </div>
+        <div id="d"><h2>Training</h2>
         <%# <%= link_to "Gym", gym_path(@my_gyms) %>
+        </div>
     </div>
 </div>
