@@ -4,6 +4,7 @@
     <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "gender"}, class: "d-none"} do |f| %>
     <div>
       <%= f.input :gender, collection: @genders.uniq, :required => false %>
+      <%= f.input :day, collection: @days, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
       <%= f.input :sport, collection: @sports, value: current_user.sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
       <%= f.input :gym, collection: @gyms.uniq, value: current_user.gym, :required => false %>
       <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
@@ -13,15 +14,22 @@
     <% end %>
   </div>
 </div>
-<% @users.each do |user| %>
-  <%= user.first_name %><br/>
-  <%= user.last_name %><br/>
-  <%= user.email %><br/>
-  <%= user.gender %><br/>
-  <%= user.age %><br/>
-  <% user.sports.each do |sport| %>
-    <%= sport.name %>
-  <% end %><br/>
-  <%= user.location %><br/>
-  <%= link_to "Details", user_path(user) %>
-<% end %>
+<div>
+  <% @users.each do |user| %>
+    <div>
+      <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
+      <%= user.gender %><br/>
+      <p><%= user.age %> years old</p>
+      <p><%= user.quote %></p>
+      <p>Likes to train on: <% user.days.order(:id).each do |day| %>
+        <%= day.name %>
+      <% end %></p>
+      <p>Favorite sports: <% user.sports.each do |sport| %>
+        <%= sport.name %>
+      <% end %></p>
+      <%= user.gym.name %><br/>
+      <br/>
+      <br/>
+    </div>
+  <% end %>
+</div>

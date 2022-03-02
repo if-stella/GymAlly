@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @users = User.where(gym: current_user.gym)
     @gyms = Gym.all
     @sports = Sport.all
+    @days = Day.all
     @genders = []
     User.all.each do |user|
       @genders << user.gender
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     if params[:user].present?
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
-        if key == "sport"
+        if key == "sport" || key == "day"
           value.drop(1)
           v = UsersSport.where(sport_id: value)
           @users = @users.public_send("filter_by_#{key}", v) if value.second.present?
