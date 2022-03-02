@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @gyms = Gym.all.map do |gym|
       gym
     end
+
     @locations = []
     @sports = []
     @genders = []
@@ -15,10 +16,13 @@ class UsersController < ApplicationController
       @sports << user.sport
       @genders << user.gender
     end
-
-    if params[:commit].present?
+    if params[:user].present?
       filtering_params(params[:user]).each do |key, value|
-        @users = @users.public_send("filter_by_#{key}", value) if value.present?
+        if key == "sport"
+          @users = @users.public_send("filter_by_#{key}", value) if value.second.present?
+        else
+          @users = @users.public_send("filter_by_#{key}", value) if value.present?
+        end
       end
     end
   end
