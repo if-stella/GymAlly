@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @age = (18..100).to_a
-    @users = User.all
+    @users = User.where(gym: current_user.gym)
     @gyms = Gym.all.map do |gym|
       gym
     end
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       @genders << user.gender
     end
     if params[:user].present?
+      @users = User.all
       filtering_params(params[:user]).each do |key, value|
         if key == "sport"
           @users = @users.public_send("filter_by_#{key}", value) if value.second.present?
