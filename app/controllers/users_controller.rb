@@ -1,19 +1,16 @@
 class UsersController < ApplicationController
-
-  before_action :set_user, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!
 
   def index
     @age = (18..100).to_a
     @users = User.where(gym: current_user.gym)
     @gyms = Gym.all
     @sports = Sport.all
-    @locations = []
     @genders = []
     User.all.each do |user|
       @genders << user.gender
     end
     if params[:user].present?
-
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
         if key == "sport"
@@ -28,20 +25,23 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
+    @user = User.find(params[:id])
     @age = (18..100).to_a
-    @gyms = []
-    @locations = []
+    @users = User.where(gym: current_user.gym)
+    @gyms = Gym.all
+    @sports = Sport.all
     @genders = []
     User.all.each do |user|
-      @gyms << user.gym.name
       @genders << user.gender
     end
   end
 
   def update
+    @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
       flash[:notice] = 'Your profile was updated.'
@@ -51,11 +51,18 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  def set_user
-    @user = User.find(params[:id])
+  def filter
+    @users = User.where(gym: current_user.gym)
+    @gyms = Gym.all
+    @sports = Sport.all
+    @locations = []
+    @genders = []
+    User.all.each do |user|
+      @genders << user.gender
+    end
   end
+
+  private
 
   def user_params
     params.require(:user).permit(:quote, :sport, :gym_name, :location)

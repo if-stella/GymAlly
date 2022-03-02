@@ -1,13 +1,15 @@
-<%= render "filter_form", user: @user %>
-<% @users.each do |user| %>
-  <%= user.first_name %><br/>
-  <%= user.last_name %><br/>
-  <%= user.email %><br/>
-  <%= user.gender %><br/>
-  <%= user.age %><br/>
-  <% user.sports.each do |sport| %>
-  <%= sport.name %>
-  <% end %><br/>
-  <%= user.location %><br/>
-  <%= link_to "Details", user_path(user) %>
-<% end %>
+<div data-controller="render-filter-form" >
+  <%= link_to "set filters", filter_path %>
+  <% @users.each do |user| %>
+    <%= user.first_name %><br/>
+    <%= user.last_name %><br/>
+    <%= user.email %><br/>
+    <%= user.gender %><br/>
+    <%= user.age %><br/>
+    <% user.sports.each do |sport| %>
+    <%= sport.name %>
+    <% end %><br/>
+    <%= user.location %><br/>
+    <%= link_to "Details", user_path(user) %>
+  <% end %>
+</div>

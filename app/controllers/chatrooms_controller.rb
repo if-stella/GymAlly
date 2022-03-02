@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  
   def index
     # only show chatrooms of current user
     @chatrooms = Chatroom.all
