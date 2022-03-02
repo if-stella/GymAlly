@@ -13,6 +13,8 @@ Gym.destroy_all
 User.destroy_all
 Friendship.destroy_all
 Chatroom.destroy_all
+Sport.destroy_all
+UsersSport.destroy_all
 
 puts 'Creating gyms...'
 # Gym.destroy_all
@@ -101,8 +103,7 @@ admins.each do |admin|
     gender: admin[:gender],
     password: "123456",
     quote: Faker::Hipster.sentence,
-    gym: Gym.first,
-    sport: ["Fitness", "Bodybuilding", "Cycling", "Cardio"].sample
+    gym: Gym.first
   )
   user.location = user.gym.city
   user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
