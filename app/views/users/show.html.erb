@@ -1,12 +1,27 @@
 <% if @user == current_user %>
   <h1>Your Profile</h1>
-  <%= @user.email%>
-  <%= @user.first_name %>
-  <%= @user.quote %>
+  <p><%= @user.first_name %> <%= @user.last_name %> <br/></p>
+  <%= @user.gender %><br/>
+  <p><%= @user.age %> years old</p>
+  <p><%= @user.quote %></p>
+  <p>Likes to train on: <% @user.days.order(:id).each do |day| %>
+    <%= day.name %>
+  <% end %></p>
+  <p>Favorite sports: <% @user.sports.each do |sport| %>
+    <%= sport.name %>
+  <% end %></p>
+  <%= @user.gym.name %><br/>
   <%= link_to "Edit your profile", edit_user_path(@user) %>
 <% else %>
-  <%= @user.email%>
-  <%= @user.first_name %>
-  <%= @user.gym.name %>
-  <%= @user.quote %>
+  <p><%= @user.first_name %> <%= @user.last_name %> <br/></p>
+  <%= @user.gender %><br/>
+  <p><%= @user.age %> years old</p>
+  <p><%= @user.quote %></p>
+  <p>Likes to train on: <% @user.days.order(:id).each do |day| %>
+    <%= day.name %>
+  <% end %></p>
+  <p>Favorite sports: <% @user.sports.each do |sport| %>
+    <%= sport.name %>
+  <% end %></p>
+  <%= @user.gym.name %><br/>
 <% end %>
