@@ -7,7 +7,7 @@ class User < ApplicationRecord
   scope :filter_by_gender, ->(gender) { where(gender: gender) }
   scope :filter_by_sport, ->(sports) { where(sport: sports) }
   scope :filter_by_nickname, ->(nickname) { where(nickname: nickname) }
-  scope :filter_by_gym, ->(gym) { where(gym: gym) }
+  scope :filter_by_gym, ->(gym = current_user.gym) { where(gym: gym) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
