@@ -1,9 +1,9 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Poppins", "Helvetica", "sans-serif";
+$headers-font: "Poppins", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +14,68 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+h1 {
+  font-weight:700 !important;
+  font-size: 40px !important;
+  line-height: 48px !important;
+}
+
+h2 {
+  font-weight:600 !important;
+  font-size: 32px !important;
+  line-height: 40px !important;
+}
+
+h3 {
+  font-weight:500 !important;
+  font-size: 24px !important;
+  line-height: 32px !important;
+}
+
+h4 {
+  font-weight:500 !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+  letter-spacing: 0.5px !important;
+}
+
+p {
+  font-weight:400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+.gymally-semibold {
+  font-weight:500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.gymally-link {
+  font-weight:600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1px;
+}
+
+.gymally-navbar {
+  font-weight:500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1px;
+}
+
+.gymally-small {
+  font-weight:500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 1px;
+}
+
+.gymally-tag {
+  font-weight:500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
