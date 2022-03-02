@@ -22,9 +22,7 @@
           </li>
           <li class="nav-item dropdown">
             <% if user_signed_in? %>
-              <li class="nav-item d-flex align-items-center", >
-                <strong><%= current_user.first_name %></strong>
-              </li>
+              <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssanier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
