@@ -46,7 +46,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+
+    @quote = params[:user][:quote]
+    @sports = params[:user][:sport_ids]
+    @user.quote = @quote
+    @user.sport_ids = @sports
+    @gym = Gym.find(params[:user][:gym_id])
+    @user.gym = @gym
+    @user.save
     if @user.save
       flash[:notice] = 'Your profile was updated.'
       redirect_to user_path(@user)
@@ -58,7 +65,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:quote, :sport, :gym_name, :location)
+    params.require(:user).permit(:quote, :sport, :gym)
   end
 
   def filtering_params(params)
