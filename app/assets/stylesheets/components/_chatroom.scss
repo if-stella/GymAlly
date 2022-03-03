@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // flex-grow: 1;
+  flex-grow: 1;
 
   h1 {
     border-bottom: 1px solid $gray-200;
