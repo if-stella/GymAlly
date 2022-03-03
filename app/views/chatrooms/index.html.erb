@@ -6,7 +6,7 @@
         <li>
           <%= image_tag chatroom[1].photo, class: "avatar" %>
           <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>
-          <p><%= chatroom[2] %></p>
+          <p><%= chatroom[2][0..60] %></p>
         </li>
       <% end %>
     </ul>
