@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   resources :users, only: %i[index show edit update]
   resources :friendships, only: %i[create update]
+  post "/chatroom", to: "chatrooms#create", as: :chatroom_create
   resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
   end
