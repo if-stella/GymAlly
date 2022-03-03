@@ -1,0 +1,55 @@
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+
+          <li class="nav-item">
+            <div class="nav-icon">
+              <%= image_tag "home.svg" %>
+              <%= link_to "Home", dashboard_path, class: "nav-link gymally-navbar" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-icon">
+              <%= image_tag "person.svg" %>
+              <%= link_to "Friends", root_path, class: "nav-link gymally-navbar" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-icon">
+              <%= image_tag "chat.svg" %>
+              <%= link_to "Chats", chatrooms_path, class: "nav-link gymally-navbar" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-icon">
+              <%= image_tag "map.svg" %>
+              <%= link_to "Map", chatrooms_path, class: "nav-link gymally-navbar" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-icon">
+              <%= image_tag "exit.svg" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link gymally-navbar" %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+            </div>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
