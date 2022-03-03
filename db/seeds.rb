@@ -124,38 +124,18 @@ admins.each do |admin|
   user.save
 end
 
-# kang = User.create(first_name: "Kang",
-#                    last_name: "Hsieh",
-#                    email: "kang@hsieh.com",
-#                    password: "123456",
-#                    gym: Gym.first)
-# kang.photo.attach(io: file, filename: "#{kang.first_name}.png", content_type: 'image/png')
-# kang.save
-# stella = User.create(first_name: "Stella",
-#                      last_name: "Raab",
-#                      email: "stella@raab.com",
-#                      password: "123456",
-#                      gym: Gym.first)
-# stella.save
-# lydia = User.create(first_name: "Lydia",
-#                     last_name: "Alles",
-#                     email: "lydia@alles.com",
-#                     password: "123456",
-#                     gym: Gym.first)
-# lydia.save
-# ida = User.create(first_name: "Ida",
-#                   last_name: "Schwarzkopf",
-#                   email: "ida@schwarzkopf.com",
-#                   password: "123456",
-#                   gym: Gym.first)
-# ida.save
-
 puts 'Finished with the users!'
 
 puts 'Creating one friendship and one chatroom'
 kang = User.find_by(first_name: "Kang")
 lydia = User.find_by(first_name: "Lydia")
-friendship = Friendship.create(user_one: kang, user_two: lydia)
-Chatroom.create(friendship: friendship)
+ida = User.find_by(first_name: "Ida")
+stella = User.find_by(first_name: "Stella")
+friendship_one = Friendship.create(user_one: kang, user_two: lydia)
+friendship_two = Friendship.create(user_one: kang, user_two: ida)
+friendship_three = Friendship.create(user_one: ida, user_two: stella)
+Chatroom.create(friendship: friendship_one)
+Chatroom.create(friendship: friendship_two)
+Chatroom.create(friendship: friendship_three)
 
 puts "Seed finished"

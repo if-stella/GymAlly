@@ -1,7 +1,11 @@
 <h1><%= current_user.first_name %> Chats</h1>
 <ul>
   <% @chatrooms.each do |chatroom| %>
-    <li><%= link_to "Chat of #{chatroom.friendship.user_one.first_name} & #{chatroom.friendship.user_two.first_name}", chatroom_path(chatroom) %></li>
+    <li>
+      <%= image_tag chatroom[1].photo, class: "avatar" %>
+      <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>
+      <p><%= chatroom[2] %></p>
+    </li>
   <% end %>
 </ul>
 

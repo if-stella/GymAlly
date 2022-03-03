@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    # redirect_to dashboard_path
   end
 
   def dashboard
