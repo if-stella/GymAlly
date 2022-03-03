@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to users_path, class: "navbar-brand" do %>
       <%= image_tag "logi.png" %>
     <% end %>
 
@@ -14,13 +14,13 @@
           <li class="nav-item active">
             <div class="nav-icon">
               <%= image_tag "house.svg" %>
-              <%= link_to "Home", root_path, class: "nav-link" %>
+              <%= link_to "Home", users_path, class: "nav-link" %>
             </div>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <div class="nav-icon">
-              <%= image_tag "home.svg" %>
-              <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+              <%= image_tag "Friends.png" %>
+              <%= link_to "Friends", friendships_path, class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item">

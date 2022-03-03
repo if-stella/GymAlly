@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="container">
-    <h3><%= @my_gyms.name %></h3>
+  <div class="gymally-small">
+    <%= @my_gyms.name %>
   </div>
 
       <div class="container">
-      <h1><%= @user.first_name.capitalize %>, welcome to GymAlly!</h1>
+      <h2><%= @user.first_name.capitalize %>, welcome to GymAlly!</h2>
       </div>
       <div class="container">
-      <h3>This is your Dashboard. Search for your future gym buddy and plan your next training together!</h3>
+      <p>This is your Dashboard. Search for your future gym buddy and plan your next training together!</p>
       </div>
 
     <div class="container">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="container dashboard-box">
+    <div class="dashboard-box">
         <div id="a"><h2>Profile</h2>
         <%= link_to "Profilerofile", user_path(@user) %>
         </div>
