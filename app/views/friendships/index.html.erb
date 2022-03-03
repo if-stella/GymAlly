@@ -1,0 +1,69 @@
+<div class="container">
+<%# Invitations/pending friendships %>
+  <% if @invitations.length > 0 %>
+    <h3>Invitations for you:</h3>
+    <% @invitations.each do |invitation| %>
+      <div>
+        <%= invitation.user_one.first_name %> would like to come in contact with you
+        Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %>
+        <div>
+          <%= link_to "Accept", friendship_path(invitation), method: :patch %>
+        </div>
+        <div>
+        <%= link_to 'Deny', delete_friendship_path(invitation),
+                method: :delete,
+                data: { confirm: "Are You sure you want to deny #{invitation.user_two}'s friendship request?" } %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @requests.length > 0 %>
+    <h3>Friendship requests from you:</h3>
+    <% @requests.each do |request| %>
+      <div>
+        You sent a friendship request to <%= request.user_two.first_name %>. Wait for them to accept it.
+        Learn more about <%= link_to request.user_two.first_name, user_path(request.user_two) %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @friendships.length > 0 %>
+    <h3> Your Friendships: </h3>
+    <% @friendships.each do |friendship| %>
+      <div>
+        <% if current_user == friendship.user_one %>
+          <div>
+            You are friends with <%= friendship.user_two.first_name %>
+            <% if friendship.chatroom %>
+              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
+            <% else %>
+              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
+            <% end %>
+          </div>
+          <div>
+            Learn more about <%= link_to friendship.user_two.first_name, user_path(friendship.user_two) %>
+            <%= link_to 'Destroy', friendship_path(friendship),
+                method: :delete,
+                data: { confirm: "Are You sure you want to end your friendship with #{friendship.user_two}?" } %>
+          </div>
+        <% else %>
+          <div>
+            You are friends with <%= friendship.user_one.first_name %>
+            <% if friendship.chatroom %>
+              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
+            <% else %>
+              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
+            <% end %>
+            <div>
+              Learn more about <%= link_to friendship.user_one.first_name, user_path(friendship.user_one) %>
+              <%= link_to 'Destroy', friendship_path(friendship),
+                  method: :delete,
+                  data: { confirm: 'Are You sure?' } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% else %>
+      <h3>You do not have any friendships yet. <%= link_to "Start browsing!",users_path %></h3>
+  <% end %>
+</div>
