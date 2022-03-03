@@ -13,14 +13,14 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find(params[:id])
-    if params[:status] == "denied"
-      @friendship.update(status: "denied")
-      flash[:notice] = "You denied the friendship request from #{@friendship.user_one.first_name}"
-      redirect_to chatrooms_path
-    else
-      @friendship.update(status: "accepted")
-      flash[:notice] = "You accepted the friendship request from #{@friendship.user_one.first_name}"
-      redirect_to chatrooms_path
-    end
+    @friendship.update(status: "accepted")
+    flash[:notice] = "You accepted the friendship request from #{@friendship.user_one.first_name}"
+    redirect_to chatrooms_path
+  end
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    @friendship.destroy
+
+    redirect_to chatrooms_path
   end
 end
