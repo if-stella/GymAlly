@@ -1,7 +1,9 @@
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <h1>#<%= "Chat of #{@chatroom.friendship.user_one.first_name} & #{@chatroom.friendship.user_two.first_name}" %></h1>
+  <%= link_to "<", chatrooms_path %>
+  <%= image_tag @chatpartner.photo, class: "avatar" %>
+  <h1><%= @chatpartner.first_name %></h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
