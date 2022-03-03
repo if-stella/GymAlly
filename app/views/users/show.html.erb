@@ -24,4 +24,8 @@
     <%= sport.name %>
   <% end %></p>
   <%= @user.gym.name %><br/>
+  <% if !Friendship.find_by(user_one: [current_user, @user], user_two: [current_user, @user]) %>
+    <%= link_to "Send friendship request", friendships_path(user_two_id: @user.id), method: :post %>
+  <% end %>
+  <%= link_to "Back to all users", users_path %>
 <% end %>

@@ -17,19 +17,21 @@
 <div>
   <% @users.each do |user| %>
     <div>
-      <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
-      <%= user.gender %><br/>
-      <p><%= user.age %> years old</p>
-      <p><%= user.quote %></p>
-      <p>Likes to train on: <% user.weekdays.order(:id).each do |day| %>
-        <%= day.name %>
-      <% end %></p>
-      <p>Favorite sports: <% user.sports.each do |sport| %>
-        <%= sport.name %>
-      <% end %></p>
-      <%= user.gym.name %><br/>
-      <br/>
-      <br/>
+      <% unless user == current_user %>
+        <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
+        <%= user.gender %><br/>
+        <p><%= user.age %> years old</p>
+        <p><%= user.quote %></p>
+        <p>Likes to train on: <% user.weekdays.order(:id).each do |day| %>
+          <%= day.name %>
+        <% end %></p>
+        <p>Favorite sports: <% user.sports.each do |sport| %>
+          <%= sport.name %>
+        <% end %></p>
+        <%= user.gym.name %><br/>
+        <br/>
+        <br/>
+      <% end %>
     </div>
   <% end %>
 </div>

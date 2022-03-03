@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def index
     @age = (18..100).to_a
-    @users = User.where(gym: current_user.gym)
+    # @users = User.where(gym: current_user.gym)
+    @users = User.all
     @gyms = Gym.all
     @sports = Sport.all
     @weekdays = Weekday.all
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
     end
 
     if params[:user].present?
+      # @users = User.where(gym: current_user.gym)
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
         if key == "sport" || key == "weekday"

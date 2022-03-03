@@ -4,3 +4,42 @@
     <li><%= link_to "Chat of #{chatroom.friendship.user_one.first_name} & #{chatroom.friendship.user_two.first_name}", chatroom_path(chatroom) %></li>
   <% end %>
 </ul>
+
+
+<%# Invitations/pending friendships %>
+<% if @invitations.length > 0 %>
+  <h3>Invitations for you:</h3>
+  <% @invitations.each do |invitation| %>
+    <div>
+      <%= invitation.user_one.first_name %> would like to come in contact with you
+      <%= link_to "deny", friendship_path(id: invitation, status: "denied"), method: :patch %> <%= link_to "accept", friendship_path(id: invitation, status: "accepted"), method: :patch %>
+      Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %>
+    </div>
+  <% end %>
+<% end %>
+<% if @requests.length > 0 %>
+  <h3>Friendship requests from you:</h3>
+  <% @requests.each do |request| %>
+    <div>
+      You sent a friendship request to <%= request.user_two.first_name %>
+      <%= link_to "cancel", friendship_path(id: request, status: "denied"), method: :patch %>
+      Learn more about <%= link_to request.user_two.first_name, user_path(request.user_two) %>
+    </div>
+  <% end %>
+<% end %>
+<% if @friendships.length > 0 %>
+  <h3>Your Friendships:</h3>
+  <% @friendships.each do |friendship| %>
+    <div>
+      <% if current_user == friendship.user_one %>
+        You are friends with <%= friendship.user_two.first_name %>
+        <%= link_to "cancel", friendship_path(id: friendship, status: "denied"), method: :patch %>
+        Learn more about <%= link_to friendship.user_two.first_name, user_path(friendship.user_two) %>
+      <% else %>
+        You are friends with <%= friendship.user_one.first_name %>
+        <%= link_to "cancel", friendship_path(id: friendship, status: "denied"), method: :patch %>
+        Learn more about <%= link_to friendship.user_one.first_name, user_path(friendship.user_one) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
