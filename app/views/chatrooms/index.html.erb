@@ -1,11 +1,11 @@
 <div class="container">
-  <% if !@chatroom.nil? %>
-    <h1><%= current_user.first_name %>'s' Chats</h1>
+  <% if !@chatrooms.empty? %>
+    <h1><%= current_user.first_name %>'s Chats</h1>
     <ul>
       <% @chatrooms.each do |chatroom| %>
         <li>
           <%= image_tag chatroom[1].photo, class: "avatar" %>
-          <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>   
+          <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>
           <p><%= chatroom[2] %></p>
         </li>
       <% end %>

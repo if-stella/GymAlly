@@ -3,7 +3,7 @@ class ChatroomsController < ApplicationController
     # only show chatrooms of current user
     @chatrooms = []
     # create an array of arrays (each contains the chatroom instance and the other user as instance):
-    # [[chatroom, other_user], ...]
+    # [[chatroom, other_user, last_message.text], ...]
     Chatroom.all.each do |c|
       if c.friendship.user_one == current_user || c.friendship.user_two == current_user
         @chatrooms << [
