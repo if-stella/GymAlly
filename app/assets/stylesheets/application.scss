@@ -4,6 +4,7 @@
 @import "config/bootstrap_variables";
 @import "config/general";
 
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -12,3 +13,4 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/dashboard";
