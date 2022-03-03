@@ -2,10 +2,10 @@
   <div class="gymally-small">
     <%= @my_gym.name %>
   </div>
-    <div class="container">
+    <div >
       <h2><%= current_user.first_name.capitalize %> welcome to GymAlly!</h2>
     </div>
-    <div class="container">
+    <div >
       <p>This is your Dashboard. Search for your future gym buddy and plan your next training together!</p>
     </div>
   <div class="users">
@@ -33,21 +33,28 @@
       </div>
     </div>
     <% @users.each do |user| %>
-      <div class="user" >
+      <div class="user-card" >
         <% unless user == current_user %>
-          <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
-          <%= user.gender %><br/>
-          <p><%= user.age %> years old</p>
-          <p><%= user.quote %></p>
-          <p>Likes to train on: <% user.weekdays.order(:id).each do |day| %>
-            <%= day.name %>
-          <% end %></p>
-          <p>Favorite sports: <% user.sports.each do |sport| %>
-            <%= sport.name %>
-          <% end %></p>
-          <%= user.gym.name %><br/>
-          <br/>
-          <br/>
+          <%= link_to user_path(user) do %>
+            <%= image_tag user.photo, class: "avatar" %>
+            <div class="user-card-right">
+              <div class="user-card-top">
+                <p><%= user.first_name %> <%= user.last_name %></p>
+                <div class="user-sport-card">
+                  <% user.sports.each do |sport| %>
+                    <div class="user-sport">
+                      <%= sport.name %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="user-card-bottom">
+                  <%= user.gender %>
+                  <p><%= user.age %> years old</p>
+                  <p><%= user.quote.split[0..3].join %>...</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>

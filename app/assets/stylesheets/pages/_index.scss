@@ -1,5 +1,80 @@
 // Import page-specific CSS files here.
 @import "home";
-.user_sport {
-  width: unset !important;
+.user-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+.user-card-right {
+  padding: 16px;
+}
+
+.avatar {
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  left: 0px;
+  top: 1px;
+  border-radius: 50%;
+}
+.user-card a {
+  text-decoration: none;
+  color: black;
+}
+.user-card {
+  text-decoration: none;
+  padding: 0px;
+  width: 257px;
+  height: 72px;
+  left: 86px;
+  top: 0px;
+}
+
+.user-card-top {
+  padding: 0px;
+  width: 257px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+}
+.user-card-bottom {
+  width: 257px;
+  height: 44px;
+  left: calc(50% - 257px/2);
+  top: calc(50% - 44px/2 + 14px);
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  /* or 157% */
+
+  letter-spacing: 1px;
+
+  /* GymAlly – Dark Grey */
+
+  color: #5D6664;
+}
+.user-sport {
+  padding: 2px 5px;
+
+  position: static;
+  width: 88px;
+  height: 24px;
+  left: 92px;
+  top: 0px;
+
+  /* GymAlly – Mint – Dark */
+
+  background: #7BC5BC;
+  border-radius: 8px;
+}
+.user-sport-card {
+  width: 180px;
+  height: 24px;
+  left: 77px;
+  top: 0px;
 }
