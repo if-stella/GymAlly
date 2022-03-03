@@ -22,8 +22,10 @@
   <% @requests.each do |request| %>
     <div>
       You sent a friendship request to <%= request.user_two.first_name %>
-      <%= link_to "cancel", friendship_path(id: request, status: "denied"), method: :patch %>
-      Learn more about <%= link_to request.user_two.first_name, user_path(request.user_two) %>
+    <%= link_to 'Destroy', friendship_path(friendship),
+             method: :delete,
+             data: { confirm: 'Are You sure?' } %>
+    Learn more about <%= link_to request.user_two.first_name, user_path(request.user_two) %>
     </div>
   <% end %>
 <% end %>
@@ -39,7 +41,9 @@
           <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
         <% end %>
         Learn more about <%= link_to friendship.user_two.first_name, user_path(friendship.user_two) %>
-        <%= link_to "cancel", friendship_path(id: friendship, status: "denied"), method: :patch %>
+        <%= link_to 'Destroy', friendship_path(friendship),
+             method: :delete,
+             data: { confirm: 'Are You sure?' } %>
       <% else %>
         You are friends with <%= friendship.user_one.first_name %>
         <% if friendship.chatroom %>
@@ -48,7 +52,9 @@
           <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
         <% end %>
         Learn more about <%= link_to friendship.user_one.first_name, user_path(friendship.user_one) %>
-        <%= link_to "cancel friendship", friendship_path(id: friendship, status: "denied"), method: :patch %>
+        <%= link_to 'Destroy', friendship_path(friendship),
+             method: :delete,
+             data: { confirm: 'Are You sure?' } %>
       <% end %>
     </div>
   <% end %>

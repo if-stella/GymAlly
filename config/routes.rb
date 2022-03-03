@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   resources :users, only: %i[index show edit update]
-  resources :friendships, only: %i[create update]
+  resources :friendships, only: %i[create update destroy]
   post "/chatroom", to: "chatrooms#create", as: :chatroom_create
   resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
