@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @my_gym = current_user.gym
     @age = (18..100).to_a
     # @users = User.where(gym: current_user.gym)
     @users = User.all
@@ -17,9 +18,13 @@ class UsersController < ApplicationController
       # @users = User.where(gym: current_user.gym)
       @users = User.all
       filtering_params(params[:user]).each do |key, value|
-        if key == "sport" || key == "weekday"
+        if key == "sports"
           value.drop(1)
           v = UsersSport.where(sport_id: value)
+          @users = @users.public_send("filter_by_#{key}", v) if value.second.present?
+        elsif key == "weekdays"
+          value.drop(1)
+          v = UsersWeekday.where(weekday_id: value)
           @users = @users.public_send("filter_by_#{key}", v) if value.second.present?
         else
           @users = @users.public_send("filter_by_#{key}", value) if value.present?
@@ -69,6 +74,6 @@ class UsersController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:sport, :location, :gym, :gender, :age1, :age2)
+    params.slice(:sports, :gym, :gender, :age1, :age2, :weekdays)
   end
 end

@@ -1,37 +1,55 @@
-<div data-controller="filter">
-  <div data-action ="click->filter#showForm" class="color-black">set filters</div>
-  <div>
-    <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "gender"}, class: "d-none"} do |f| %>
-    <div>
-      <%= f.input :gender, collection: @genders.uniq, :required => false %>
-      <%= f.input :weekday, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-      <%= f.input :sport, collection: @sports, value: current_user.sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-      <%= f.input :gym, collection: @gyms.uniq, value: current_user.gym, :required => false %>
-      <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
-      <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-      <%= f.submit "Search" %>
+<div class="container">
+  <div class="gymally-small">
+    <%= @my_gym.name %>
+  </div>
+    <div class="container">
+      <h2><%= current_user.first_name.capitalize %> welcome to GymAlly!</h2>
     </div>
+    <div class="container">
+      <p>This is your Dashboard. Search for your future gym buddy and plan your next training together!</p>
+    </div>
+  <div class="users">
+    <div data-controller="filter">
+      <div class="d-flex justify-content-between" data-action ="click->filter#showForm">
+          <div>Set Filters:</div><div><i class="fa fa-solid fa-filters d-inline-block"></i></div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <%= link_to users_path do %>
+          <div>Reset Filters:</div><div><i class="fas fa-sync d-inline-block"></i></div>
+        <% end %>
+      </div>
+      <div>
+        <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "gender"}, class: "d-none"} do |f| %>
+        <div>
+          <%= f.input :gender, collection: @genders.uniq, :required => false %>
+          <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+          <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+          <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+          <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+          <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+          <%= f.submit "Search" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% @users.each do |user| %>
+      <div class="user" >
+        <% unless user == current_user %>
+          <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
+          <%= user.gender %><br/>
+          <p><%= user.age %> years old</p>
+          <p><%= user.quote %></p>
+          <p>Likes to train on: <% user.weekdays.order(:id).each do |day| %>
+            <%= day.name %>
+          <% end %></p>
+          <p>Favorite sports: <% user.sports.each do |sport| %>
+            <%= sport.name %>
+          <% end %></p>
+          <%= user.gym.name %><br/>
+          <br/>
+          <br/>
+        <% end %>
+      </div>
     <% end %>
   </div>
-</div>
-<div>
-  <% @users.each do |user| %>
-    <div>
-      <% unless user == current_user %>
-        <p><%= user.first_name %> <%= user.last_name %> <%= link_to "Details", user_path(user) %><br/></p>
-        <%= user.gender %><br/>
-        <p><%= user.age %> years old</p>
-        <p><%= user.quote %></p>
-        <p>Likes to train on: <% user.weekdays.order(:id).each do |day| %>
-          <%= day.name %>
-        <% end %></p>
-        <p>Favorite sports: <% user.sports.each do |sport| %>
-          <%= sport.name %>
-        <% end %></p>
-        <%= user.gym.name %><br/>
-        <br/>
-        <br/>
-      <% end %>
-    </div>
-  <% end %>
 </div>
