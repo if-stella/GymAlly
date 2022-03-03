@@ -5,10 +5,10 @@ class User < ApplicationRecord
   scope :filter_by_age1, ->(age1) { where("age >= #{age1}") }
   scope :filter_by_age2, ->(age2) { where("age <= #{age2}") }
   scope :filter_by_gender, ->(gender) { where(gender: gender) }
-  scope :filter_by_sport, ->(sports) { where(users_sports: sports) }
-  scope :filter_by_weekday, ->(days) { where(users_weekdays: days) }
+  scope :filter_by_sports, ->(sports) { where(users_sports: sports) }
+  scope :filter_by_weekdays, ->(days) { where(users_weekdays: days) }
   scope :filter_by_nickname, ->(nickname) { where(nickname: nickname) }
-  scope :filter_by_gym, ->(gym = current_user.gym) { where(gym: gym) }
+  scope :filter_by_gym, ->(gym) { where(gym: gym) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
