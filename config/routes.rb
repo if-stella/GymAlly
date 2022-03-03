@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  get "/dashboard", to: "pages#dashboard", as: :dashboard
-  resources :users, only: %i[index show edit update]
-  resources :friendships, only: %i[create update destroy]
+  root to: 'users#index', as: :users
+  resources :users, only: %i[show edit update]
+  delete "/friendships/:id", to: "friendships#destroy", as: :delete_friendship
+  resources :friendships, only: %i[index create update]
   post "/chatroom", to: "chatrooms#create", as: :chatroom_create
   resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
