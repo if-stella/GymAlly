@@ -39,7 +39,9 @@
             <%= image_tag user.photo, class: "avatar" %>
             <div class="user-card-right">
               <div class="user-card-top">
-                <p><%= user.first_name %> <%= user.last_name %></p>
+              <div class="user-card-name">
+                  <p><%= user.first_name %></p>
+                </div>
                 <div class="user-sport-card">
                   <% user.sports.each do |sport| %>
                     <div class="user-sport">
@@ -49,7 +51,7 @@
                 </div>
               </div>
               <div class="user-card-bottom">
-                <p><%= user.quote.split[0..3].join(" ") %>...</p>
+                <p><%= user.quote.split[0..2].join(" ") %>...</p>
               </div>
 
             <% end %>
