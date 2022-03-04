@@ -2,7 +2,11 @@
 @import "home";
 a {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+.profile-and-welcome {
+  display: flex;
+  align-items: stretch;
 }
 .user-card {
   overflow: hidden;
@@ -15,63 +19,58 @@ a {
   margin-top: 12px;
   margin-bottom: 12px;
   border-radius: 2%;
-}
-.user-card-right {
-  position: relative;
-  margin-left: 12px;
+  .user-card-right {
+    position: relative;
+    margin-left: 12px;
+  }
+  .user-card img {
+    object-fit: cover;
+    vertical-align: center;
+    border-radius: 50%;
+    align-items: stretch;
 
-}
-.user-card img {
-  object-fit: cover;
-  vertical-align: center;
-  border-radius: 50%;
-  align-items: stretch;
+  }
+  .user-card a {
+    color: black;
+    text-decoration: none;
+  }
+  .user-card-top {
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: stretch;
+    height: 32px;
+    text-decoration: none;
+  }
+  .user-card-bottom {
+    position: absolute;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    color: #5D6664;
+    display: flex;
+    align-items: stretch;
 
+  }
+  .user-sport-card {
+    top: 0px;
+    right: 0px;
+    font-size: 12px;
+    display: flex;
+  }
+  .user-sport {
+    padding: 2px 3px;
+    position: static;
+    background: #7BC5BC;
+    border-radius: 8px;
+  }
 }
-.user-card a {
-  color: black;
-  text-decoration: none;
-}
-.user-card-top {
-  left: 0px;
-  top: 0px;
-  display: flex;
-  align-items: stretch;
-  height: 32px;
-  text-decoration: none;
-}
-.user-card-bottom {
-  position: absolute;
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 1px;
-  color: #5D6664;
-  align-self: stretch;
-}
-.user-sport {
-  padding: 2px 3px;
-  position: static;
-  background: #7BC5BC;
-  border-radius: 8px;
-}
-.user-sport-card {
-  top: 0px;
-  right: 0px;
-  font-size: 12px;
-  display: flex;
-  align-items: stretch;
-}
-
 .container {
   max-width:100%;
   padding-left:24px;
   padding-top:40px;
   padding-bottom:64px;
   padding-right:24px;
-}
-.profile-and-welcome {
-  display: flex;
-  align-items: stretch;
 }
