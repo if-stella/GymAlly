@@ -1,29 +1,28 @@
 // Import page-specific CSS files here.
 @import "home";
-.container {
-  margin: 12px;
-  padding: 12px;
-  text-decoration: none;
-}
 .user-card {
   overflow: hidden;
-  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: stretch;
-  margin: 8px;
   text-decoration: none;
-  padding: 0px;
   height: 80px;
+  background-color: rgb(157, 255, 0);
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 2%;
 }
 .user-card-right {
   position: relative;
+  margin-left: 12px;
+
 }
 .user-card img {
   object-fit: cover;
-  left: 0px;
-  top: 1px;
+  vertical-align: center;
   border-radius: 50%;
+  align-items: stretch;
+
 }
 .user-card a {
   color: black;
@@ -34,44 +33,28 @@
   top: 0px;
   display: flex;
   align-items: stretch;
-  height: 24px;
+  height: 32px;
   text-decoration: none;
-  margin: 12px;
 }
 .user-card-bottom {
+  position: absolute;
   font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
   letter-spacing: 1px;
   color: #5D6664;
-  position: absolute;
-  align-items: stretch;
-
-  bottom: 2px;
-  left: 0;
-}
-.user-card-bottom p {
-  margin: 4px 0px;
   align-self: stretch;
 }
 .user-sport {
-  padding: 2px 5px;
-
+  padding: 2px 3px;
   position: static;
-  width: 88px;
-  height: 24px;
-  left: 92px;
-  top: 0px;
-
-  /* GymAlly – Mint – Dark */
-
   background: #7BC5BC;
   border-radius: 8px;
 }
 .user-sport-card {
-  left: 77px;
   top: 0px;
+  right: 0px;
   font-size: 12px;
   display: flex;
   align-items: stretch;
@@ -82,6 +65,6 @@
   max-width:100%;
   padding-left:24px;
   padding-top:40px;
-  padding-bottom:40px;
+  padding-bottom:64px;
   padding-right:24px;
 }
