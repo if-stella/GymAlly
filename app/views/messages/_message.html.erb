@@ -1,4 +1,5 @@
-<div id="message-<%= message.id %>">
+<div class="message <%= message.user == current_user ? "recipient" : "sender" %>">
+<%# <div class="message"> %>
   <small>
     <strong><%= message.user.first_name %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
