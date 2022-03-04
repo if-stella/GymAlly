@@ -1,12 +1,64 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: rgb(255, 0, 0);
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   background:blue;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+// .nav-icon {
+//   text-align:center;
+//   background:yellow;
+// }
+
+.nav {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.box {
+  text-align:center;
+  padding-top:8px;
+  padding-bottom:16px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.box a{
+  text-align:center;
+  text-decoration:none;
+  display: block;
+  color:#060F0E;
+}
+
+.box a:hover {
+  color:#7BC5BC;
+}
+
+// add toggle class active to nav element!
+.current-page{
+  color:#7BC5BC;
+}
+
+.colourful-svg {
+  mask-image: url("exit.svg");
+  background: #060F0E;
+  height: 24px;
+  width: 24px;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  margin: 0px auto;
+}
+
+.colourful-svg:hover {
+  background: #7BC5BC;
 }
