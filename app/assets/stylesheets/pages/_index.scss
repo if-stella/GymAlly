@@ -1,5 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+a {
+  text-decoration: none;
+  color: white;
+}
 .user-card {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -61,10 +65,13 @@
 }
 
 .container {
-  background:rgb(255, 255, 255);
   max-width:100%;
   padding-left:24px;
   padding-top:40px;
   padding-bottom:64px;
   padding-right:24px;
+}
+.profile-and-welcome {
+  display: flex;
+  align-items: stretch;
 }
