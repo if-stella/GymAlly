@@ -2,26 +2,33 @@
   <div class="gymally-small">
     <%= @my_gym.name %>
   </div>
-  <h2><%= current_user.first_name.capitalize %> ,welcome to GymAlly!</h2>
-  <div class="" data-action ="click->filter#showForm">
-      <h5>Set Filter:</h5><i class="fa fa-solid fa-filters d-inline-block"></i>
+  <div class="profile-and-welcome">
+    <h2><%= current_user.first_name.capitalize %> ,welcome to GymAlly!</h2>
+    <%= link_to user_path(current_user) do %>
+      <p>Your profile</p><i class="fa fa-solid fa-user"></i>
+    <% end %>
+  </div>
+  <div data-controller="filter">
+    <div data-action ="click->filter#showForm">
+      <h5>Set Filter:</h5><i class="fas fa-filter"></i>
+    </div>
+    <div >
+      <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
+      <div>
+        <%= f.input :gender, collection: @genders.uniq, :required => false %>
+        <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+        <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+        <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+        <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+        <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+        <%= f.submit "Search" %>
+      </div>
+      <% end %>
+    </div>
   </div>
   <div class="">
     <%= link_to users_path do %>
       <h5>Reset Filter:</h5><i class="fas fa-sync d-inline-block"></i>
-    <% end %>
-  </div>
-  <div>
-    <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "gender"}, class: "d-none"} do |f| %>
-    <div>
-      <%= f.input :gender, collection: @genders.uniq, :required => false %>
-      <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-      <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-      <%= f.input :gym, collection: @gyms.uniq, :required => false %>
-      <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
-      <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-      <%= f.submit "Search" %>
-    </div>
     <% end %>
   </div>
     <% @users.each do |user| %>
