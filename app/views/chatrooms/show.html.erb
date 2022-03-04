@@ -3,7 +3,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <%= link_to "<", chatrooms_path %>
   <%= cl_image_tag @chatpartner.photo.key, class: "avatar" %>
-  <h1><%= @chatpartner.first_name %></h1>
+  <h1 data-chatroom-subscription-target="chatpartner"><%= @chatpartner.first_name %></h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
