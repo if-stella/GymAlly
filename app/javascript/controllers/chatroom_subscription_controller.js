@@ -7,6 +7,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Subscribed from the chatroom")
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     this.channel = consumer.subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
