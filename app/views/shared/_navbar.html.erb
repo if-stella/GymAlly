@@ -2,11 +2,11 @@
   <% if user_signed_in? %>
 		<div class="box">
       <%= image_tag "home.svg" %>
-      <%= link_to "Home", dashboard_path, class: "gymally-navbar" %>
+      <%= link_to "Home", users_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
        <%= image_tag "person.svg" %>
-        <%= link_to "Friends", root_path, class: "gymally-navbar" %>
+        <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
       <%= image_tag "chat.svg" %>
