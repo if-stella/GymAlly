@@ -4,7 +4,6 @@
   margin: 12px;
   padding: 12px;
   text-decoration: none;
-
 }
 .user-card {
   overflow: hidden;
@@ -76,4 +75,13 @@
   font-size: 12px;
   display: flex;
   align-items: stretch;
+}
+
+.container {
+  background:rgb(255, 255, 255);
+  max-width:100%;
+  padding-left:24px;
+  padding-top:40px;
+  padding-bottom:40px;
+  padding-right:24px;
 }

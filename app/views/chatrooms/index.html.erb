@@ -5,7 +5,7 @@
     <ul>
       <% @chatrooms.each do |chatroom| %>
         <li>
-          <%= image_tag chatroom[1].photo, class: "avatar" %>
+          <%= cl_image_tag chatroom[1].photo.key, class: "avatar" %>
           <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>
           <p><%= chatroom[2][0..60] %></p>
         </li>
