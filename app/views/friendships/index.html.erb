@@ -4,8 +4,9 @@
     <h3>Invitations for you:</h3>
     <% @invitations.each do |invitation| %>
       <div>
-        <%= invitation.user_one.first_name %> would like to come in contact with you
-        Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %>
+        <%= cl_image_tag invitation.user_one.photo.key, class: "avatar" %>
+        <p><%= invitation.user_one.first_name %> would like to come in contact with you</p>
+        <p>Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %></p>
         <div>
           <%= link_to "Accept", friendship_path(invitation), method: :patch %>
         </div>
