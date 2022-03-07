@@ -19,18 +19,21 @@ h1 {
   font-weight:700 !important;
   font-size: 40px !important;
   line-height: 48px !important;
+  margin-bottom:0px !important;
 }
 
 h2 {
   font-weight:600 !important;
   font-size: 32px !important;
   line-height: 40px !important;
+  margin-bottom:0px !important;
 }
 
 h3 {
   font-weight:500 !important;
   font-size: 24px !important;
   line-height: 32px !important;
+  margin-bottom:0px !important;
 }
 
 h4 {
@@ -38,18 +41,21 @@ h4 {
   font-size: 18px !important;
   line-height: 24px !important;
   letter-spacing: 0.5px !important;
+  margin-bottom:0px !important;
 }
 
 p {
   font-weight:400 !important;
   font-size: 16px !important;
   line-height: 24px !important;
+  margin-bottom:0px !important;
 }
 
 .gymally-semibold {
-  font-weight:500;
+  font-weight:600;
   font-size: 16px;
   line-height: 24px;
+  letter-spacing: 1px;
 }
 
 .gymally-link {
@@ -64,6 +70,7 @@ p {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 1px;
+  color:#060F0E;
 }
 
 .gymally-small {
@@ -71,6 +78,12 @@ p {
   font-size: 14px;
   line-height: 22px;
   letter-spacing: 1px;
+}
+
+.gymally-xsmall {
+  font-weight:400;
+  font-size: 10px;
+  line-height: 10px;
 }
 
 .gymally-tag {

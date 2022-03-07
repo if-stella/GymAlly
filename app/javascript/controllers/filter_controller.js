@@ -1,15 +1,15 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "gender" ]
+  static targets = [ "form" ]
 
   connect() {
     console.log(this.element);
-    console.log(this.genderTarget);
+    console.log(this.formTarget);
 
   }
 
   showForm() {
-    this.genderTarget.classList.toggle('d-none');
+    this.formTarget.classList.toggle('d-none');
     }
 }

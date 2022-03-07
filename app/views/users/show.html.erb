@@ -12,6 +12,7 @@
   <% end %></p>
   <%= @user.gym.name %><br/>
   <%= link_to "Edit your profile", edit_user_path(@user) %>
+   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %>
 <% else %>
   <p><%= @user.first_name %> <%= @user.last_name %> <br/></p>
   <%= @user.gender %><br/>

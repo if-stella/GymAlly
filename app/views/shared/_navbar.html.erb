@@ -1,50 +1,30 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to users_path, class: "navbar-brand" do %>
-      <%= image_tag "logi.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <div class="nav-icon">
-              <%= image_tag "house.svg" %>
-              <%= link_to "Home", users_path, class: "nav-link" %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-icon">
-              <%= image_tag "Friends.png" %>
-              <%= link_to "Friends", friendships_path, class: "nav-link" %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-icon">
-              <%= image_tag "chat.svg" %>
-              <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+<div class="nav">
+  <% if user_signed_in? %>
+		<div class="box">
+      <%= image_tag "home.svg" %>
+      <%= link_to "Home", users_path, class: "gymally-navbar" %>
     </div>
-  </div>
-</div>
+		<div class="box">
+       <%= image_tag "person.svg" %>
+        <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
+    </div>
+		<div class="box">
+      <%= image_tag "chat.svg" %>
+      <%= link_to "Chats", chatrooms_path, class: "gymally-navbar" %>
+    </div>
+		<div class="box">
+      <%= image_tag "map.svg" %>
+      <%= link_to "Map", chatrooms_path, class: "gymally-navbar" %>
+    </div>
+    <div class="box">
+     <!-- <%= image_tag "exit.svg" %> -->
+     <div class="colourful-svg"></div>
+     <%= link_to "Calendar", meetups_path, class: "gymally-navbar" %>
+    </div>
+    <% else %>
+        <li class="box">
+          <%= image_tag "login.svg" %>
+          <%= link_to "Login", new_user_session_path, class: "gymally-navbar" %>
+        </li>
+    <% end %>
+	</div>

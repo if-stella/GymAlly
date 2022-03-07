@@ -10,8 +10,9 @@ require "open-uri"
 
 puts "Destroying users, gyms, friendships, chatrooms..."
 Gym.destroy_all
-User.destroy_all
+Meetup.destroy_all
 Friendship.destroy_all
+User.destroy_all
 Chatroom.destroy_all
 Sport.destroy_all
 UsersSport.destroy_all
@@ -131,11 +132,9 @@ kang = User.find_by(first_name: "Kang")
 lydia = User.find_by(first_name: "Lydia")
 ida = User.find_by(first_name: "Ida")
 stella = User.find_by(first_name: "Stella")
-friendship_one = Friendship.create(user_one: kang, user_two: lydia)
-friendship_two = Friendship.create(user_one: kang, user_two: ida)
-friendship_three = Friendship.create(user_one: ida, user_two: stella)
+friendship_one = Friendship.create(user_one: kang, user_two: lydia, status: "accepted")
+friendship_two = Friendship.create(user_one: kang, user_two: ida, status: "accepted")
 Chatroom.create(friendship: friendship_one)
 Chatroom.create(friendship: friendship_two)
-Chatroom.create(friendship: friendship_three)
 
 puts "Seed finished"

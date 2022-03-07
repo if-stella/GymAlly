@@ -21,6 +21,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @chatpartner = other_user(@chatroom.friendship)
   end
 
   def create
