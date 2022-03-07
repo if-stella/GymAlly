@@ -1,9 +1,20 @@
-<div class="container chatroom"
+<div class="chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <%= link_to "<", chatrooms_path %>
-  <%= cl_image_tag @chatpartner.photo.key, class: "avatar" %>
-  <h1 data-chatroom-subscription-target="chatpartner"><%= @chatpartner.first_name %></h1>
+  <div class="chatroom-head">
+    <div class="chatroom-head-left">
+      <%= link_to chatrooms_path do %>
+        <%= image_tag "chevron_left.svg" %>
+      <% end %>
+      <%= cl_image_tag @chatpartner.photo.key, class: "avatar-bordered" %>
+      <h4 data-chatroom-subscription-target="chatpartner"><%= @chatpartner.first_name %></h1>
+    </div>
+    <div>
+      <%= link_to user_path(@chatpartner) do %>
+        <%= image_tag "three_dots_vertical.svg" %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -11,10 +22,14 @@
     <% end %>
   </div>
 
-  <%= simple_form_for [@chatroom, @message],
-    remote: true,
-    html: {data: {chatroom_subscription_target: "form"}} do |f| %>
-    <%= f.input :text, label: false, placeholder: "Send a message" %>
-    <%= f.submit %>
-  <% end %>
+  <div class="chat-form-control form-group">
+    <%= simple_form_for [@chatroom, @message],
+      remote: true,
+      html: {data: {chatroom_subscription_target: "form"}} do |f| %>
+        <%= f.input :text, label: false, placeholder: "Send a message", class: "form-control string required" %>
+        <button name="button" type="submit" class="btn">
+          <%= image_tag "send.svg" %>
+        </button>
+    <% end %>
+  </div>
 </div>
