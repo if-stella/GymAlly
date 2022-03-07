@@ -1,56 +1,60 @@
 <div class="container">
-  <div class="gymally-small">
-    <%= @my_gym.name %>
-  </div>
-  <div class="profile-and-welcome">
-    <h2><%= current_user.first_name.capitalize %> ,welcome to GymAlly!</h2>
-    <%= link_to user_path(current_user) do %>
-      <p>Your profile</p><i class="fa fa-solid fa-user"></i>
-    <% end %>
-  </div>
-  <div data-controller="filter">
-    <div data-action ="click->filter#showForm">
-      <h5>Set Filter:</h5><i class="fas fa-filter"></i>
+
+  <div class="db-top">
+    <div class="self-img">
+      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
     </div>
-    <div >
-      <%= simple_form_for :user, url: users_path, method: :get, html: { data: { filter_target: "form"}, class: "d-none"} do |f| %>
-      <div>
-        <%= f.input :gender, collection: @genders.uniq, :required => false %>
-        <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}}%>
-        <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-        <%= f.input :gym, collection: @gyms.uniq, :required => false %>
-        <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
-        <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-        <%= f.submit "Search" %>
+
+  <%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
+
+  <div class="db-filter">
+      <div data-controller="filter" class="filter-top">
+        <div data-action ="click->filter#showForm" class="semibold">
+          Set Filter:<i class="fas fa-filter"></i>
+        </div>
+        <div >
+          <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
+          <div>
+            <%= f.input :gender, collection: @genders.uniq, :required => false %>
+            <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+            <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+            <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+            <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+            <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+            <%= f.submit "Search" %>
+          </div>
+          <% end %>
+        </div>
       </div>
-      <% end %>
+      <div class="filter-bottom semibold">
+        <%= link_to users_path do %>
+          Reset Filter:<i class="fas fa-sync d-inline-block"></i>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="">
-    <%= link_to users_path do %>
-      <h5>Reset Filter:</h5><i class="fas fa-sync d-inline-block"></i>
-    <% end %>
-  </div>
+
+  <div id="card-container">
     <% @users.each do |user| %>
     <% unless user == current_user %>
-      <div class="">
+
+      <%= link_to user_path(user) do %>
         <div class="user-card" >
           <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
-            <%= image_tag user.photo, class: "avatar" %>
+            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
             <div class="user-card-right">
               <div class="user-card-top">
               <div class="user-card-name">
                   <p><%= user.first_name %></p>
                 </div>
-                <div class="user-sport-card">
+                <div class="tag-container">
                   <% user.sports.each do |sport| %>
-                    <div class="user-sport">
+                    <div class="tag gymally-tag">
                       <%= sport.name %>
                     </div>
                   <% end %>
                 </div>
               </div>
-              <div class="user-card-bottom">
+              <div class="user-card-bottom gymally-small">
                 <p><%= user.quote.split[0..2].join(" ") %>...</p>
               </div>
 
@@ -79,4 +83,5 @@
       </div>
     <% end %>
   </div>
+
 </div>

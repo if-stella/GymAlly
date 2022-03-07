@@ -51,6 +51,14 @@ p {
   margin-bottom:0px !important;
 }
 
+a {
+  text-decoration:none !important;
+}
+
+a:hover {
+  text-decoration:none !important;
+}
+
 .gymally-semibold {
   font-weight:600;
   font-size: 16px;
@@ -74,10 +82,10 @@ p {
 }
 
 .gymally-small {
-  font-weight:500;
+  font-weight:400;
   font-size: 14px;
   line-height: 22px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .gymally-xsmall {
@@ -91,4 +99,7 @@ p {
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 1px;
+  text-decoration:none;
+  color:white;
+  text-align:center;
 }
