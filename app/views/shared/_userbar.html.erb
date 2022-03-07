@@ -1,0 +1,14 @@
+    <div class="user-id">
+      <div class="gymally-semibold">
+        <%= user.first_name.capitalize %>
+      </div>
+      <div class="gymally-small">
+        <%= my_gym.name %>
+      </div>
+    </div>
+    <div class="profile-link">
+      <%= link_to user_path(user) do %>
+        <%= image_tag "settings-dark.svg" %>
+      <% end %>
+    </div>
+  </div>

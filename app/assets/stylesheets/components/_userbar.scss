@@ -1,0 +1,19 @@
+.db-top {
+  display:flex;
+  flex-direction: row;
+}
+
+.self-img {
+  width: 48px;
+  height: 48px;
+}
+
+.user-id {
+  padding-left:16px;
+  flex-grow:1;
+  overflow:hidden;
+}
+
+.profile-link {
+  flex-grow:0;
+}
