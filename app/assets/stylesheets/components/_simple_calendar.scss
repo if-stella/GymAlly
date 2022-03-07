@@ -1,22 +1,86 @@
+.calendar-header {
+}
 .simple-calendar {
-  background-color: green;
-  tbody {
+margin-top: 40px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  background-color: white;
+border-radius: 12px;
+  .table > :not(:first-child) {
+    border-top: 1px solid $grey-dark;
+    width: 50px;
   }
-  .day {}
 
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color:$black;
+    padding: 12px;
+  }
+  .prev-next i {
+    -webkit-text-stroke: 2px white;
+  }
+  tbody {
+    border:none;
+  }
+  tr:first-child {
+    padding-top: 30px !important;
+  }
+  thead tr th {
+    border:none;
+  }
+  th:first-child {
+    padding: 6px 12px;
+  }
+  tr:first-child td {
+    padding: 12px;
+    padding-top: 18px;
+  }
+  th:last-child {
+    padding: 6px 12px;
+  }
+  tr {
+    border:none;
+  }
+  .table-bordered {
+    border:none;
+  }
+  .day {
+    background-color: white;
+    border:none;
+    border-radius: 12px;
+    color: $grey-medium;
+    text-align: center;
+    height: 70px;
+    padding: 12px;
+  }
+  .day > i {
+    -webkit-text-stroke: 4px white;
+    border-radius: 10px;
+  }
+  .current-month {
+    color: $grey-dark;
+  }
   .wday-0 {
-    background-color: green;
+
   }
   .wday-1 {
+
   }
-  .wday-2 {}
+  .wday-2 {
+  }
   .wday-3 {}
   .wday-4 {}
   .wday-5 {}
   .wday-6 {
   }
 
-  .today {}
+  .today::first-line {
+  }
   .past {}
   .future {}
 
@@ -27,6 +91,12 @@
   .current-month {}
 
   .has-events {
-    background-color: red;
+    color: $mint-dark;
+    height: 60px;
+
+  }
+  .modal-dialog {
+    padding-top: 200px;
+    border-radius: 50px !important;
   }
 }
