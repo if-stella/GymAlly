@@ -1,77 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
-a {
-  text-decoration: none;
-  color: black;
-}
-.profile-and-welcome {
-  display: flex;
-  align-content: space-between;
-}
-.user-card {
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: stretch;
-  text-decoration: none;
-  height: 80px;
-  background-color: white;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  border-radius: 2%;
-  position: relative;
 
-  .user-card-right {
-    margin-left: 12px;
-  }
-  .user-card img {
-    object-fit: cover;
-    vertical-align: center;
-    border-radius: 50%;
-    align-items: stretch;
-  }
-  .user-card a {
-    color: black;
-    text-decoration: none;
-  }
-  .user-card-top {
-    left: 0px;
-    top: 0px;
-    height: 32px;
-    display: flex;
-    align-items: stretch;
-    text-decoration: none;
-  }
-  .user-card-name {
-    padding-right: 70px;
-  }
-  .user-card-bottom {
-    position: absolute;
-    font-family: Poppins;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 1px;
-    color: #5D6664;
-
-  }
-  .user-sport-card {
-    top: 0px;
-    right: 0px;
-    font-size: 12px;
-    display: flex;
-    position: absolute;
-  }
-  .user-sport {
-    padding: 2px 3px;
-    background: #7BC5BC;
-    border-radius: 8px;
-  }
-}
 .container {
   max-width:100%;
   padding-left:24px;
   padding-top:40px;
-  padding-bottom:64px;
+  padding-bottom:72px;
   padding-right:24px;
 }
