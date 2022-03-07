@@ -33,34 +33,31 @@
       </div>
     </div>
 
-  <div id="card-container">
+<div id="card-container">
     <% @users.each do |user| %>
-    <% unless user == current_user %>
-
-      <%= link_to user_path(user) do %>
+      <% unless user == current_user %>
+      <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
         <div class="user-card" >
-          <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
-            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
-            <div class="user-card-right">
-              <div class="user-card-top">
-              <div class="user-card-name">
-                  <p><%= user.first_name %></p>
-                </div>
-                <div class="tag-container">
-                  <% user.sports.each do |sport| %>
-                    <div class="tag gymally-tag">
-                      <%= sport.name %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <div class="user-card-bottom gymally-small">
-                <p><%= user.quote.split[0..2].join(" ") %>...</p>
+          <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
+          <div class="user-card-right">
+            <div class="user-card-top">
+              <div class="user-card-name gymally-semibold">
+                  <%= user.first_name %>
               </div>
 
-          <% end %>
+              <div id="tag-container">
+                <% user.sports.each do |sport| %>
+                  <div class="tag gymally-tag">
+                    <%= sport.name %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="user-card-bottom gymally-small">
+              <%= user.quote.split[0..2].join(" ") %>...
+            </div>
+          </div>
         </div>
-        <% end %>
 
         <div class="modal fade" id=<%= "#{user.first_name + user.last_name}Modal" %> tabindex="-1" aria-labelledby=<%= "#{user.first_name + user.last_name}ModalLabel" %> aria-hidden="true">
           <div class="modal-dialog">
@@ -79,8 +76,8 @@
             </div>
           </div>
         </div>
-
-      </div>
+      <% end %>
+      <% end %>
     <% end %>
   </div>
 
