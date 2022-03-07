@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
   end
+  resources :gyms, only: %i[index show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

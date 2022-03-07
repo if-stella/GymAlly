@@ -19,13 +19,13 @@ UsersSport.destroy_all
 
 puts 'Creating gyms...'
 # Gym.destroy_all
-Gym.create([{ name: 'McFit Hellersdorf', city: 'Berlin' },
-            { name: 'JohnReed Gesundbrunnen', city: 'Berlin' },
-            # { name: 'McFit Kurfürstendamm', city: 'Berlin' },
-            # { name: 'SuperFit Alexa', city: 'Berlin' },
-            # { name: 'FitnessFirst Pankow', city: 'Berlin'},
-            # { name: 'FitX Schöneberg', city: 'Berlin' },
-            { name: 'JohnReed Prenzlauer Berg', city: 'Berlin' }])
+Gym.create([{ name: 'McFit Hellersdorf', address: "Christinenstraße 11, Berlin", city: 'Berlin' },
+            { name: 'JohnReed Gesundbrunnen', address: "Torstraße 20, Berlin", city: 'Berlin' },
+            # { name: 'McFit Kurfürstendamm', address: city: 'Berlin' },
+            # { name: 'SuperFit Alexa', address: city: 'Berlin' },
+            # { name: 'FitnessFirst Pankow', address: city: 'Berlin'},
+            # { name: 'FitX Schöneberg', address: city: 'Berlin' },
+            { name: 'JohnReed Prenzlauer Berg', address: "Kastanienallee 22, Berlin", city: 'Berlin' }])
 
 # User.destroy_all
 puts "creating all sports"
