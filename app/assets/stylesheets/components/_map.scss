@@ -1,10 +1,13 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 311px;
+  background-color: #7BC5BC;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  background-color: #7BC5BC;
+  color: #7BC5BC;
 }
 .mapboxgl-ctrl-geocoder {
   max-width: none;
@@ -14,4 +17,8 @@
 }
 .mapboxgl-marker svg {
 fill: $mint
+}
+
+.mapbox{
+  margin-top: 0px;
 }
