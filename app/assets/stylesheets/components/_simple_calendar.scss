@@ -5,7 +5,7 @@ margin-top: 40px;
 box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  background-color: white;
 border-radius: 12px;
   .table > :not(:first-child) {
-    border-top: 1px solid $grey-dark;
+    border-top: 1px solid $grey-medium;
     width: 50px;
   }
 
@@ -55,8 +55,9 @@ border-radius: 12px;
     border-radius: 12px;
     color: $grey-medium;
     text-align: center;
-    height: 70px;
+    height: 60px;
     padding: 12px;
+    padding-bottom: 2px;
   }
   .day > i {
     -webkit-text-stroke: 4px white;
@@ -78,9 +79,6 @@ border-radius: 12px;
   .wday-5 {}
   .wday-6 {
   }
-
-  .today::first-line {
-  }
   .past {}
   .future {}
 
@@ -93,6 +91,7 @@ border-radius: 12px;
   .has-events {
     color: $mint-dark;
     height: 60px;
+    padding-bottom: 2px !important;
 
   }
   .modal-dialog {
