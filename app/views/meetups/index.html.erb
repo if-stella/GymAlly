@@ -1,13 +1,15 @@
+<div class="container">
+  <div class="header">
+    <h1>Your Calendar:</h1>
+  </div>
   <%= month_calendar(events: @meetups_accepted) do |date, meetings| %>
 
-    <%= date.to_formatted_s(:short) %>
+    <%= date.strftime("%d") %>
     <% meetings.each do |meeting| %>
       <div>
-      <% if meeting.user_two == current_user %>
-        <p><%= meeting.date.strftime("%H:%M:%S").first(5) %> - training with <%= meeting.user_one.first_name %></p>
-      <% else %>
-        <p><%= meeting.date.strftime("%H:%M:%S").first(5) %> - training with <%= meeting.user_two.first_name %></p>
-      <% end %>
+      <% meeting %>
+      <i class="fa fa-solid fa-circle"></i>
       </div>
     <% end %>
   <% end %>
+</div>
