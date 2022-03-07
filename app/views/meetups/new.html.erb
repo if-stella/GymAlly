@@ -1,0 +1,10 @@
+<h1>Meetups#new</h1>
+<p>Find me in app/views/meetups/new.html.erb</p>
+<%= form_for [@friendship, @meetup] do |f| %>
+    <%= f.text_field :date, data: {
+    controller: "flatpickr",
+    flatpickr_enable_time: true
+  } %>
+    <%= f.submit value: "request meetup" %>
+<% end %>
+<%= link_to "Go back", friendships_path %>

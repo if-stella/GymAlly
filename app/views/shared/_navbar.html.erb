@@ -1,25 +1,36 @@
 <div class="nav">
   <% if user_signed_in? %>
 		<div class="box">
-      <%= image_tag "home.svg" %>
+      <%= link_to users_path do %>
+        <%= image_tag "home.svg" %>
+      <% end %>
       <%= link_to "Home", users_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
-       <%= image_tag "person.svg" %>
-        <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
+      <%= link_to friendships_path do %>
+        <%= image_tag "person.svg" %>
+      <% end %>
+      <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
-      <%= image_tag "chat.svg" %>
+      <%= link_to chatrooms_path do %>
+        <%= image_tag "chat.svg" %>
+      <% end %>
       <%= link_to "Chats", chatrooms_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
-      <%= image_tag "map.svg" %>
+      <%= link_to chatrooms_path do %>
+        <%= image_tag "map.svg" %>
+      <% end %>
       <%= link_to "Map", chatrooms_path, class: "gymally-navbar" %>
     </div>
     <div class="box">
      <!-- <%= image_tag "exit.svg" %> -->
-     <div class="colourful-svg"></div>
-     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %>
+     <%# <div class="colourful-svg"></div> %>
+      <%= link_to meetups_path do %>
+        <%= image_tag "calendar.svg" %>
+      <% end %>
+     <%= link_to "Dates", meetups_path, class: "gymally-navbar" %>
     </div>
     <% else %>
         <li class="box">

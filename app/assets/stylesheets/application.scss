@@ -9,8 +9,14 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/dashboard";
+
+@import "mapbox-gl/dist/mapbox-gl";
+@import "simple_calendar";
+@import "components/simple_calendar";
+@import 'flatpickr/dist/flatpickr.css';

@@ -4,6 +4,18 @@ class FriendshipsController < ApplicationController
     @invitations = Friendship.where(user_two: current_user).where(status: "pending")
     @requests = Friendship.where(user_one: current_user).where(status: "pending")
     @friendships = Friendship.where("user_one_id = #{current_user.id} or user_two_id = #{current_user.id}").where(status: "accepted")
+    @meetups_invitations = []
+    Meetup.all.each do |meetup|
+      if (meetup.user_one == current_user || meetup.user_two == current_user) && (meetup.meetup_status == "pending") && (meetup.sender.to_i != current_user.id)
+        @meetups_invitations << meetup
+      end
+    end
+    @meetups_requests = []
+    Meetup.all.each do |meetup|
+      if (meetup.user_one == current_user || meetup.user_two == current_user) && (meetup.meetup_status == "pending" && meetup.sender.to_i == current_user.id)
+        @meetups_requests << meetup
+      end
+    end
   end
 
   def create
@@ -29,6 +41,6 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find(params[:id])
     @friendship.destroy
-    redirect_to chatrooms_path
+    redirect_to friendships_path
   end
 end

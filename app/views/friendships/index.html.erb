@@ -1,4 +1,47 @@
-<div class="container">
+<div class="main">
+  <% if @friendships.length > 0 %>
+    <h3> Your Friendships: </h3>
+    <% @friendships.each do |friendship| %>
+      <div>
+        <% if current_user == friendship.user_one %>
+          <div>
+            You are friends with <%= friendship.user_two.first_name %>
+            <% if friendship.chatroom %>
+              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
+            <% else %>
+              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
+            <% end %>
+          </div>
+          <div>
+            Learn more about <%= link_to friendship.user_two.first_name, user_path(friendship.user_two) %>
+            <%= link_to 'Cancel friendship', delete_friendship_path(friendship),
+                method: :delete,
+                data: { confirm: "Are You sure you want to end your friendship with #{friendship.user_two}?" } %>
+          </div>
+          <%= link_to "Create a meetup request with #{friendship.user_two.first_name}", new_friendship_meetup_path(friendship) %>
+        <% else %>
+          <div>
+            You are friends with <%= friendship.user_one.first_name %>
+            <% if friendship.chatroom %>
+              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
+            <% else %>
+              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
+            <% end %>
+            <div>
+              Learn more about <%= link_to friendship.user_one.first_name, user_path(friendship.user_one) %>
+              <%= link_to 'Cancel friendship', delete_friendship_path(friendship),
+                  method: :delete,
+                  data: { confirm: 'Are You sure?' } %>
+            </div>
+            <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
+
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% else %>
+      <h3>You do not have any friendships yet. <%= link_to "Start browsing!",users_path %></h3>
+  <% end %>
 <%# Invitations/pending friendships %>
   <% if @invitations.length > 0 %>
     <h3>Invitations for you:</h3>
@@ -27,44 +70,36 @@
       </div>
     <% end %>
   <% end %>
-  <% if @friendships.length > 0 %>
-    <h3> Your Friendships: </h3>
-    <% @friendships.each do |friendship| %>
-      <div>
-        <% if current_user == friendship.user_one %>
-          <div>
-            You are friends with <%= friendship.user_two.first_name %>
-            <% if friendship.chatroom %>
-              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
-            <% else %>
-              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
-            <% end %>
-          </div>
-          <div>
-            Learn more about <%= link_to friendship.user_two.first_name, user_path(friendship.user_two) %>
-            <%= link_to 'Destroy', friendship_path(friendship),
-                method: :delete,
-                data: { confirm: "Are You sure you want to end your friendship with #{friendship.user_two}?" } %>
-          </div>
-        <% else %>
-          <div>
-            You are friends with <%= friendship.user_one.first_name %>
-            <% if friendship.chatroom %>
-              <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
-            <% else %>
-              <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
-            <% end %>
-            <div>
-              Learn more about <%= link_to friendship.user_one.first_name, user_path(friendship.user_one) %>
-              <%= link_to 'Destroy', friendship_path(friendship),
-                  method: :delete,
+  <% if @meetups_invitations.length > 0 %>
+  <h3>Meetup invitations for you:</h3>
+    <% @meetups_invitations.each do |meetup| %>
+      <% if meetup.user_two == current_user %>
+        <p>meetup invitation from <%= meetup.user_one.first_name %> on the <%= meetup.date.strftime("%A, %B %e") %> at <%= meetup.date.strftime("%H:%M:%S").first(5) %></p>
+        <%= link_to "Accept", friendship_update_meetup_path(meetup.friendship, meetup), method: :post %>
+        <%= link_to "Deny", friendship_update_meetup_path(meetup.friendship, meetup), method: :delete,
                   data: { confirm: 'Are You sure?' } %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <% else %>
+        <p>meetup invitation from <%= meetup.user_two.first_name %> on the <%= meetup.date.strftime("%A, %B %e") %> at <%= meetup.date.strftime("%H:%M:%S").first(5) %></p>
+        <%= link_to "Accept", friendship_update_meetup_path(meetup.friendship, meetup), method: :post %>
+        <%= link_to "Deny", friendship_update_meetup_path(meetup.friendship, meetup), method: :delete,
+                  data: { confirm: 'Are You sure?' } %>
+      <% end %>
     <% end %>
-    <% else %>
-      <h3>You do not have any friendships yet. <%= link_to "Start browsing!",users_path %></h3>
+  <% end %>
+  <% if @meetups_requests.length > 0 %>
+  <h3>Meetup requests from you:</h3>
+    <% @meetups_requests.each do |meetup| %>
+      <% if meetup.user_two == current_user %>
+        <p>to </p><%= meetup.user_one.first_name %> on the <%= meetup.date.strftime("%A, %B %e") %>
+        <%= link_to 'Cancel', friendship_delete_meetup_path(meetup.friendship, meetup),
+                method: :delete,
+                data: { confirm: "Are You sure you want to cancel this meetup?" } %>
+      <% else %>
+        <p>to: </p><%= meetup.user_two.first_name %> on the <%= meetup.date.strftime("%A, %B %e") %>
+        <%= link_to 'Cancel', friendship_delete_meetup_path(meetup.friendship, meetup),
+                method: :delete,
+                data: { confirm: "Are You sure you want to cancel this meetup?" } %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
