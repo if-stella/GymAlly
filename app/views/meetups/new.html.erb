@@ -3,8 +3,11 @@
 <%= form_for [@friendship, @meetup] do |f| %>
     <%= f.text_field :date, data: {
     controller: "flatpickr",
-    flatpickr_enable_time: true
+    flatpickr_enable_time: true,
+    time_24hr: true,
+    defaultDate: Time.now,
   } %>
+    <%= f.collection_select :sport, Sport.all, :id, :name %>
     <%= f.submit value: "request meetup" %>
 <% end %>
 <%= link_to "Go back", friendships_path %>
