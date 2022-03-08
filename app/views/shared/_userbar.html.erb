@@ -1,4 +1,11 @@
-     <div class="user-id">
+<div class="container">
+
+  <div class="db-top">
+    <div class="self-img">
+      <%= cl_image_tag user.photo.key, class: "avatar" %>
+    </div>
+  </div>
+    <div class="user-id">
       <div class="gymally-semibold">
         <%= user.first_name.capitalize %>
       </div>
