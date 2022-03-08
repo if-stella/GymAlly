@@ -5,7 +5,7 @@
     <% @friendships.each do |friendship| %>
       <div>
         <% if current_user == friendship.user_one %>
-          <% user_one = friendship.user_one %>
+          <% user_one = friendship.user_two %>
         <% else %>
           <% user_one = friendship.user_one %>
         <% end %>
