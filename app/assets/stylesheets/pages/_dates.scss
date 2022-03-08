@@ -1,0 +1,49 @@
+#invitation-card-container {
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+    // background:red;
+  }
+  .invitation-card {
+  overflow:hidden;
+  display: flex;
+  position: relative;
+  height:48px;
+
+  .invitation-card-right {
+    flex-grow:1;
+    padding-left:12px;
+    padding-top:8px;
+  }
+
+  .invitation-card-top {
+    display: flex;
+    justify-content:space-between;
+    padding-bottom:4px;
+    color: #060F0E;
+  }
+
+  .invitation-card-bottom {
+    color:#5D6664;
+  }
+
+  .tag {
+    padding: 2px 4px;
+    background: #7bc5bc;
+    border-radius: 8px;
+    margin-left:4px;
+  }
+  .gymally-tag {
+    font-weight:500;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-decoration:none;
+    color:white;
+    text-align:center;
+  }
+
+  #tag-container {
+    display:flex;
+  }
+}
