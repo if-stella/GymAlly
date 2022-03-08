@@ -9,6 +9,7 @@
   padding:12px;
   border-radius:8px;
   border: solid #E2FFFA 1px;
+  width: 100%;
 }
 
 .button-primary:hover {
@@ -34,6 +35,14 @@
   background: #7BC5BC;
   border: solid #E2FFFA 1px;
   color: #ffffff;
+}
+
+.button-small {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight:500;
 }
 
 .button-xsmall {
