@@ -1,4 +1,55 @@
-.popup-container {
+.popup-main {
   background-color: $mint;
   color: white;
+  padding: 16px;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+
+    .user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .user-info {
+        flex-grow: 0;
+        padding-left: 8px;
+        color: white;
+
+        #tag-container {
+          display:flex;
+        }
+
+        .tag {
+          padding: 2px 4px;
+          background: #7bc5bc;
+          border: 1px solid white;
+          border-radius: 8px;
+          margin-top: 8px;
+          margin-right:4px;
+        }
+
+
+      }
+    }
+
+    button {
+      align-self: flex-start;
+    }
+  }
+
+  .quote {
+    padding: 8px;
+    color: white;
+  }
+
+}
+
+.popup-bottom {
+  background-color: white;
+  color: white;
+  padding: 16px;
 }

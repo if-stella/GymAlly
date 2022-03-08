@@ -1,38 +1,39 @@
 <div class="modal fade"
-  id=<%= "#{user.first_name + user.last_name}Modal" %>
-  tabindex="-1"
-  aria-labelledby=<%= "#{user.first_name + user.last_name}ModalLabel" %>
-  aria-hidden="true">
+     id=<%= "#{user.first_name + user.last_name}Modal" %>
+     tabindex="-1"
+     aria-labelledby=<%= "#{user.first_name + user.last_name}ModalLabel" %>
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="popup-container">
-        <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
-        <div class="user-card-right">
-          <div class="user-card-top">
-            <div class="user-card-name gymally-semibold">
-                <%= user.first_name %>
-            </div>
-
-            <div id="tag-container">
-              <% user.sports.each do |sport| %>
-                <div class="tag gymally-tag">
-                  <%= sport.name %>
-                </div>
-              <% end %>
+      <div class="popup-main">
+        <div class="top">
+          <div class="user">
+            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
+            <div class="user-info">
+              <%= user.first_name %>
+              <div id="tag-container">
+                <% user.sports.each do |sport| %>
+                  <div class="tag gymally-tag">
+                    <%= sport.name %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
-          <div class="user-card-bottom gymally-small">
-            <%= user.quote.split[0..2].join(" ") %>...
-          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="quote">
+          <p><%= user.quote %></p>
         </div>
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-
-        <p><%= user.quote %></p>
-
-      <div class="">
-        <p> type sth </p>
-        <button type="button" class="button-primary">Send</button>
+      </div>
+      <div class="popup-bottom">
+        <%= link_to "Send friendship request", friendships_path(user_two_id: user.id),
+          method: :post,
+          class: "button-primary",
+          type: "button" %>
+        <%# <button type="button" class="button-primary">Send</button> %>
       </div>
     </div>
   </div>

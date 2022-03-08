@@ -1,21 +1,20 @@
 <div class="container">
-
   <div class="db-top">
     <div class="self-img">
       <%= cl_image_tag user.photo.key, class: "avatar" %>
     </div>
   </div>
-    <div class="user-id">
-      <div class="gymally-semibold">
-        <%= user.first_name.capitalize %>
-      </div>
-      <div class="gymally-small">
-        <%= my_gym.name %>
-      </div>
+  <div class="user-id">
+    <div class="gymally-semibold">
+      <%= user.first_name.capitalize %>
     </div>
-    <div class="profile-link">
-      <%= link_to user_path(user) do %>
-        <%= image_tag "settings-dark.svg" %>
-      <% end %>
+    <div class="gymally-small">
+      <%= my_gym.name %>
     </div>
   </div>
+  <div class="profile-link">
+    <%= link_to user_path(user) do %>
+      <%= image_tag "settings-dark.svg" %>
+    <% end %>
+  </div>
+</div>
