@@ -1,12 +1,4 @@
-<div class="container">
-
-  <div class="db-top">
-    <div class="self-img">
-      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-    </div>
-  </div>
-
-  <%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
+<%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
   <div class="db-filter">
       <div data-controller="filter" class="filter-top">
         <div data-action ="click->filter#showForm" class="semibold">
