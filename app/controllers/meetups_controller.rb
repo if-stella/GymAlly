@@ -24,21 +24,24 @@ class MeetupsController < ApplicationController
   def new
     @friendship = Friendship.find(params[:friendship_id])
     @meetup = Meetup.new
+    @sports = Sport.all
   end
 
   def create
     @friendship = Friendship.find(params[:friendship_id])
     @meetup = Meetup.create(date: time)
+    @sport = Sport.find(params[:meetup][:sport].to_i)
+    @meetup.sport = @sport
     @meetup.meetup_status = "pending"
     @meetup.friendship = @friendship
     @meetup.sender = current_user.id
     @meetup.save!
     if @meetup.save
       flash[:notice] = "You created a meetup request"
-      redirect_to friendships_path
+      redirect_to meetups_path
     else
       flash[:notice] = "You were unable to create a meetup request"
-      redirect_to friendships_path
+      redirect_to meetups_path
     end
   end
 
@@ -47,14 +50,14 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
     @meetup.meetup_status = "accepted"
     @meetup.save!
-    redirect_to friendships_path
+    redirect_to meetups_path
   end
 
   def destroy
     @meetup = Meetup.find(params[:id])
     flash[:notice] = "You canceled a meetup request"
     @meetup.destroy
-    redirect_to friendships_path
+    redirect_to meetups_path
   end
 
   private
