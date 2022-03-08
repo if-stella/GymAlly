@@ -1,6 +1,7 @@
-<div class="main">
+<div class="container">
+<%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
   <% if @friendships.length > 0 %>
-    <h3> Your Friendships: </h3>
+    <h4> Your Friendships: </h4>
     <% @friendships.each do |friendship| %>
       <div>
         <% if current_user == friendship.user_one %>
@@ -26,11 +27,12 @@
       </div>
     <% end %>
     <% else %>
-      <h3>You do not have any friendships yet. <%= link_to "Start browsing!",users_path %></h3>
+      <h4>You do not have any friendships yet.</h4>
+      <%= link_to "Start browsing!", users_path, class: "button-primary" %>
   <% end %>
-<%# Invitations/pending friendships %>
+
   <% if @invitations.length > 0 %>
-    <h3>Invitations for you:</h3>
+    <h4>Invitations for you:</h4>
     <% @invitations.each do |invitation| %>
       <div>
         <%= cl_image_tag invitation.user_one.photo.key, class: "avatar" %>
@@ -48,7 +50,7 @@
     <% end %>
   <% end %>
   <% if @requests.length > 0 %>
-    <h3>Friendship requests from you:</h3>
+    <h4>Friendship requests from you:</h4>
     <% @requests.each do |request| %>
       <div>
         You sent a friendship request to <%= request.user_two.first_name %>. Wait for them to accept it.
