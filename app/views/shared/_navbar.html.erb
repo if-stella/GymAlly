@@ -3,34 +3,39 @@
 		<div class="box">
       <%= link_to users_path do %>
         <%= image_tag "home.svg" %>
+        <p class="gymally-navbar">Home</p>
       <% end %>
-      <%= link_to "Home", users_path, class: "gymally-navbar" %>
+      <%# <%= link_to "Home", users_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
       <%= link_to friendships_path do %>
         <%= image_tag "person.svg" %>
+        <p class="gymally-navbar">Friends</p>
       <% end %>
-      <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
+      <%# <%= link_to "Friends", friendships_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
       <%= link_to chatrooms_path do %>
         <%= image_tag "chat.svg" %>
+        <p class="gymally-navbar">Chats</p>
       <% end %>
-      <%= link_to "Chats", chatrooms_path, class: "gymally-navbar" %>
+      <%# <%= link_to "Chats", chatrooms_path, class: "gymally-navbar" %>
     </div>
 		<div class="box">
-      <%= link_to chatrooms_path do %>
+      <%= link_to gyms_path do %>
         <%= image_tag "map.svg" %>
+        <p class="gymally-navbar">Map</p>
       <% end %>
-      <%= link_to "Map", gyms_path, class: "gymally-navbar" %>
+      <%# <%= link_to "Map", gyms_path, class: "gymally-navbar" %>
     </div>
     <div class="box">
      <!-- <%= image_tag "exit.svg" %> -->
      <%# <div class="colourful-svg"></div> %>
       <%= link_to meetups_path do %>
         <%= image_tag "calendar.svg" %>
+        <p class="gymally-navbar">Dates</p>
       <% end %>
-     <%= link_to "Dates", meetups_path, class: "gymally-navbar" %>
+     <%# <%= link_to "Dates", meetups_path, class: "gymally-navbar" %>
     </div>
     <% else %>
         <li class="box">
