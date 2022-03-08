@@ -1,61 +1,49 @@
+  <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
 <div class="container">
-<%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
-  <% if @friendships.length > 0 %>
-    <h4> Your Friendships: </h4>
-    <% @friendships.each do |friendship| %>
-      <div>
-        <% if current_user == friendship.user_one %>
-          <% user_one = friendship.user_two %>
-        <% else %>
-          <% user_one = friendship.user_one %>
-        <% end %>
-        <div>
-          You are friends with <%= user_one.first_name %>
-          <% if friendship.chatroom %>
-            <%= link_to "Chat", chatroom_path(friendship.chatroom) %>
-          <% else %>
-            <%= link_to "Chat", chatroom_create_path(id: friendship), method: :post %>
-          <% end %>
-        </div>
-        <div>
-          Learn more about <%= link_to user_one.first_name, user_path(user_one) %>
-          <%= link_to 'Cancel friendship', delete_friendship_path(friendship),
-              method: :delete,
-              data: { confirm: "Are You sure you want to end your friendship with #{user_one.first_name}?" } %>
-        </div>
-          <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
-      </div>
-    <% end %>
-    <% else %>
-      <h4>You do not have any friendships yet.</h4>
-      <%= link_to "Start browsing!", users_path, class: "button-primary" %>
-  <% end %>
+  <div class="card-container">
+    <% if @friendships.length > 0 %>
+      <h4> Your Friendships: </h4>
+      <% @friendships.each do |friendship| %>
+          <% current_user == friendship.user_one ? user_one = friendship.user_two : user_one = friendship.user_one %>
 
-  <% if @invitations.length > 0 %>
-    <h4>Invitations for you:</h4>
-    <% @invitations.each do |invitation| %>
-      <div>
-        <%= cl_image_tag invitation.user_one.photo.key, class: "avatar" %>
-        <p><%= invitation.user_one.first_name %> would like to come in contact with you</p>
-        <p>Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %></p>
-        <div>
-          <%= link_to "Accept", friendship_path(invitation), method: :patch %>
-        </div>
-        <div>
-        <%= link_to 'Deny', delete_friendship_path(invitation),
-                method: :delete,
-                data: { confirm: "Are You sure you want to deny #{invitation.user_two.first_name}'s friendship request?" } %>
-        </div>
-      </div>
+          <% if friendship.chatroom %>
+            <%= link_to chatroom_path(friendship.chatroom) do %>
+              <%= render "shared/user_cards", user: user_one %>
+            <% end %>
+          <% else %>
+            <%= link_to chatroom_create_path(id: friendship), method: :post do %>
+              <%= render "shared/user_cards", user: user_one %>
+            <% end %>
+          <% end %>
+
+
+          <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
+      <% end %>
+      <% else %>
+        <h4>You do not have any friendships yet.</h4>
+        <%= link_to "Start browsing!", users_path, class: "button-primary" %>
     <% end %>
-  <% end %>
-  <% if @requests.length > 0 %>
-    <h4>Friendship requests from you:</h4>
-    <% @requests.each do |request| %>
-      <div>
-        You sent a friendship request to <%= request.user_two.first_name %>. Wait for them to accept it.
-        Learn more about <%= link_to request.user_two.first_name, user_path(request.user_two) %>
-      </div>
+  </div>
+  <div class="card-container">
+    <% if @invitations.length > 0 %>
+      <h4>Invitations for you:</h4>
+      <% @invitations.each do |invitation| %>
+        <%= render "shared/friendship_card",
+            user: invitation.user_one,
+            description: "wants to be your ally",
+            invitation: invitation %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="sent">
+    <% if @requests.length > 0 %>
+      <h4>Friendship requests from you:</h4>
+      <% @requests.each do |request| %>
+        <%= render "shared/friendship_card",
+            user: request.user_two,
+            description: "request sent",
+            invitation: request%>
+      <% end %>
+    <% end %>
+  </div>
 </div>
