@@ -1,21 +1,42 @@
 .db-filter {
-  background:hotpink;
+  // background:rgb(14, 3, 143);
   display:flex;
   flex-direction:column;
+  padding-bottom:16px;
+  padding-top:16px;
+}
+
+.filter-button a {
+  color:#7bc5bc;
+}
+
+.filter-button a:hover {
+  color:#ffffff;
+}
+
+.filter-button:hover {
+  color:#ffffff;
+}
+
+
+.filter-closed {
+  color: #060F0E;
+  display:flex;
+  justify-content:space-between;
 }
 
 .filter-top {
-  background:turquoise;
+  // background:pink;
+  padding-top:16px;
+  padding-bottom:16px;
 }
 
-.filter-bottom {
-  background:darkcyan;
-}
 
 #card-container {
   display:flex;
   flex-direction: column;
   gap: 0px;
+  // background:red;
 }
 
 .user-card {

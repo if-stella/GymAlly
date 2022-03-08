@@ -1,0 +1,20 @@
+<i class="fa fa-light fa-info-circle" data-bs-toggle="modal" data-bs-target="#userModal"></i>
+
+<!-- Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userModalLabel"> <%= user_one.first_name %></h5>
+        <div class="button-secondary close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <i class="fa fa-solid fa-clock"></i> <%= meetup.date.strftime("%H:%M") %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,16 +5,6 @@
 $body-font: "Poppins", "Helvetica", "sans-serif";
 $headers-font: "Poppins", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
-
 h1 {
   font-weight:700 !important;
   font-size: 40px !important;
