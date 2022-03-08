@@ -1,71 +1,68 @@
 <div class="container">
-
-  <div class="db-top">
+  <%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
+  <div class="dashboard-filters">
+    <div data-controller="filter" class="filter-top">
+    <div data-action ="click->filter#showForm" class="semibold">
+      <div class="filter-closed gymally-semibold">
+      Show all filters <%= image_tag "filter.svg" %>
+      </div>
+    </div>
+    <div>
+      <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
+      <div>
+        <%= f.input :gender, collection: @genders.uniq, :required => false %>
+        <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+        <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+        <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+        <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+        <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+        <%= f.submit "Search", class: "button-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+    <div class="filter-button">
+      <%= link_to users_path do %>
+        Reset filters
+      <% end %>
+    </div>
   </div>
 
-  <div class="db-filter">
-      <div data-controller="filter" class="filter-top">
-        <div data-action ="click->filter#showForm" class="semibold">
-          <div class="filter-closed gymally-semibold">
-          Show filters: <%= image_tag "filter.svg" %>
-          </div>
+  <div class="separator-line"></div>
 
-        </div>
-        <div >
-          <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
-          <div>
-            <%= f.input :gender, collection: @genders.uniq, :required => false %>
-               <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+  <div id="card-container">
+  <h4>Users around you:</h4>
+      <% @users.each do |user| %>
+        <% unless user == current_user %>
+          <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
+            <div class="user-card" >
+              <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
+              <div class="user-card-right">
+                <div class="user-card-top">
+                  <div class="user-card-name gymally-semibold">
+                      <%= user.first_name %>
+                  </div>
 
-            <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-            <%= f.input :gym, collection: @gyms.uniq, :required => false %>
-            <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
-            <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-            <%= f.submit "Search", class: "button-primary" %>
-          </div>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="button-secondary button-small filter-button">
-        <%= link_to users_path do %>
-          Reset Filter
-        <% end %>
-      </div>
-
-    </div>
-
-<div id="card-container">
-    <% @users.each do |user| %>
-      <% unless user == current_user %>
-        <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
-          <div class="user-card" >
-            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
-            <div class="user-card-right">
-              <div class="user-card-top">
-                <div class="user-card-name gymally-semibold">
-                    <%= user.first_name %>
+                  <div id="tag-container">
+                    <% user.sports.each do |sport| %>
+                      <div class="tag gymally-tag">
+                        <%= sport.name %>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-
-                <div id="tag-container">
-                  <% user.sports.each do |sport| %>
-                    <div class="tag gymally-tag">
-                      <%= sport.name %>
-                    </div>
-                  <% end %>
+                <div class="user-card-bottom gymally-small">
+                  <%= user.quote.split[0..2].join(" ") %>...
                 </div>
-              </div>
-              <div class="user-card-bottom gymally-small">
-                <%= user.quote.split[0..2].join(" ") %>...
               </div>
             </div>
-          </div>
 
-          <%# ------------- modal user popup --------------- %>
-          <%= render "user_popup", user: user %>
-          <%# ------------- modal user popup --------------- %>
+            <%# ------------- modal user popup --------------- %>
+            <%= render "user_popup", user: user %>
+            <%# ------------- modal user popup --------------- %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

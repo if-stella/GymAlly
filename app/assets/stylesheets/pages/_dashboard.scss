@@ -1,23 +1,36 @@
-.db-filter {
-  // background:rgb(14, 3, 143);
-  display:flex;
-  flex-direction:column;
-  padding-bottom:16px;
-  padding-top:16px;
+.separator-line {
+  width:100%;
+  height:1px;
+  background:#BFC6C5;
+}
+
+.dashboard-filters {
+ // background:red;
+}
+
+.dashboard-filters > *:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .filter-button a {
-  color:#7bc5bc;
+  color:#060F0E;
+  text-decoration:underline;
+  font-weight:500;
+  letter-spacing: 1px;
 }
 
 .filter-button a:hover {
-  color:#ffffff;
+  color:#7bc5bc ;
 }
 
-.filter-button:hover {
-  color:#ffffff;
+.filter-button {
+  background:#ffffff;
+  padding:6px;
+  border-radius:8px;
+  border:#7bc5bc solid 2px;
+  text-align:center;
+  width:125px;
 }
-
 
 .filter-closed {
   color: #060F0E;
@@ -27,8 +40,6 @@
 
 .filter-top {
   // background:pink;
-  padding-top:16px;
-  padding-bottom:16px;
 }
 
 
@@ -36,7 +47,10 @@
   display:flex;
   flex-direction: column;
   gap: 0px;
-  // background:red;
+}
+
+#card-container h4{
+padding-bottom:12px;
 }
 
 .user-card {
