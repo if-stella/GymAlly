@@ -1,5 +1,5 @@
 <div class="container">
-
+<%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
   <% if !@chatrooms.empty? %>
     <h1><%= current_user.first_name %>'s Chats</h1>
     <ul>
@@ -12,7 +12,7 @@
       <% end %>
     </ul>
   <% else %>
-    <h1> You do not have any chats yet</h1>
-    <%= link_to "start browsing", users_path %>
+    <h4> You do not have any chats (yet!)</h4>
+    <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
   <% end %>
 </div>

@@ -27,8 +27,8 @@
       </div>
     <% end %>
     <% else %>
-      <h4>You do not have any friendships yet.</h4>
-      <%= link_to "Start browsing!", users_path, class: "button-primary" %>
+      <h4>(So far) no friends here. 😔</h4>
+      <div class="button-primary"><%= link_to "Start browsing!", users_path %></div>
   <% end %>
 
   <% if @invitations.length > 0 %>

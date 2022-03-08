@@ -12,6 +12,10 @@
   width: 100%;
 }
 
+.button-primary a{
+  color:white !important;
+}
+
 .button-primary:hover {
   background: #060F0E;
   border: solid #000000 1px;
@@ -29,6 +33,10 @@
   padding:12px;
   border-radius:8px;
   border: solid #7BC5BC 1px;
+}
+
+.button-secondary a{
+  color:#7BC5BC !important;
 }
 
 .button-secondary:hover {
