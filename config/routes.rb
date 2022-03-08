@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   delete "/friendships/:id", to: "friendships#destroy", as: :delete_friendship
   resources :meetups, only: %i[index]
-  resources :friendships, only: %i[index create update] do
+  post "/friendships", to: "friendships#create", as: :create_friendship
+  resources :friendships, only: %i[index update] do
     resources :meetups, only: %i[new create]
     delete "meetup/:id", to: "meetups#destroy", as: :delete_meetup
     post "meetup/:id", to: "meetups#update", as: :update_meetup
