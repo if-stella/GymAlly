@@ -21,7 +21,7 @@ puts 'Creating gyms...'
 # Gym.destroy_all
 Gym.create([{ name: 'McFit Hellersdorf', address: "Christinenstraße 11, Berlin", city: 'Berlin' },
             { name: 'JohnReed Gesundbrunnen', address: "Torstraße 20, Berlin", city: 'Berlin' },
-            # { name: 'McFit Kurfürstendamm', address: city: 'Berlin' },
+            { name: 'McFit Pankow', address: "Wichertstraße 20, Berlin", city: 'Berlin' },
             # { name: 'SuperFit Alexa', address: city: 'Berlin' },
             # { name: 'FitnessFirst Pankow', address: city: 'Berlin'},
             # { name: 'FitX Schöneberg', address: city: 'Berlin' },
