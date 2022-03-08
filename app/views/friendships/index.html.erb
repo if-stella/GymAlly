@@ -1,5 +1,5 @@
-  <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
 <div class="container">
+<%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
   <div class="card-container">
     <% if @friendships.length > 0 %>
       <h4> Your Friendships: </h4>
@@ -23,7 +23,30 @@
         <h4>You do not have any friendships yet.</h4>
         <%= link_to "Start browsing!", users_path, class: "button-primary" %>
     <% end %>
+
+    <% else %>
+      <h4>(So far) no friends here. 😔</h4>
+      <div class="button-primary"><%= link_to "Start browsing!", users_path %></div>
+  <% end %>
+
+  <% if @invitations.length > 0 %>
+    <h4>Invitations for you:</h4>
+    <% @invitations.each do |invitation| %>
+      <div>
+        <%= cl_image_tag invitation.user_one.photo.key, class: "avatar" %>
+        <p><%= invitation.user_one.first_name %> would like to come in contact with you</p>
+        <p>Learn more about <%= link_to invitation.user_one.first_name, user_path(invitation.user_one) %></p>
+        <div>
+          <%= link_to "Accept", friendship_path(invitation), method: :patch %>
+        </div>
+        <div>
+        <%= link_to 'Deny', delete_friendship_path(invitation),
+                method: :delete,
+                data: { confirm: "Are You sure you want to deny #{invitation.user_two.first_name}'s friendship request?" } %>
+        </div>
+      </div>
   </div>
+  
   <div class="card-container">
     <% if @invitations.length > 0 %>
       <h4>Invitations for you:</h4>
@@ -35,6 +58,7 @@
       <% end %>
     <% end %>
   </div>
+  
   <div class="sent">
     <% if @requests.length > 0 %>
       <h4>Friendship requests from you:</h4>

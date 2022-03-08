@@ -2,17 +2,75 @@
 	position: fixed;
 	bottom: 0;
 	width: 100vw;
-	background: white;
+	background: hsl(0, 0%, 95%);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
   z-index: 6;
 }
 
+.navic-box {
+  width: 100%;
+  height:30px;
+  //background:darkblue;
+}
+
+.background-icon {
+  background-size: fill;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-calendar {
+  background-image: url(calendar.svg);
+}
+
+.icon-calendar-active {
+  background-image: url(calendar-active.svg);
+}
+
+.icon-chat {
+  background-image: url(chat.svg);
+}
+
+.icon-chat-active {
+  background-image: url(chat-active.svg);
+}
+
+.icon-home {
+  background-image: url(home.svg);
+}
+
+.icon-home-active {
+  background-image: url(home-active.svg);
+}
+
+.icon-person {
+  background-image: url(person.svg);
+}
+
+.icon-person-active {
+  background-image: url(person-active.svg);
+}
+
+.icon-pin {
+  background-image: url(pin.svg);
+}
+
+.icon-home-pin {
+  background-image: url(pin-active.svg);
+}
+
+.actinav {
+  color: #7BC5BC;
+}
+
 .box {
   text-align:center;
+  width:51px;
   padding-top:8px;
   padding-bottom:16px;
+  // background: lightsalmon;
 }
 
 .box a{
@@ -24,24 +82,4 @@
 
 .box a:hover {
   color:#7BC5BC;
-}
-
-// add toggle class active to nav element!
-.current-page{
-  color:#7BC5BC;
-}
-
-.colourful-svg {
-  mask-image: url("exit.svg");
-  background: #060F0E;
-  height: 24px;
-  width: 24px;
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
-  margin: 0px auto;
-}
-
-.colourful-svg:hover {
-  background: #7bc5bc;
 }
