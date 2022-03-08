@@ -10,6 +10,10 @@
   // background:greenyellow;
 }
 
+.container > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
 .select2 {
   width: 100% !important;
 }
