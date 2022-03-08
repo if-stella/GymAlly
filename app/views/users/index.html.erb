@@ -10,27 +10,33 @@
   <div class="db-filter">
       <div data-controller="filter" class="filter-top">
         <div data-action ="click->filter#showForm" class="semibold">
-          Set Filter:<i class="fas fa-filter"></i>
+          <div class="filter-closed gymally-semibold">
+          Show filters: <%= image_tag "filter.svg" %>
+          </div>
+
         </div>
         <div >
           <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
           <div>
             <%= f.input :gender, collection: @genders.uniq, :required => false %>
-            <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+               <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+
             <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
             <%= f.input :gym, collection: @gyms.uniq, :required => false %>
             <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
             <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-            <%= f.submit "Search" %>
+            <%= f.submit "Search", class: "button-primary" %>
           </div>
           <% end %>
         </div>
       </div>
-      <div class="filter-bottom semibold">
+
+      <div class="button-secondary button-small filter-button">
         <%= link_to users_path do %>
-          Reset Filter:<i class="fas fa-sync d-inline-block"></i>
+          Reset Filter
         <% end %>
       </div>
+
     </div>
 
 <div id="card-container">

@@ -4,10 +4,12 @@
 .container {
   max-width:100%;
   padding-left:24px;
-  padding-top:40px;
+  padding-top:24px;
   padding-bottom:72px;
   padding-right:24px;
+  // background:greenyellow;
 }
+
 .select2 {
-  width: 100%;
+  width: 100% !important;
 }
