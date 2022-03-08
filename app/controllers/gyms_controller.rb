@@ -1,6 +1,6 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.all
+    @gyms = Gym.geocoded
 
     # the `geocoded` scope filters only gyms with coordinates (latitude & longitude)
     @markers = @gyms.geocoded.map do |gym|
