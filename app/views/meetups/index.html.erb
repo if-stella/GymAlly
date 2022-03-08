@@ -1,7 +1,8 @@
 
 <div class="container">
+<%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
   <div class="calender-header">
-    <h1>Your Calendar:</h1>
+    <h4>Your Calendar:</h4>
   </div class="calendar-box">
   <%= month_calendar(events: @meetups_accepted) do |date, meetups| %>
 
