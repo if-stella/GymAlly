@@ -1,21 +1,7 @@
-<% if false %>
-<div class="modal fade"
-     id=<%= "#{user.first_name + user.last_name}Modal" %>
-     tabindex="-1"
-     aria-labelledby=<%= "#{user.first_name + user.last_name}ModalLabel" %>
-     aria-hidden="true">
-<% end %>
-
-<div class="modal fade"
-     id="staticBackdrop"
-     data-bs-backdrop="static"
-     data-bs-keyboard="false"
-     tabindex="-1"
-     aria-labelledby="staticBackdropLabel"
-     aria-hidden="true">
-</div>
-  <div class="modal-dialog">
-    <div class="popup-container">
+<div class="modal fade" id="staticBackdrop<%= "#{user.first_name}" %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="popup-container">
       <div class="popup-main">
         <div class="top">
           <div class="user">
@@ -41,9 +27,12 @@
       </div>
       <div class="popup-bottom">
         <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
-          method: :post %>
+          method: :post,
+          type: "button",
+          class: "button-primary" %>
         <%# <button type="button" class="button-primary">Send</button> %>
       </div>
+    </div>
     </div>
   </div>
 </div>

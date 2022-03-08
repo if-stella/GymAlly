@@ -35,33 +35,38 @@
   <div id="card-container">
       <% @users.each do |user| %>
         <% unless user == current_user %>
-          <%= link_to user_path(user), data: { bs_toggle: "modal", bs_target: "##{user.first_name + user.last_name}Modal"} do %>
-            <div class="user-card" >
-              <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
-              <div class="user-card-right">
-                <div class="user-card-top">
-                  <div class="user-card-name gymally-semibold">
-                      <%= user.first_name %>
-                  </div>
-
-                  <div id="tag-container">
-                    <% user.sports.each do |sport| %>
-                      <div class="tag gymally-tag">
-                        <%= sport.name %>
-                      </div>
-                    <% end %>
-                  </div>
+          <%# <div class="user-card" data-bs-toggle="modal" data-bs-target=<%= "##{user.first_name + user.last_name}Modal" %>
+          <div class="user-card" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= "#{user.first_name}" %>">
+            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
+            <div class="user-card-right">
+              <div class="user-card-top">
+                <div class="user-card-name gymally-semibold">
+                    <%= user.first_name %>
                 </div>
-                <div class="user-card-bottom gymally-small">
-                  <%= user.quote.split[0..2].join(" ") %>...
+
+                <div id="tag-container">
+                  <% user.sports.each do |sport| %>
+                    <div class="tag gymally-tag">
+                      <%= sport.name %>
+                    </div>
+                  <% end %>
                 </div>
               </div>
+              <div class="user-card-bottom gymally-small">
+                <%= user.quote.split[0..2].join(" ") %>...
+              </div>
             </div>
+          </div>
+          <%# ------------- remove when modal issue is resolved --------------- %>
+            <%# <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
+          method: :post %>
+          <%# ------------- remove when modal issue is resolved --------------- %>
 
-            <%# ------------- modal user popup --------------- %>
-            <%= render "user_popup", user: user %>
-            <%# ------------- modal user popup --------------- %>
-          <% end %>
+          <%# ------------- modal user popup --------------- %>
+          <%# <%= render "user_popup", user: user %>
+          <%= render "user_modal", user: user %>
+          <%# ------------- modal user popup --------------- %>
+
         <% end %>
       <% end %>
     </div>

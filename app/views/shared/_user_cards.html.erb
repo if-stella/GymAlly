@@ -1,0 +1,23 @@
+<%# ---------- should be wrapped by div class="card-container" ------ %>
+<div class="user-card">
+  <%= cl_image_tag user.photo.key, class: "avatar-large avatar-bordered" %>
+  <div class="user-card-right">
+    <div class="user-card-top">
+      <div class="user-card-name gymally-semibold">
+          <%= user.first_name %>
+      </div>
+
+      <div id="tag-container">
+        <% user.sports.each do |sport| %>
+          <div class="tag gymally-tag">
+            <%= sport.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="user-card-bottom gymally-small">
+      <%= user.quote.split[0..2].join(" ") %>...
+    </div>
+  </div>
+</div>
+<%# ---------- should be wrapped by div class="card-container" ------ %>
