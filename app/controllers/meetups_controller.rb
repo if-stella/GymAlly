@@ -38,10 +38,10 @@ class MeetupsController < ApplicationController
     @meetup.save!
     if @meetup.save
       flash[:notice] = "You created a meetup request"
-      redirect_to meetups_path
+      redirect_to friendships_path
     else
       flash[:notice] = "You were unable to create a meetup request"
-      redirect_to meetups_path
+      redirect_to friendships_path
     end
   end
 
@@ -50,14 +50,14 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
     @meetup.meetup_status = "accepted"
     @meetup.save!
-    redirect_to meetups_path
+    redirect_to friendships_path
   end
 
   def destroy
     @meetup = Meetup.find(params[:id])
     flash[:notice] = "You canceled a meetup request"
     @meetup.destroy
-    redirect_to meetups_path
+    redirect_to firendships_path
   end
 
   private
