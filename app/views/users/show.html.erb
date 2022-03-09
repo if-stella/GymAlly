@@ -1,7 +1,21 @@
 <div class="container">
 
+  <div class="right">
+    <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+    <div class="settings-info">
+    <div class="gymally-small">
+      Nickname
+    </div>
+    <div class="settings-input">
+      <p><%= @user.nickname.capitalize %></p>
+    </div>
+    </div>
+    <%= link_to users_path do %>
+      <%= image_tag "close.svg"  %>
+    <% end %>
+  </div>
+
   <% if @user == current_user %>
-    <h3>Your Profile</h3>
     <div class="settings">
 
       <div class="settings-box">
@@ -15,19 +29,10 @@
 
      <div class="settings-box">
        <div class="gymally-small">
-        Full name
+        Your Gym
         </div>
         <div class="settings-input">
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
-        </div>
-      </div>
-
-      <div class="settings-box">
-       <div class="gymally-small">
-        Username
-        </div>
-        <div class="settings-input">
-        <p><%= @user.nickname %></p>
+        <p><%= @user.gym.name %></p>
         </div>
       </div>
 
@@ -73,12 +78,12 @@
        <div class="gymally-small">
         Likes to train on:
         </div>
-        <div class="settings-input">
-          <p>
-            <% @user.weekdays.order(:id).each do |day| %>
+        <div class="settings-input settings-tags-box">
+        <% @user.weekdays.order(:id).each do |day| %>
+          <div class="settings-tag">
             <%= day.name %>
+             </div>
             <% end %>
-          </p>
         </div>
       </div>
 
@@ -86,24 +91,18 @@
        <div class="gymally-small">
         My favorite type of workout:
         </div>
-        <div class="settings-input">
-          <p>
-            <% @user.sports.each do |sport| %>
-            <%= sport.name %>
-            <% end %>
-          </p>
+        <div class="settings-input settings-tags-box">
+          <% @user.sports.each do |sport| %>
+            <div class="settings-tag">
+              <%= sport.name %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
 
 
-
-
-
-    <%= @user.gym.name %><br/>
-
-
-    <%= link_to "Edit your profile", edit_user_path(@user) %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %>
+    <!-- <%= link_to "Edit your profile", edit_user_path(@user) %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %> -->
 <% end %>
 </div>
