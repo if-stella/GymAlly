@@ -1,66 +1,64 @@
 <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
 <div class="container">
-  <div class="calender-header">
-    <h4>Your Calendar:</h4>
-  </div class="calendar-box">
-  <%= month_calendar(events: @meetups_accepted) do |date, meetups| %>
-
-    <%= date.strftime("%d") %>
-    <% meetups.each do |meetup| %>
-      <% if meetup.user_two == current_user %>
-        <% user_one = meetup.user_one %>
-      <% else %>
-        <% user_one = meetup.user_two %>
+  <div class="calendar-box">
+    <%= month_calendar(events: @meetups_accepted) do |date, meetups| %>
+      <%= date.strftime("%d") %>
+      <% meetups.each do |meetup| %>
+        <% if meetup.user_two == current_user %>
+          <% user_one = meetup.user_one %>
+        <% else %>
+          <% user_one = meetup.user_two %>
+        <% end %>
+        <%= render "shared/meetup_modal", meetup: meetup, user: user_one %>
       <% end %>
-      <%= render "shared/meetup_modal", meetup: meetup, user: user_one %>
     <% end %>
-  <% end %>
-
-   <div class="card-container">
+  </div>
+   <h4>Your Calendar:</h4>
+  <div class="card-container">
     <% if @meetups_accepted && @meetups_accepted.length > 0 %>
-      <h4>Upcoming</h4>
-      <% @meetups_accepted.each do |invitation| %>
+    <h4>Upcoming</h4>
+    <% @meetups_accepted.each do |invitation| %>
+    <% if current_user == invitation.user_one %>
+      <% user_one = invitation.user_two %>
+    <% else %>
+      <% user_one = invitation.user_one %>
+    <% end %>
+      <%= render "shared/meetup_upcoming_card",
+          user: user_one,
+          invitation: invitation %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="card-container">
+    <% if @meetups_requests && @meetups_requests.length > 0 %>
+      <h4>Meetup Requests - Outgoing</h4>
+      <% @meetups_requests.each do |invitation| %>
       <% if current_user == invitation.user_one %>
-        <% user_one = invitation.user_two %>
+      <% user_one = invitation.user_two %>
       <% else %>
-        <% user_one = invitation.user_one %>
+      <% user_one = invitation.user_one %>
       <% end %>
-        <%= render "shared/meetup_upcoming_card",
+        <%= render "shared/meetup_invitation_card",
             user: user_one,
+            type: "from_me",
             invitation: invitation %>
       <% end %>
     <% end %>
   </div>
-   <div class="card-container">
-      <% if @meetups_requests && @meetups_requests.length > 0 %>
-        <h4>Meetup Requests - Outgoing</h4>
-        <% @meetups_requests.each do |invitation| %>
-        <% if current_user == invitation.user_one %>
-        <% user_one = invitation.user_two %>
-        <% else %>
-        <% user_one = invitation.user_one %>
-        <% end %>
-          <%= render "shared/meetup_invitation_card",
-              user: user_one,
-              type: "from_me",
-              invitation: invitation %>
-        <% end %>
-      <% end %>
-    </div>
   <div class="card-container">
-      <% if @meetups_invitations && @meetups_invitations.length > 0 %>
-        <h4>Meetup Requests - Incoming</h4>
-        <% @meetups_invitations.each do |invitation| %>
-        <% if current_user == invitation.user_one %>
-        <% user_one = invitation.user_two %>
-        <% else %>
-        <% user_one = invitation.user_one %>
-        <% end %>
-          <%= render "shared/meetup_invitation_card",
-              user: user_one,
-              type: "to_me",
-              invitation: invitation %>
-        <% end %>
+    <% if @meetups_invitations && @meetups_invitations.length > 0 %>
+      <h4>Meetup Requests - Incoming</h4>
+      <% @meetups_invitations.each do |invitation| %>
+      <% if current_user == invitation.user_one %>
+      <% user_one = invitation.user_two %>
+      <% else %>
+      <% user_one = invitation.user_one %>
       <% end %>
-    </div>
+        <%= render "shared/meetup_invitation_card",
+            user: user_one,
+            type: "to_me",
+            invitation: invitation %>
+      <% end %>
+    <% end %>
   </div>
+</div>
