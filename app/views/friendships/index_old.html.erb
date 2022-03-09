@@ -23,7 +23,7 @@
               method: :delete,
               data: { confirm: "Are You sure you want to end your friendship with #{user_one.first_name}?" } %>
         </div>
-          <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
+          <%= link_to "Create a meetup request with #{user_one.first_name}", new_friendship_meetup_path(friendship) %>
       </div>
     <% end %>
     <% else %>

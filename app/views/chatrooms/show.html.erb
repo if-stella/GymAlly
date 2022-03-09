@@ -22,7 +22,7 @@
     <% end %>
   </div>
 
-  <div class="chat-form-control form-group">
+  <div class="chat-form-control">
     <%= simple_form_for [@chatroom, @message],
       remote: true,
       html: {data: {chatroom_subscription_target: "form"}} do |f| %>

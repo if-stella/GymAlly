@@ -15,7 +15,9 @@
   <body>
   <!-- <% if current_user %> -->
   <!-- <% end %> -->
-    <%= render 'shared/navbar' %>
+    <% unless (controller_name == "chatrooms" && action_name == "show") || (controller_name == "users" && action_name == "show") %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
 
