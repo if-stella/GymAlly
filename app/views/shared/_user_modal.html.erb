@@ -1,0 +1,43 @@
+<i class="fa fa-light fa-info-circle" data-bs-toggle="modal" data-bs-target="#userModal"></i>
+
+<!-- Modal -->
+<div class="modal fade" id="userModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="popup-container">
+      <div class="popup-main">
+        <div class="top">
+          <div class="user">
+            <%= image_tag user.photo, class: "avatar-large avatar-bordered" %>
+            <div class="user-info" id="staticBackdropLabel">
+              <%= user.first_name %>
+              <div id="tag-container">
+                <% user.sports.each do |sport| %>
+                  <div class="tag gymally-tag">
+                    <%= sport.name %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="quote">
+          <p><%= user.quote %></p>
+        </div>
+
+
+      </div>
+      <% unless type == "friends" %>
+        <div class="popup-bottom">
+        <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
+            method: :post,
+            type: "button",
+            class: "button-primary" %>
+          <%# <button type="button" class="button-primary">Send</button> %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>
