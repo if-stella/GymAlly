@@ -2,7 +2,7 @@
 	position: fixed;
 	bottom: 0;
 	width: 100vw;
-	background: hsl(0, 0%, 95%);
+	background: rgba(255, 255, 255, 0.95);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -70,7 +70,6 @@
   width:51px;
   padding-top:8px;
   padding-bottom:16px;
-  // background: lightsalmon;
 }
 
 .box a{

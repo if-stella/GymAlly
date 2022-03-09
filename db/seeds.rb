@@ -12,6 +12,7 @@ puts "Destroying users, gyms, friendships, chatrooms..."
 Gym.destroy_all
 Meetup.destroy_all
 Friendship.destroy_all
+Weekday.destroy_all
 User.destroy_all
 Chatroom.destroy_all
 Sport.destroy_all
@@ -64,7 +65,7 @@ admins = [
   {
     first_name: "Kang",
     last_name: "Hsieh",
-    nickname: Faker::Internet.username,
+    nickname: "KingKang",
     email: "kang@hsieh.com",
     password: "123456",
     gender: "male",
@@ -74,7 +75,7 @@ admins = [
   {
     first_name: "Stella",
     last_name: "Raab",
-    nickname: Faker::Internet.username,
+    nickname: "Stellarrr",
     email: "stella@raab.com",
     password: "123456",
     gender: "female",
@@ -83,7 +84,7 @@ admins = [
   },
   {
     first_name: "Lydia",
-    nickname: Faker::Internet.username,
+    nickname: "miss-alles",
     last_name: "Alles",
     email: "lydia@alles.com",
     password: "123456",
@@ -94,7 +95,7 @@ admins = [
   {
     first_name: "Ida",
     last_name: "Schwarzkopf",
-    nickname: Faker::Internet.username,
+    nickname: "Ida-isda",
     email: "ida@schwarzkopf.com",
     password: "123456",
     gender: "female",
@@ -108,6 +109,7 @@ admins.each do |admin|
   user = User.create(
     first_name: admin[:first_name],
     last_name: admin[:last_name],
+    nickname: admin[:nickname],
     email: admin[:email],
     age: 12,
     gender: admin[:gender],

@@ -10,10 +10,12 @@
   .chatroom-head {
     display: flex;
     flex-direction: row;
-    background-color: $mint;
     color: #FFFFFF;
     justify-content: space-between;
     align-items: center;
+    background:#7BC5BC;
+    height:64px;
+    padding: 16px;
     // padding: 11px 24px;
 
     .chatroom-head-left {
@@ -21,24 +23,14 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      margin: 0px 16px;
-
-      // img {
-      //   margin-right: 5px;
-      // }
+      // background:red;
     }
 
     a {
       color: #FFFFFF;
-      font-size: 40px;
-      margin: 0 24px;
+      font-size: 24px;
+      // background:yellow;
     }
-
-    h4 {
-      // border-bottom: 1px solid $gray-200;
-      margin-bottom: 0;
-      padding: 1rem;
-  }
   }
 
   .messages {
