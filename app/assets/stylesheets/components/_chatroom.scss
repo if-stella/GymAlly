@@ -15,7 +15,7 @@
     align-items: center;
     background:#7BC5BC;
     height:64px;
-    padding: 16px;
+    padding: 24px;
     // padding: 11px 24px;
 
     .chatroom-head-left {
@@ -23,14 +23,27 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      padding: 12px;
       // background:red;
+
+      * {
+        // display: block;
+        margin-right: 12px;
+
+        img {
+          margin: 0;
+        }
+      }
     }
 
-    a {
-      color: #FFFFFF;
-      font-size: 24px;
-      // background:yellow;
+    .chatroom-head-right {
+      display: none;
     }
+    // a {
+    //   color: #FFFFFF;
+    //   font-size: 24px;
+    //   // background:yellow;
+    // }
   }
 
   .messages {

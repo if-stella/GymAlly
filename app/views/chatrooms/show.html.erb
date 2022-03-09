@@ -6,10 +6,10 @@
       <%= link_to chatrooms_path do %>
         <%= image_tag "chevron_left.svg" %>
       <% end %>
-      <%= cl_image_tag @chatpartner.photo.key, class: "avatar-small" %>
+      <%= cl_image_tag @chatpartner.photo.key, class: "avatar-small avatar-bordered" %>
       <div class="semibold" data-chatroom-subscription-target="chatpartner"><%= @chatpartner.first_name %></div>
     </div>
-    <div>
+    <div class="chatroom-head-right">
       <%= link_to user_path(@chatpartner) do %>
         <%= image_tag "three_dots_vertical.svg" %>
       <% end %>
