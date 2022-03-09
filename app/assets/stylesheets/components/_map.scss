@@ -1,12 +1,16 @@
 .mapboxgl-popup {
   max-width: 75%;
-  background-color: transparent;
   border-radius: 24px;
+  background-color: transparent;
+
 }
 
 .mapboxgl-popup-content {
   text-align: center;
+  background-color: transparent !important;
+  border-radius: 24px;
   padding: 0px 0px 0px !important;
+  box-shadow: 6px 6px 15px -5px rgba(0, 0, 0, 0.15);
 }
 
 .mapboxgl-ctrl-geocoder mapboxgl-ctrl{
@@ -38,6 +42,8 @@
   color: white;
   text-align: left;
   padding: 16px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px
 }
 
 .container-bottom{
@@ -45,14 +51,17 @@
   color: black;
   text-align: left;
   padding: 16px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px
 }
 .mapboxgl-popup-close-button{
   color: white;
-  width: 28px;
+  width: 22px;
   height: 24px;
-  font-size:24px;
-  margin: 0px !important;
-  padding: 0px !important;
+  font-size:22px;
+  background-color: #7BC5BC;
+  margin: 0px 4px !important;
+  padding: 4px 4px !important;
   border: none !important;
 
 }

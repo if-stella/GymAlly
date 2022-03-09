@@ -1,18 +1,15 @@
 <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
-<div class="container">
+
   <% if !@chatrooms.empty? %>
-    <h1><%= current_user.first_name %>'s Chats</h1>
-    <ul>
+    <h2><%= current_user.first_name %>'s Chats</h2>
+     <ul>
       <% @chatrooms.each do |chatroom| %>
-        <li>
-          <%= cl_image_tag chatroom[1].photo.key, class: "avatar" %>
-          <%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %>
+      <%= cl_image_tag chatroom[1].photo.key, class: "avatar" %>
+          <h4><%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %></h4>
           <p><%= chatroom[2][0..60] %></p>
-        </li>
-      <% end %>
-    </ul>
+          <% end %>
+     </ul>
   <% else %>
     <h4> You do not have any chats (yet!)</h4>
     <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
   <% end %>
-</div>
