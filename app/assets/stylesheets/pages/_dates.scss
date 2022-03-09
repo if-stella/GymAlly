@@ -5,6 +5,12 @@
   height:72px;
   align-items: center;
 
+  .upcoming-card-right {
+    flex-grow:1;
+    padding-left:0px;
+    padding-top:8px;
+  }
+
   .meetup-card-top {
     display: flex;
     padding-bottom:4px;
@@ -19,5 +25,17 @@
 
   #tag-container {
     display:flex;
+  }
+  .upcoming-card-top {
+    display: flex;
+    padding-bottom:4px;
+    color: #060F0E;
+  }
+
+  .upcoming-tag {
+    padding: 2px 2px;
+    background: #7bc5bc;
+    border-radius: 8px;
+    margin-right:4px;
   }
 }

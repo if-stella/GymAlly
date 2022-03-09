@@ -16,20 +16,21 @@
     <% end %>
   <% end %>
 
-  <% if @meetups_accepted.length > 0 %>
-  <div class="gymally-semibold">Upcoming:</div>
-    <% @meetups_accepted.each do |meetup| %>
-      <% if meetup.user_two == current_user %>
-        <% user_one = meetup.user_one %>
+   <div class="card-container">
+    <% if @meetups_accepted && @meetups_accepted.length > 0 %>
+      <h4>Upcoming</h4>
+      <% @meetups_accepted.each do |invitation| %>
+      <% if current_user == invitation.user_one %>
+        <% user_one = invitation.user_two %>
       <% else %>
-        <% user_one = meetup.user_two %>
+        <% user_one = invitation.user_one %>
       <% end %>
-    <div class="card-container">
-       <%= render "shared/user_cards", user: user_one %>
-        <%# <%= render partial: "user_modal", locals: { user_one: user_one, meetup: meetup } %> %>
-    </div>
+        <%= render "shared/meetup_upcoming_card",
+            user: user_one,
+            invitation: invitation %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
    <div class="card-container">
       <% if @meetups_requests && @meetups_requests.length > 0 %>
         <h4>Meetup Requests - Outgoing</h4>
@@ -42,7 +43,6 @@
           <%= render "shared/meetup_invitation_card",
               user: user_one,
               type: "from_me",
-              # description: "wants to be your ally",
               invitation: invitation %>
         <% end %>
       <% end %>
@@ -59,7 +59,6 @@
           <%= render "shared/meetup_invitation_card",
               user: user_one,
               type: "to_me",
-              # description: "wants to be your ally",
               invitation: invitation %>
         <% end %>
       <% end %>
