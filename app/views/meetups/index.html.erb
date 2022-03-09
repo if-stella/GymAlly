@@ -12,8 +12,10 @@
       <% else %>
         <% user_one = meetup.user_two %>
       <% end %>
+      <%= render "shared/meetup_modal", meetup: meetup, user: user_one %>
     <% end %>
   <% end %>
+
   <% if @meetups_accepted.length > 0 %>
   <div class="gymally-semibold">Upcoming:</div>
     <% @meetups_accepted.each do |meetup| %>
