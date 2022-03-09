@@ -25,7 +25,7 @@
 
 
       </div>
-      <% unless Friendship.where(user_one: current_user, user_two: user) || Friendship.where(user_two: current_user, user_one: user) %>
+      <% unless Friendship.find_by("user_one_id = #{current_user.id} and user_two_id = #{user.id}") || Friendship.find_by("user_two_id = #{current_user.id} and user_one_id = #{user.id}") %>
       <div class="popup-bottom">
         <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
           method: :post,
