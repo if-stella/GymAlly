@@ -1,29 +1,28 @@
 <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
 <div class="container">
-<div class="card-container">
-
-  <% if !@chatrooms.empty? %>
-    <h2><%= current_user.first_name %>'s Chats</h2>
+  <div class="card-container">
+    <% if !@chatrooms.empty? %>
       <% @chatrooms.each do |chatroom| %>
-
-      <div class="user-card">
-        <%= cl_image_tag chatroom[1].photo.key, class: "avatar-large avatar-bordered" %>
-          <div class="user-card-right">
-           <div class="user-card-top">
-              <div class="user-card-name gymally-semibold">
-               <h4><%= link_to "#{chatroom[1].first_name}", chatroom_path(chatroom[0]) %></h4>
-               <p><%= chatroom[2][0..60] %></p>
+        <%= link_to chatroom_path(chatroom[0]) do %>
+          <div class="user-card">
+            <%= cl_image_tag chatroom[1].photo.key, class: "avatar-large avatar-bordered" %>
+            <div class="user-card-right">
+              <div class="user-card-top">
+                <div class="user-card-name gymally-semibold">
+                  <%= chatroom[1].first_name %>
+                  <p><%= chatroom[2][0..60] %></p>
+                </div>
               </div>
             </div>
+            <div class="user-card-bottom gymally-small">
+              <%# time %>
+            </div>
           </div>
-        <div class="user-card-bottom gymally-small">
-
-        </div>
-      </div>
-     <% end %>
+        <% end %>
+      <% end %>
     <% else %>
-    <h4> You do not have any chats (yet!)</h4>
-    <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
-  <% end %>
-</div>
+      <h4> You do not have any chats (yet!)</h4>
+      <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
+    <% end %>
+  </div>
 </div>
