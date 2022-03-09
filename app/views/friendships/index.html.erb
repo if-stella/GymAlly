@@ -14,7 +14,6 @@
               <%= render "shared/user_cards", user: user_one %>
             <% end %>
           <% end %>
-          <%= link_to "Create a meetup request with #{user_one.first_name}", new_friendship_meetup_path(friendship) %>
       <% end %>
       <% else %>
         <h4> You do not have any allies here (yet!)</h4>
