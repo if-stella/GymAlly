@@ -1,18 +1,63 @@
 .settings {
-  background:yellow;
+  //background:yellow;
 }
 
 .settings > *:not(:last-child) {
   margin-bottom: 16px;
 }
 
+.right {
+  // background:green;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.settings-info {
+  overflow:hidden;
+  // background:pink;
+  display:flex;
+  flex-grow:1;
+  padding-left:16px;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.settings-half {
+  // background:darkblue;
+  display:flex;
+  justify-content: space-between;
+  gap:32px;
+}
+
 .settings-box {
-  background:orange;
+  // background:orange;
   color: $mint;
+  flex-grow:1;
 }
 
 .settings-input {
   color: $grey-dark;
-  background:red;
+  // background:red;
   padding-top:4px;
+}
+
+.settings-tags-box {
+  display:flex;
+}
+
+
+.settings-tag {
+  padding: 2px 4px;
+  background: #7bc5bc;
+  border-radius: 8px;
+  margin-left:4px;
+  font-weight:500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-decoration:none;
+  color:white;
+  text-align:center;
+  flex-grow:0;
 }
