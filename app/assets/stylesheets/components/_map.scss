@@ -21,6 +21,7 @@
   box-shadow: none;
   border-radius: 24px;
   margin: 0 auto;
+
 }
 
 .mapbox{
@@ -47,10 +48,14 @@
 }
 .mapboxgl-popup-close-button{
   color: white;
-  width: 24px;
+  width: 28px;
   height: 24px;
   font-size:24px;
-  margin-top:8px;
-  margin-right:8px;
-  border:0px;
+  margin: 0px !important;
+  padding: 0px !important;
+  border: none !important;
+
+}
+.mapboxgl-ctrl-geocoder--input{
+  width: 92vw !important;
 }
