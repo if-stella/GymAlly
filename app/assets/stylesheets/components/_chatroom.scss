@@ -83,7 +83,12 @@
   background-color: $grey-light;
 
   ::placeholder {
-    line-height: 250%;
+    // line-height: 250%;
+    align-items: center;
+  }
+
+  #message_text {
+    height: 40px;
   }
 
 }
