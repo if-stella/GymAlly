@@ -14,7 +14,7 @@
               <%= render "shared/user_cards", user: user_one %>
             <% end %>
           <% end %>
-          <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
+          <%# <%= link_to "Create a meetup request with #{friendship.user_one.first_name}", new_friendship_meetup_path(friendship) %>
       <% end %>
       <% else %>
         <h4> You do not have any allies here (yet!)</h4>
@@ -23,22 +23,24 @@
   </div>
   <div class="card-container">
     <% if @invitations.length > 0 %>
-      <h4>Invitations for you:</h4>
+      <h4>Friend Requests - Incoming</h4>
       <% @invitations.each do |invitation| %>
         <%= render "shared/friendship_card",
             user: invitation.user_one,
-            description: "wants to be your ally",
+            type: "to_me",
+            # description: "wants to be your ally",
             invitation: invitation %>
       <% end %>
     <% end %>
   </div>
   <div class="sent">
     <% if @requests.length > 0 %>
-      <h4>Friendship requests from you:</h4>
+      <h4>Friendship Requests - Sent</h4>
       <% @requests.each do |request| %>
         <%= render "shared/friendship_card",
             user: request.user_two,
-            description: "request sent",
+            type: "from_me",
+            # description: "request sent",
             invitation: request%>
       <% end %>
     <% end %>

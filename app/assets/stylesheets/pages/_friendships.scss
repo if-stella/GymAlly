@@ -1,0 +1,24 @@
+.friend-card {
+  overflow:hidden;
+  display: flex;
+  position: relative;
+  height:72px;
+  align-items: center;
+
+  .friend-card-right {
+    flex-grow:1;
+    padding-left:12px;
+    padding-top:8px;
+  }
+
+  .friend-card-top {
+    display: flex;
+    justify-content:space-between;
+    padding-bottom:4px;
+    color: #060F0E;
+  }
+
+  .friend-card-bottom {
+    color:#5D6664;
+  }
+}

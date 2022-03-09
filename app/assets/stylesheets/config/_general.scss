@@ -58,3 +58,27 @@
   font-size: 10px;
   line-height: 10px;
 }
+
+.button-accept {
+  background: #7BC5BC;
+  color: white;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 4px;
+  padding: 8px;
+}
+
+.button-deny {
+  padding: 8px;
+  background: #FFFFFF;
+  border: 1px solid #7BC5BC;
+  color: #7BC5BC;
+  box-sizing: border-box;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 4px;
+}

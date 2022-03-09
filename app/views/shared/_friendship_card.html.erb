@@ -1,22 +1,41 @@
 <%# ---------- should be wrapped by div class="card-container" ------ %>
-<div class="user-card">
+<div class="friend-card">
   <%= cl_image_tag user.photo.key, class: "avatar-small" %>
-  <div class="user-card-right">
-    <div class="user-card-top">
-      <div class="user-card-name gymally-semibold">
+  <div class="friend-card-right">
+    <div class="friend-card-top">
+      <div class="friend-card-name gymally-semibold">
           <%= user.first_name %>
       </div>
 
     </div>
-    <div class="user-card-bottom gymally-small">
-      <%= description %>
+    <div class="friend-card-bottom gymally-small">
+      <% case type
+		   when "to_me" %>
+        <%= "wants to be your ally" %>
+      <% when "from_me" %>
+        <%= "request sent" %>
+       <% end %>
     </div>
   </div>
   <div>
-    <%= link_to "Accept", friendship_path(invitation), method: :patch %>
-    <%= link_to 'Deny', delete_friendship_path(invitation),
-                  method: :delete,
-                  data: { confirm: "Are You sure you want to deny #{invitation.user_two.first_name}'s friendship request?" } %>
+    <% case type
+		   when "to_me" %>
+        <%= link_to 'Deny', delete_friendship_path(invitation),
+                      method: :delete,
+                      type: "button",
+                      class: "button-deny gymally-xsmall",
+                      data: { confirm: "Are You sure you want to deny #{invitation.user_two.first_name}'s friendship request?" } %>
+        <%= link_to "Accept", friendship_path(invitation),
+          method: :patch,
+          type: "button",
+          class: "button-accept gymally-xsmall" %>
+      <% when "from_me" %>
+        <%= link_to 'Withdraw request', delete_friendship_path(invitation),
+                      method: :delete,
+                      type: "button",
+                      class: "button-deny gymally-xsmall",
+                      data: { confirm: "Are You sure you want to withdraw request to #{invitation.user_two.first_name}?" } %>
+       <% end %>
   </div>
 </div>
 <%# ---------- should be wrapped by div class="card-container" ------ %>
