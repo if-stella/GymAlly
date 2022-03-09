@@ -25,6 +25,7 @@
 
 
       </div>
+      <% unless Friendship.where(user_one: current_user, user_two: user) || Friendship.where(user_two: current_user, user_one: user) %>
       <div class="popup-bottom">
         <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
           method: :post,
@@ -32,6 +33,7 @@
           class: "button-primary" %>
         <%# <button type="button" class="button-primary">Send</button> %>
       </div>
+      <% end %>
     </div>
     </div>
   </div>

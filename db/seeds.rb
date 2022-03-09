@@ -12,9 +12,9 @@ puts "Destroying users, gyms, friendships, chatrooms..."
 Gym.destroy_all
 Meetup.destroy_all
 Friendship.destroy_all
-Weekday.destroy_all
 User.destroy_all
 Chatroom.destroy_all
+Weekday.destroy_all
 Sport.destroy_all
 UsersSport.destroy_all
 
