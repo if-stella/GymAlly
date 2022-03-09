@@ -1,0 +1,18 @@
+.settings {
+  background:yellow;
+}
+
+.settings > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.settings-box {
+  background:orange;
+  color: $mint;
+}
+
+.settings-input {
+  color: $grey-dark;
+  background:red;
+  padding-top:4px;
+}

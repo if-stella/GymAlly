@@ -1,32 +1,109 @@
-<% if @user == current_user %>
-  <h1>Your Profile</h1>
-  <p><%= @user.first_name %> <%= @user.last_name %> <br/></p>
-  <%= @user.gender %><br/>
-  <p><%= @user.age %> years old</p>
-  <p><%= @user.quote %></p>
-  <p>Likes to train on: <% @user.weekdays.order(:id).each do |day| %>
-    <%= day.name %>
-  <% end %></p>
-  <p>Favorite sports: <% @user.sports.each do |sport| %>
-    <%= sport.name %>
-  <% end %></p>
-  <%= @user.gym.name %><br/>
-  <%= link_to "Edit your profile", edit_user_path(@user) %>
-   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %>
-<% else %>
-  <p><%= @user.first_name %> <%= @user.last_name %> <br/></p>
-  <%= @user.gender %><br/>
-  <p><%= @user.age %> years old</p>
-  <p><%= @user.quote %></p>
-  <p>Likes to train on: <% @user.weekdays.order(:id).each do |day| %>
-    <%= day.name %>
-  <% end %></p>
-  <p>Favorite sports: <% @user.sports.each do |sport| %>
-    <%= sport.name %>
-  <% end %></p>
-  <%= @user.gym.name %><br/>
-  <% if !Friendship.find_by(user_one: [current_user, @user], user_two: [current_user, @user]) %>
-    <%= link_to "Send friendship request", friendships_path(user_two_id: @user.id), method: :post %>
-  <% end %>
-  <%= link_to "Back to all users", users_path %>
+<div class="container">
+
+  <% if @user == current_user %>
+    <h3>Your Profile</h3>
+    <div class="settings">
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        Full name
+        </div>
+        <div class="settings-input">
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        </div>
+      </div>
+
+     <div class="settings-box">
+       <div class="gymally-small">
+        Full name
+        </div>
+        <div class="settings-input">
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        </div>
+      </div>
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        Username
+        </div>
+        <div class="settings-input">
+        <p><%= @user.nickname %></p>
+        </div>
+      </div>
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        E-mail
+        </div>
+        <div class="settings-input">
+        <p><%= @user.email %></p>
+        </div>
+      </div>
+
+
+      <div class="settings-half">
+        <div class="settings-box">
+        <div class="gymally-small">
+          Gender
+          </div>
+          <div class="settings-input">
+            <p><%= @user.gender.capitalize %><br/></p>
+          </div>
+        </div>
+        <div class="settings-box">
+        <div class="gymally-small">
+          Age
+          </div>
+          <div class="settings-input">
+            <p><%= @user.age %><br/></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        Short description
+        </div>
+        <div class="settings-input">
+          <p><%= @user.quote %></p>
+        </div>
+      </div>
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        Likes to train on:
+        </div>
+        <div class="settings-input">
+          <p>
+            <% @user.weekdays.order(:id).each do |day| %>
+            <%= day.name %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+      <div class="settings-box">
+       <div class="gymally-small">
+        My favorite type of workout:
+        </div>
+        <div class="settings-input">
+          <p>
+            <% @user.sports.each do |sport| %>
+            <%= sport.name %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%= @user.gym.name %><br/>
+
+
+    <%= link_to "Edit your profile", edit_user_path(@user) %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "gymally-navbar" %>
 <% end %>
+</div>
