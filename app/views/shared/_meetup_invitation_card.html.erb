@@ -6,13 +6,13 @@
       <div class="friend-card-name gymally-semibold">
           <%= user.first_name %>
       </div>
+      <div class="">
+        <%= render "shared/user_modal", user: user, type: "friends"%>
+      </div>
       <div id="tag-container">
         <div class="tag gymally-tag">
             <%= invitation.sport.name %>
         </div>
-      </div>
-      <div class="">
-        <%= render "shared/user_modal", user: user, type: "friends"%>
       </div>
     </div>
     <div class="friend-card-bottom gymally-small">
