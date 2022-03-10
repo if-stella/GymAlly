@@ -19,12 +19,12 @@
         <%= f.input :gym, collection: @gyms.uniq, :required => false %>
         <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
         <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+        <%= f.submit "Search", class: "button-primary" %>
         <div class="filter-button">
           <%= link_to users_path do %>
             Reset filters
           <% end %>
         </div>
-        <%= f.submit "Search", class: "button-primary" %>
       </div>
       <% end %>
     </div>
