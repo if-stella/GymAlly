@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_200319) do
+ActiveRecord::Schema.define(version: 2022_03_10_094846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,9 @@ ActiveRecord::Schema.define(version: 2022_03_04_200319) do
     t.string "meetup_status"
     t.string "sender"
     t.datetime "date"
+    t.bigint "sport_id", null: false
     t.index ["friendship_id"], name: "index_meetups_on_friendship_id"
+    t.index ["sport_id"], name: "index_meetups_on_sport_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 2022_03_04_200319) do
   add_foreign_key "friendships", "users", column: "user_one_id"
   add_foreign_key "friendships", "users", column: "user_two_id"
   add_foreign_key "meetups", "friendships"
+  add_foreign_key "meetups", "sports"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "users_sports", "sports"
