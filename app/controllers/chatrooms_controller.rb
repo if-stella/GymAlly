@@ -42,6 +42,6 @@ class ChatroomsController < ApplicationController
   end
 
   def last_message(chatroom)
-    Message.where(chatroom: chatroom).empty? ? "Start to chat" : Message.where(chatroom: chatroom).last.text
+    Message.where(chatroom: chatroom).empty? ? "Start to chat" : Message.where(chatroom: chatroom).last
   end
 end
