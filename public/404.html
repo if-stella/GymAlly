@@ -3,14 +3,25 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #ffffff;
     color: #2E2F30;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
   }
+
+  .rails-default-error-page div.own {
+    padding-top:64px;
+    padding-left:24px;
+    padding-right:24px;
+  }
+
 
   .rails-default-error-page div.dialog {
     width: 95%;
@@ -32,12 +43,16 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    font-weight:600 !important;
+    font-size: 32px !important;
+    line-height: 40px !important;
+    margin-bottom:0px !important;
+    color:#7BC5BC;
   }
 
+
   .rails-default-error-page div.dialog > p {
+    font-family: poppins;
     margin: 0 0 1em;
     padding: 1em;
     background-color: #F7F7F7;
@@ -56,12 +71,18 @@
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
+  <div class="own">
+    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1646923970/404_lnn4r2.png" alt="" style="width:311px;"> >
+    <h1>Oh No! There's nothing to see here...</h1>
+    <p>You shouldn't be here. Maybe try going back to the start?</p>
+
+  </div>
+  <!-- <div class="dialog">
     <div>
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  </div> -->
 </body>
 </html>
