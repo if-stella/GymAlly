@@ -22,7 +22,16 @@
         <div class="quote">
           <p><%= user.quote %></p>
         </div>
-
+        <div class="gymally-xsmall likes-to-train">
+          <p>Likes to train on:</p>
+        </div>
+        <div class="settings-input modal-tags-box" >
+        <% user.weekdays.order(:id).each do |day| %>
+          <div class="modal-tag">
+            <%= day.name %>
+             </div>
+            <% end %>
+        </div>
 
       </div>
       <% unless Friendship.find_by("user_one_id = #{current_user.id} and user_two_id = #{user.id}") || Friendship.find_by("user_two_id = #{current_user.id} and user_one_id = #{user.id}") %>
