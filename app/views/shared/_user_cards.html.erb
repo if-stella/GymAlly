@@ -20,7 +20,6 @@
       <% friendship = Friendship.find_by("user_one_id = #{current_user.id} and user_two_id = #{user.id}") || Friendship.find_by("user_two_id = #{current_user.id} and user_one_id = #{user.id}") %>
       <%= link_to "Train with #{user.first_name}!", new_friendship_meetup_path(friendship),
               method: :get,
-              type: "button",
               class: "text-link" %>
 
     </div>

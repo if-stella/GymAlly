@@ -27,11 +27,11 @@
       </div>
       <% unless Friendship.find_by("user_one_id = #{current_user.id} and user_two_id = #{user.id}") || Friendship.find_by("user_two_id = #{current_user.id} and user_one_id = #{user.id}") %>
       <div class="popup-bottom">
-        <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
-          method: :post,
-          type: "button",
-          class: "button-primary" %>
-        <%# <button type="button" class="button-primary">Send</button> %>
+        <div class="button-primary">
+          <%= link_to "Send friendship request", create_friendship_path(user_two_id: user.id),
+            method: :post %>
+          <%# <button type="button" class="button-primary">Send</button> %>
+        </div>
       </div>
       <% end %>
     </div>
