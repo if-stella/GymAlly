@@ -77,9 +77,7 @@ ActiveRecord::Schema.define(version: 2022_03_04_200319) do
     t.string "meetup_status"
     t.string "sender"
     t.datetime "date"
-    t.bigint "sport_id"
     t.index ["friendship_id"], name: "index_meetups_on_friendship_id"
-    t.index ["sport_id"], name: "index_meetups_on_sport_id"
   end
 
   create_table "messages", force: :cascade do |t|
