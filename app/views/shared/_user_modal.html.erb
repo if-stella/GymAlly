@@ -22,20 +22,18 @@
           </div>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="age-gender">
-          <p><%= user.age %> years old</p>
-        </div>
-        <div class="gym">
-          <p><i class="fa fa-regular fa-house-user"></i> <%= user.gym.name %></p>
-        </div>
-        <div class="preferred-days">
-          <i class="fa fa-regular fa-calendar-day"></i>
-          <% user.weekdays.each do |day| %>
-            <%= day.name %>
-          <% end %>
-        </div>
         <div class="quote">
           <p><%= user.quote %></p>
+        </div>
+        <div class="gymally-xsmall likes-to-train">
+          <p>Likes to train on:</p>
+        </div>
+        <div class="settings-input modal-tags-box" >
+        <% user.weekdays.order(:id).each do |day| %>
+          <div class="modal-tag">
+            <%= day.name %>
+             </div>
+            <% end %>
         </div>
 
 
