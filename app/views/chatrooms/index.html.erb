@@ -11,15 +11,14 @@
                 <div class="user-card-name gymally-semibold">
                   <%= chatroom[1].first_name %>
                   <div class="greentext">
-                  <% if chatroom[2] == "Start to chat" %>
-                  
-                  <%= chatroom[2] %>
+                    <% if chatroom[2] == "Start to chat" %>
+                    <%= chatroom[2] %>
                   </div>
-                  <% else %>
-                  <div class="greytext">
-                  <%= chatroom[2].text[0..15] + "..." %>
-                  </div>
-                  <% end %>
+                    <% else %>
+                      <div class="greytext">
+                        <%= chatroom[2].text[0..15] + "..." %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
