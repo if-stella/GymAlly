@@ -49,6 +49,14 @@
   row-gap: 4px;
 }
 
+.modal-tags-box {
+  display:flex;
+  // background:purple;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  row-gap: 4px;
+  margin-left: 6px;
+}
 
 .settings-tag {
   padding: 2px 4px;
@@ -63,4 +71,26 @@
   color:white;
   text-align:center;
   flex-grow:0;
+}
+.modal-tag {
+  padding: 2px 4px;
+  background: #7bc5bc;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-left:4px;
+  font-weight:500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-decoration:none;
+  color:white;
+  text-align:center;
+  flex-grow:0;
+}
+.likes-to-train {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+
 }
