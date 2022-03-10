@@ -10,12 +10,24 @@
               <div class="user-card-top">
                 <div class="user-card-name gymally-semibold">
                   <%= chatroom[1].first_name %>
-                  <p><%= chatroom[2] == "Start to chat" ? chatroom[2] : chatroom[2].text[0..15] + "..." %></p>
+                  <div class="greentext">
+                  <% if chatroom[2] == "Start to chat" %>
+                  
+                  <%= chatroom[2] %>
+                  </div>
+                  <% else %>
+                  <div class="greytext">
+                  <%= chatroom[2].text[0..15] + "..." %>
+                  </div>
+                  <% end %>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="user-card-bottom gymally-small">
+            <div class="greytext">
               <%= chatroom[2] == "Start to chat" ? "" : chatroom[2].created_at.strftime("%l:%M %p") %>
+              </div>
             </div>
           </div>
         <% end %>
