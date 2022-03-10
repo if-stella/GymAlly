@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+.button-fw {
+  display:block;
+  width:100%;
+}
+
 .button-primary a{
   color:white !important;
 }
@@ -95,4 +100,11 @@
   padding:8px;
   font-size: 10px;
   line-height: 10px;
+}
+
+.text-link {
+  color: #7BC5BC;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
