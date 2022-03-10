@@ -6,7 +6,8 @@
       controller: "flatpickr",
       flatpickr_enable_time: true,
       time_24hr: true,
-      defaultDate: Time.now
+      defaultDate: Time.now,
+      disableMobile: "true"
       } %>
 
       <%= f.collection_select :sport, Sport.all, :id, :name %>
