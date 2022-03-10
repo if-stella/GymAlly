@@ -1,0 +1,5 @@
+meta_product_name: "GymAlly"
+meta_title: "GymAlly - finding workout buddies at your local gym"
+meta_description: "An app helping you to find new workout friends at your gyms, create workout meetups."
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
