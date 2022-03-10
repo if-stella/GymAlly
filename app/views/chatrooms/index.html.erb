@@ -13,7 +13,9 @@
                   <div class="greentext">
                     <% if chatroom[2] == "Start to chat" %>
                     <%= chatroom[2] %>
+                    <%= image_tag "start-chat.svg" %>
                   </div>
+
                     <% else %>
                       <div class="greytext">
                         <%= chatroom[2].text[0..15] + "..." %>
