@@ -22,7 +22,6 @@
   <div>
     <%= link_to 'Cancel', friendship_delete_meetup_path(invitation.friendship, invitation),
                   method: :delete,
-                  type: "button",
                   class: "button-deny gymally-xsmall",
                   data: { confirm: "Are You sure you want to withdraw request to #{invitation.user_two.first_name}?" } %>
   </div>
