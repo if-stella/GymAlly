@@ -102,7 +102,7 @@
     </div>
 <% end %>
 <div>
-<%= image_tag "logout.svg" %>
+
 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-link" %>
 </div>
 <%= link_to "Edit your profile", edit_user_path(@user), class: "button-primary" %>

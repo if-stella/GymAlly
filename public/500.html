@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #ffffff;
     color: #2E2F30;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
+  }
+
+  .rails-default-error-page div.own {
+    padding-top:64px;
+    padding-left:24px;
+    padding-right:24px;
   }
 
   .rails-default-error-page div.dialog {
@@ -31,11 +40,14 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+   .rails-default-error-page h1 {
+    font-weight:600 !important;
+    font-size: 32px !important;
+    line-height: 40px !important;
+    margin-bottom:0px !important;
+    color:#7BC5BC;
   }
+
 
   .rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
@@ -56,11 +68,11 @@
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="own">
+    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1646924439/500_auniup.png" alt="" style="width:311px;"> >
+    <h1>Oh No! There's nothing to see here...</h1>
+    <p>You shouldn't be here. Maybe try going back to the start?</p>
+
   </div>
 </body>
 </html>
