@@ -1,5 +1,6 @@
 .chatroom {
-  background: $mint-light;
+  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1646928210/chat-bg_abl7n0.jpg");
+  background-size: cover;
   height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
