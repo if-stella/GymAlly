@@ -22,17 +22,14 @@
 		   when "to_me" %>
         <%= link_to 'Deny', delete_friendship_path(invitation),
                       method: :delete,
-                      type: "button",
                       class: "button-deny gymally-xsmall",
                       data: { confirm: "Are You sure you want to deny #{invitation.user_two.first_name}'s friendship request?" } %>
         <%= link_to "Accept", friendship_path(invitation),
           method: :patch,
-          type: "button",
           class: "button-accept gymally-xsmall" %>
       <% when "from_me" %>
         <%= link_to 'Withdraw request', delete_friendship_path(invitation),
                       method: :delete,
-                      type: "button",
                       class: "button-deny gymally-xsmall",
                       data: { confirm: "Are You sure you want to withdraw request to #{invitation.user_two.first_name}?" } %>
        <% end %>
