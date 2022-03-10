@@ -15,12 +15,14 @@
         <% end %>
       </div>
     </div>
-    <div class="friendship-card-button">
+    <div class="">
+      <%= image_tag "invite-out.svg" %>
       <% friendship = Friendship.find_by("user_one_id = #{current_user.id} and user_two_id = #{user.id}") || Friendship.find_by("user_two_id = #{current_user.id} and user_one_id = #{user.id}") %>
-      <%= link_to "Create a meetup request with #{user.first_name}", new_friendship_meetup_path(friendship),
+      <%= link_to "Train with #{user.first_name}!", new_friendship_meetup_path(friendship),
               method: :get,
               type: "button",
-              class: "button-meetup" %>
+              class: "text-link" %>
+
     </div>
   </div>
 </div>
