@@ -27,7 +27,7 @@
       remote: true,
       html: {data: {chatroom_subscription_target: "form"}} do |f| %>
         <%= f.input :text, label: false, placeholder: "Send a message", class: "form-control string required" %>
-        <button name="button" type="submit" class="btn">
+        <button name="button" type="submit" class="btn send-chat">
           <%= image_tag "send.svg" %>
         </button>
     <% end %>
