@@ -2,12 +2,15 @@
   background-color: $mint;
   color: white;
   padding: 16px;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
 
   .top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 8px;
+
 
     .user {
       display: flex;
@@ -48,10 +51,19 @@
   }
 
 }
+.popup-container {
+  border-radius: 20px !important;
+
+}
+.modal-content {
+  border-radius: 20px !important;
+}
 
 .popup-bottom {
   background-color: white;
   // color: white;
   padding: 16px;
   text-align:center;
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
 }
