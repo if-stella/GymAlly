@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#index', as: :users
+  # root to: 'users#index', as: :users
+  root to: 'pages#home'
+  get "/users", to: "users#index", as: :users
   resources :users, only: %i[show edit update]
   delete "/friendships/:id", to: "friendships#destroy", as: :delete_friendship
   resources :meetups, only: %i[index]
