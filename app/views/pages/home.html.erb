@@ -1,3 +1,131 @@
-<h1>GymAlly - Landing Page</h1>
-<p>This will be the landing page... hopefully?</p>
-<%= link_to "Login", new_user_session_path %>
+<div class="landing-container">
+  <div class="landing-box first-box">
+    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647606136/landing-product-mobile_ozmdqw.png" alt="" style="width:327px;">
+    <h1>Find allies in your gym!</h1>
+    <div class="big-p">Find new friends, connect with them, train together, feel stronger!</div>
+    <div class="button-primary">
+    <%= link_to "Create account", new_user_session_path %>
+    </div>
+
+  </div>
+
+  <div class="landing-box">
+    <div class="big-p">
+      <strong>Gymally</strong> is a team of <strong>four developers</strong> and <strong>one designer</strong> that have been working together for over <strong>10 days</strong>, to create an app that connects you to other people in the gym, without it getting awkward.
+    </div>
+    <div class="button-primary">
+      <%= link_to "Sign up", new_user_session_path %>
+    </div>
+    <div class="last-button">
+    <!-- Correct link? -->
+      <%= link_to "Create account", destroy_user_session_path, method: :delete, class: "text-link"%>
+    </div>
+  </div>
+
+  <div class="landing-box bg-mint">
+    <div class="top-box">
+      <%= image_tag "logolarge.svg" %>
+      <p>This is a short text about Gymally that describes the awesome product again, because it actually is pretty awesome and we did a great job there.</p>
+    </div>
+    <div class="bottom-box">
+      <div class="product-li">
+        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-1_vwfjpe.png" alt="gymally device dashboard" style="width:120px;">
+        <div class="gymally-small">See who else is there in your gym, contact them and find new allies to achieve your goals!
+        </div>
+      </div>
+      <div class="product-li">
+        <div class="gymally-small">Find people to chat with and connect, without feeling awkward...
+        </div>
+        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-2_zkr5ia.png" alt="gymally device chat" style="width:120px;">
+      </div>
+      <div class="product-li">
+        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647618130/explain-3_lufzex.png" alt="gymally device calendar" style="width:120px;">
+        <div class="gymally-small">Create appointments, to set everything in stone!
+        </div>
+      </div>
+      <div class="product-li">
+        <div class="gymally-small">Check out other gyms in your neighborhood, to connect with more allies around you!
+        </div>
+        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-4_mbjdys.png" alt="gymally device map" style="width:120px;">
+      </div>
+  </div>
+
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        <strong>Gymally</strong> is a very great product, and this is a very great page, I hope you appreciate that.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Code</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">🙂 Ida Schwarzkopf</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">🤫 Lydia Alles</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">😝 Kang Hsieh</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">🥲 Stella Raab</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Design</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">⭐️ Stella Raab</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white gymally-semibold">📨 hy@gymally.com</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Gymally
+    <a class="text-white" href="https://mdbootstrap.com/">All rights reserved</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
