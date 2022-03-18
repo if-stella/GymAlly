@@ -1,1 +1,55 @@
 // Specific CSS for your home-page
+.landing-container {
+  background:white;
+}
+
+.landing-container > *:not(:last-child) {
+  // margin-bottom: 24px;
+}
+
+.landing-box {
+  // background:blue;
+  padding:40px 24px;
+}
+
+.landing-box h1{
+  margin-bottom:8px !important;
+}
+
+.landing-box > *:not(:last-child) {
+  margin-bottom:24px;
+}
+
+.first-box {
+  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647605961/stage_mobile-bg_i17erd.jpg");
+  background-size: cover;
+  height: 100vh;
+  text-align:center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bg-mint {
+  background: $mint;
+  color:white;
+
+  .top-box {
+    //background:greenyellow;
+    text-align:center;
+    }
+
+    .top-box > *:not(:last-child) {
+      margin-bottom: 16px !important;
+    }
+
+    .bottom-box {
+      //background:green;
+    }
+
+    .product-li {
+      // background:teal;
+      display:flex;
+      align-items:center;
+    }
+}
