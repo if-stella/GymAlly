@@ -3,3 +3,4 @@ kang:
   first_name: "Kang"
   last_name: "Hsieh"
   gym: hellersdorf
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
