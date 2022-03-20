@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
     @my_gym = current_user.gym
     @age = (18..100).to_a
-    # @users = User.where(gym: current_user.gym)
+    # @users = User.all
     @users = User.where(gym: @my_gym)
     @gyms = Gym.all
     @sports = Sport.all
