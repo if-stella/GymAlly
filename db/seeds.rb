@@ -121,7 +121,7 @@ admins.each do |admin|
   user.sports = Sport.all.sample(i)
   e = rand(1..7)
   user.weekdays = Weekday.all.sample(e)
-  user.gym = Gym.all.sample
+  # user.gym = Gym.all.sample
   user.location = user.gym.city
   user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
   user.save
