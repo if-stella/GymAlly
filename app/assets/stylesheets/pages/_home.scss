@@ -28,6 +28,7 @@
   display:flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .bg-mint {
@@ -45,11 +46,123 @@
 
     .bottom-box {
       //background:green;
+      display:flex;
+      flex-direction:column;
     }
 
     .product-li {
       // background:teal;
       display:flex;
       align-items:center;
+      justify-content: center;
     }
+}
+
+.stage-img-des {
+  display:none;
+}
+
+.prod-img-des {
+  display:none;
+}
+
+@include media-breakpoint-up(md) {
+
+  .landing-box {
+  padding:80px;
+  }
+
+  .first-box{
+    background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
+    background-size: cover;
+    height:100vh;
+    flex-direction:row;
+    gap:40px;
+    // padding:80px;
+  }
+
+  .button-primary {
+    width:240px;
+  }
+
+  h1 {
+    font-size:72px !important;
+    line-height:80px !important;
+  }
+
+  .big-p {
+    font-size:24px !important;
+    line-height:150% !important;
+    letter-spacing:1px;
+    padding-bottom:24px !important;
+  }
+
+  .text-box{
+    display:flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    gap:24px;
+    justify-content: center;
+  }
+
+  .stage-img-mob {
+    display:none;
+  }
+
+  .stage-img-des {
+    display:block;
+    width: 60vh;
+    height: fit-content;
+  }
+
+  .bg-white {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    .big-p {
+      width:75%;
+    }
+  }
+
+  .bg-mint {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-box {
+    width:60%;
+  }
+
+  .bottom-box {
+    flex-direction:row !important;
+    align-items:flex-start;
+    gap:24px;
+  }
+
+  .product-li {
+    flex-direction: column;
+    width:24%;
+  }
+
+  .prod-img-mob {
+    display:none;
+  }
+
+  .prod-img-des {
+    display:block;
+    height: fit-content;
+  }
+
+  .gymally-small {
+    font-size:18px;
+    line-height:26px;
+    text-align:center;
+  }
+}
+
+.footer-home {
+  justify-content: center
 }
