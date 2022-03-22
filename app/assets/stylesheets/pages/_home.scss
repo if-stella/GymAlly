@@ -73,7 +73,7 @@
   }
 
   .first-box{
-    background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
+    background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647963170/landing-stage_rrxzu3.jpg");
     background-size: cover;
     height:100vh;
     flex-direction:row;
@@ -91,10 +91,10 @@
   }
 
   .big-p {
-    font-size:24px !important;
+    font-size:20px !important;
     line-height:150% !important;
     letter-spacing:1px;
-    padding-bottom:24px !important;
+    font-weight: 400;
   }
 
   .text-box{
@@ -121,19 +121,31 @@
     flex-direction: column;
     align-items: center;
 
-    .big-p {
+    .text-fix {
       width:75%;
+      padding-bottom:0px;
+
+      p {
+        text-align: center;
+      }
     }
   }
 
   .bg-mint {
     display:flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center
   }
 
   .top-box {
     width:60%;
+
+    p {
+      font-size:20px !important;
+      line-height:150% !important;
+      letter-spacing:1px;
+      font-weight:400;
+    }
   }
 
   .bottom-box {
@@ -157,12 +169,33 @@
   }
 
   .gymally-small {
-    font-size:18px;
-    line-height:26px;
+    font-size:16px;
+    line-height:24px;
     text-align:center;
   }
 }
 
 .footer-home {
   justify-content: center
+}
+
+.signup-container {
+  padding:40px 24px;
+  background:cornflowerblue;
+  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647963170/landing-stage_rrxzu3.jpg");
+  background-size: cover;
+  height: 100vh;
+
+  .top-img {
+    text-align: center;
+  }
+
+  h2 {
+    padding-bottom:16px;
+  }
+
+  .alternative-links {
+    padding-top:24px;
+    text-align:center;
+  }
 }
