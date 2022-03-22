@@ -1,18 +1,29 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+<div class="signup-container">
+<div class="top-img mb-3">
+<img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647959269/illu-pwd_ytgvv4.png" alt="Forgot password illustration" style="width:280px;">
+</div>
+  <h2>Whoopsie... Forgot your password?</h2>
+  <div class="mb-3">
+  <p>No worries... We got you covered! Just enter the e-mail you signed up with, and we'll take care of the rest!</p>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
 
-<%= render "devise/shared/links" %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+    </div>
+
+    <%= f.submit "Send reset link", class: "button-primary" %>
+
+    <!-- <div class="form-actions">
+      <%= f.button :submit, "Send reset link" %>
+    </div> -->
+  <% end %>
+
+  <!-- <%= render "devise/shared/links" %> -->
+
+</div>

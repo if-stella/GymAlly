@@ -1,26 +1,28 @@
 <div class="landing-container">
   <div class="landing-box first-box landing-desktop">
-    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647606136/landing-product-mobile_ozmdqw.png" alt="" style="width:327px" class="stage-img-mob">
+    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647606136/landing-product-mobile_ozmdqw.png" alt="" style="width:240px" class="stage-img-mob">
     <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647874947/stage-des_tkekp8.png" alt="" style="width:600px" class="stage-img-des">
     <div class="text-box">
       <h1>Find allies in your gym!</h1>
       <div class="big-p">Find new friends, connect with them, train together, feel stronger!</div>
       <div class="button-primary">
-      <%= link_to "Create account", new_user_session_path %>
+      <%= link_to "Create account", new_user_registration_path %>
       </div>
     </div>
   </div>
 
   <div class="landing-box bg-white">
-    <div class="big-p">
-      <strong>Gymally</strong> is a team of <strong>four developers</strong> and <strong>one designer</strong> that have been working together for over <strong>10 days</strong>, to create an app that connects you to other people in the gym, without it getting awkward.
+    <div class="text-fix">
+      <p>
+        <strong>Gymally</strong> is a team of <strong>four developers</strong> and <strong>one designer</strong> that have been working together for over <strong>10 days</strong>, to create an app that connects you to other people in the gym, without it getting awkward.
+      </p>
     </div>
     <div class="button-primary">
-      <%= link_to "Sign up", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
     </div>
     <div class="last-button">
     <!-- Correct link? -->
-      <%= link_to "Create account", destroy_user_session_path, method: :delete, class: "text-link"%>
+      <%= link_to "Log in", new_user_session_path, class: "text-link"%>
     </div>
   </div>
 
@@ -63,9 +65,7 @@
 
     <!-- Section: Text -->
     <section class="mb-4">
-      <p>
-        <strong>Gymally</strong> is a very great product, and this is a very great page, I hope you appreciate that.
-      </p>
+    <p><strong>Gymally</strong> is a very great product, and this is a very great page, I hope you appreciate that.</p>
     </section>
     <!-- Section: Text -->
 
@@ -79,16 +79,16 @@
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">🙂 Ida Schwarzkopf</a>
+              <a href="#!" class="text-white">🙂 Ida S.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">🤫 Lydia Alles</a>
+              <a href="#!" class="text-white">🤫 Lydia A.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">😝 Kang Hsieh</a>
+              <a href="#!" class="text-white">😝 Kang H.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">🥲 Stella Raab</a>
+              <a href="#!" class="text-white">🥲 Stella R.</a>
             </li>
           </ul>
         </div>
@@ -100,7 +100,7 @@
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">⭐️ Stella Raab</a>
+              <a href="#!" class="text-white">⭐️ Stella R.</a>
             </li>
           </ul>
         </div>
