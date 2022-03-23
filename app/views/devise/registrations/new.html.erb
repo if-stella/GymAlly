@@ -5,6 +5,15 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= f.input :photo, as: :file %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "last name" } %>
+      <%# <%= input age %>
+      <%# <%= input nickname %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
