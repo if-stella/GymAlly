@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :users_weekdays, dependent: :destroy
   has_many :weekdays, through: :users_weekdays
 
-  has_one_attached :photo
+  has_one_attached :photo, dependent: :destroy
 
 
   validates :email, uniqueness: true
