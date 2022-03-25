@@ -5,10 +5,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    @gyms = Gym.all
-    super
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource
   def create
@@ -43,7 +42,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :first_name, :last_name, :gym])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :photo,
+      :first_name,
+      :last_name,
+      :age,
+      :nickname,
+      :gender,
+      :quote,
+      :gym_id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
