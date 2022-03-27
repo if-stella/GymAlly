@@ -42,6 +42,7 @@ class UsersController < ApplicationController
     @age = (18..100).to_a
     @users = User.where(gym_id: current_user.gym_id)
     @gyms = Gym.all
+    @weekdays = Weekday.all
     @sports = Sport.all
     @genders = []
     User.all.each do |user|
@@ -51,13 +52,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     @quote = params[:user][:quote]
     @sports = params[:user][:sport_ids]
+    @weekdays = params[:user][:weekday_ids]
     @user.quote = @quote
     @user.sport_ids = @sports
     @gym = Gym.find(params[:user][:gym_id])
     @user.gym = @gym
+    @user.weekday_ids = @weekdays
     @user.save
     if @user.save
       flash[:notice] = 'Your profile was updated.'
