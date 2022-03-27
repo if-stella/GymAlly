@@ -1,8 +1,11 @@
-<div data-controller="render-filter-form">
-  <%= simple_form_for(user) do |f| %>
-    <%= f.input :quote %>
-    <%= f.association :sports, collection: @sports.uniq, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}}%>
-    <%= f.association :gym %>
-    <%= f.submit %>
-  <% end %>
+<div class="signup-container">
+  <div data-controller="render-filter-form">
+    <%= simple_form_for(user) do |f| %>
+      <%= f.input :quote %>
+      <%= f.association :sports, collection: sports.uniq, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}}%>
+      <%= f.association :gym %>
+      <%= f.association :weekdays, collection: weekdays.uniq, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+      <%= f.submit "Save changes", class: "button-primary"%>
+    <% end %>
+  </div>
 </div>
