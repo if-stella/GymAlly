@@ -2,5 +2,8 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 1000;
+  left: 16px;
+  z-index: auto;
+  border-radius:8px;
+  border-bottom-right-radius:0px;
 }
