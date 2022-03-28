@@ -20,13 +20,11 @@ UsersSport.destroy_all
 
 puts 'Creating gyms...'
 # Gym.destroy_all
-Gym.create([{ name: 'McFit Hellersdorf', address: "Christinenstraße 11, Berlin", city: 'Berlin' },
-            { name: 'JohnReed Gesundbrunnen', address: "Torstraße 20, Berlin", city: 'Berlin' },
-            { name: 'McFit Pankow', address: "Wichertstraße 20, Berlin", city: 'Berlin' },
-            # { name: 'SuperFit Alexa', address: city: 'Berlin' },
-            # { name: 'FitnessFirst Pankow', address: city: 'Berlin'},
-            # { name: 'FitX Schöneberg', address: city: 'Berlin' },
-            { name: 'JohnReed Prenzlauer Berg', address: "Kastanienallee 22, Berlin", city: 'Berlin' }])
+Gym.create([{ name: 'Fitness First Pankow', address: "Wilhelm-Kuhr-Straße 9, Berlin", city: 'Berlin' },
+            { name: 'John Reed Mitte', address: "Prenzlauer Allee 248, Berlin", city: 'Berlin' },
+            { name: 'McFIT Wedding', address: "Seestraße 64, Berlin", city: 'Berlin' },
+            { name: 'FitX Friedrichshain', address: "Alexanderstraße 7, Berlin", city: 'Berlin' },
+            { name: 'Fit Star Moabit', address: "Turmstraße 29, Berlin", city: 'Berlin' }])
 
 # User.destroy_all
 puts "creating all sports"
@@ -34,16 +32,16 @@ Sport.create([{ name: 'Running' }, { name: 'Weights' }, { name: 'Boxing' }, { na
 puts "creating all dayssss"
 Weekday.create([{ name: 'Monday' }, { name: 'Tuesday' }, { name: 'Wednesday' }, { name: 'Thursday' }, { name: 'Friday' }, { name: 'Saturday' }, { name: 'Sunday' }])
 
-puts 'Creating 10 fake users...'
-10.times do
+puts 'Creating 20 fake users...'
+20.times do
   user = User.new(
-    nickname: Faker::Internet.username,
+    nickname: Faker::Internet.username(specifier: 4..10),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     age: rand(18..39),
     email: Faker::Internet.safe_email,
     gender: ["male", "female", "divers"].sample,
-    quote: Faker::Hipster.sentence,
+    quote: Faker::Quote.famous_last_words,
     password: "123456"
   )
 
@@ -89,7 +87,7 @@ admins = [
     email: "lydia@alles.com",
     password: "123456",
     gender: "female",
-    gym: Gym.first,
+    gym: Gym.last,
     photo_url: "https://avatars.githubusercontent.com/u/96770546?v=4"
   },
   {
@@ -99,7 +97,7 @@ admins = [
     email: "ida@schwarzkopf.com",
     password: "123456",
     gender: "female",
-    gym: Gym.first,
+    gym: Gym.last,
     photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641681283/u5sc2fa7h5ykddrzyrv0.jpg"
   }
 ]
@@ -111,10 +109,10 @@ admins.each do |admin|
     last_name: admin[:last_name],
     nickname: admin[:nickname],
     email: admin[:email],
-    age: 12,
+    age: 25,
     gender: admin[:gender],
     password: "123456",
-    quote: Faker::Hipster.sentence,
+    quote: Faker::Quote.famous_last_words,
     gym: Gym.first
   )
   i = rand(1..3)
