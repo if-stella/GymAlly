@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 .landing-container {
   background:white;
+  color: $black !important;
 }
 
 .landing-container > *:not(:last-child) {
@@ -190,6 +191,11 @@
 
   h2 {
     padding-bottom:16px;
+    color: $black;
+  }
+
+  .form-label {
+    color: $grey-dark;
   }
 
   .alternative-links {
