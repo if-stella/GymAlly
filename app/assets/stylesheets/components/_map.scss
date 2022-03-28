@@ -42,8 +42,8 @@
   color: white;
   text-align: left;
   padding: 16px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px
 }
 
 .container-bottom{
@@ -51,9 +51,27 @@
   color: black;
   text-align: left;
   padding: 16px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
+
+.map-ally-container{
+  display:flex;
+  gap:16px;
+}
+
+.map-ally-card{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.container-bottom > *:not(:last-child) {
+  margin-bottom:16px;
+}
+
 .mapboxgl-popup-close-button{
   color: white;
   width: 22px;
@@ -67,4 +85,14 @@
 }
 .mapboxgl-ctrl-geocoder--input{
   width: 92vw !important;
+}
+
+.map-address {
+  padding-top:8px;
+}
+
+.top3-allies-head {
+  font-size:16px;
+  line-height:24px;
+  padding-bottom:4px;
 }

@@ -1,13 +1,24 @@
 
 <div class=container-top>
-<div class="gymally-semibold">
-<%= gym.name %>
-</div>
+<p><%= gym.name %></p>
 </div>
 
 <div class=container-bottom>
-<div class="gymally-semibold"><%= image_tag "heart.svg" %> <%= gym.users.size %> Allies</div>
-<div class="gymally-small">
-<div><%= gym.address %></div>
-</div>
+  <div class="gymally-semibold"><%= image_tag "heart.svg" %> <%= gym.users.size %> Allies</div>
+  <div class="separator-line"></div>
+  <div class="top3-allies">
+  <div class="top3-allies-head">Meet allies like...</div>
+  <div class="map-ally-container">
+    <div class="map-ally-card">
+      <%= cl_image_tag gym.users.last.photo.key, class: "avatar-small avatar-bordered"%>
+      <%= gym.users.last.first_name %>
+    </div>
+    <div class="map-ally-card">
+      <%= cl_image_tag gym.users.first.photo.key, class: "avatar-small avatar-bordered"%>
+      <%= gym.users.first.first_name %>
+    </div>
+  </div>
+  <div class="separator-line"></div>
+  <div class="map-address"><p><%= gym.address %></p></div>
+
 </div>
