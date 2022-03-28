@@ -2,7 +2,7 @@
 <div class="container">
   <div class="card-container">
     <% if @friendships.length > 0 %>
-      <h4> Your Friendships: </h4>
+      <h4> Your allies: </h4>
       <% @friendships.each do |friendship| %>
           <% current_user == friendship.user_one ? user_one = friendship.user_two : user_one = friendship.user_one %>
           <% if friendship.chatroom %>

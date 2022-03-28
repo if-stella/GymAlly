@@ -4,21 +4,35 @@
 </div>
 
 <div class=container-bottom>
-  <div class="gymally-semibold"><%= image_tag "heart.svg" %> <%= gym.users.size %> Allies</div>
+  <% if gym.users.size == 1 %>
+    <div class="gymally-semibold"><%= image_tag "heart.svg" %> <%= gym.users.size %> ally</div>
+  <% else %>
+    <div class="gymally-semibold"><%= image_tag "heart.svg" %> <%= gym.users.size %> allies</div>
+  <% end %>
   <div class="separator-line"></div>
+
   <div class="top3-allies">
-  <div class="top3-allies-head">Meet allies like...</div>
-  <div class="map-ally-container">
-    <div class="map-ally-card">
-      <%= cl_image_tag gym.users.last.photo.key, class: "avatar-small avatar-bordered"%>
-      <%= gym.users.last.first_name %>
+    <% if gym.users.size == 1 %>
+      <div class="top3-allies-head">Your ally in this gym:</div>
+      <div class="map-ally-container">
+        <div class="map-ally-card">
+          <%= cl_image_tag gym.users.last.photo.key, class: "avatar-small avatar-bordered"%>
+          <%= gym.users.last.first_name %>
+        </div>
+      </div>
+    <% else %>
+    <div class="top3-allies-head">Meet allies like:</div>
+    <div class="map-ally-container">
+    <% gym.users[0..2].each do |person| %>
+      <div class="map-ally-card">
+        <%= cl_image_tag person.photo.key, class: "avatar-small avatar-bordered"%>
+        <%= person.first_name %>
+      </div>
+      <% end %>
     </div>
-    <div class="map-ally-card">
-      <%= cl_image_tag gym.users.first.photo.key, class: "avatar-small avatar-bordered"%>
-      <%= gym.users.first.first_name %>
-    </div>
+    <% end %>
   </div>
+
   <div class="separator-line"></div>
   <div class="map-address"><p><%= gym.address %></p></div>
-
 </div>
