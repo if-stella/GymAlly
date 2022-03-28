@@ -2,8 +2,9 @@
   background-color: $mint;
   color: white;
   padding: 16px;
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
+  border-radius: 16px;
+  // border-top-left-radius: 20px !important;
+  // border-top-right-radius: 20px !important;
 
   .top {
     display: flex;

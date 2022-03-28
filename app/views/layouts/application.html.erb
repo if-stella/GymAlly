@@ -39,6 +39,7 @@
   <!-- <% end %> -->
     <% unless (controller_name == "chatrooms" && action_name == "show") ||
     (controller_name == "users" && action_name == "show") ||
+    (controller_name == "users" && action_name == "edit") ||
     (controller_name == "pages" && action_name == "home") %>
       <%= render 'shared/navbar' %>
     <% end %>

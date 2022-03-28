@@ -74,7 +74,7 @@
 
 .last-button {
   // padding-top:24px;
-  text-align:center;
+  // text-align:center;
 }
 
 .modal-tag {
@@ -113,3 +113,10 @@
 //  padding-left: 8px;
 //  padding-right: 8px;
 //}
+
+@include media-breakpoint-up(md) {
+  .settings-half {
+    gap: 16px;
+    flex-direction: column;
+  }
+}

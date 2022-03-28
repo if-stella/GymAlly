@@ -23,19 +23,25 @@
     margin-left:4px;
   }
 
+  .first-tag {
+    margin-left: 0px;
+    margin-right: 8px;
+  }
+
   #tag-container {
     display:flex;
   }
   .upcoming-card-top {
     display: flex;
     padding-bottom:4px;
+    background:red;
     color: #060F0E;
   }
 
-  .upcoming-tag {
-    padding: 2px 2px;
-    background: #7bc5bc;
-    border-radius: 8px;
-    margin-right:4px;
-  }
+  //.upcoming-tag {
+  //  padding: 2px 2px;
+  //  background: #7bc5bc;
+  //  border-radius: 8px;
+  //  margin-right:4px;
+  // }
 }

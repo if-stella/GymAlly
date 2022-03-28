@@ -2,7 +2,7 @@
 <div class="container">
   <div class="meetup-container">
     <%= form_for [@friendship, @meetup] do |f| %>
-      <p>Pick a date:</p>
+      <h4>Pick a date:</h4>
       <%= f.text_field :date, class: "meetup-field", data: {
       controller: "flatpickr",
       flatpickr_enable_time: true,
@@ -10,7 +10,7 @@
       defaultDate: Time.now,
       disableMobile: "true"
       } %>
-      <p>And a sport:</p>
+      <h4>And a sport:</h4>
       <%= f.collection_select :sport, Sport.all, :id, :name %>
 
       <%= f.submit value: "Send date request!", class: "button-primary" %>
