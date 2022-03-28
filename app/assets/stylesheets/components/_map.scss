@@ -11,6 +11,7 @@
   border-radius: 24px;
   padding: 0px 0px 0px !important;
   box-shadow: 6px 6px 15px -5px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
 }
 
 .mapboxgl-ctrl-geocoder mapboxgl-ctrl{
@@ -25,7 +26,6 @@
   box-shadow: none;
   border-radius: 24px;
   margin: 0 auto;
-
 }
 
 .mapbox{
@@ -57,7 +57,7 @@
 
 .map-ally-container{
   display:flex;
-  gap:16px;
+  gap:8px;
 }
 
 .map-ally-card{
@@ -65,7 +65,6 @@
   display:flex;
   flex-direction:column;
   align-items: center;
-  padding-bottom: 8px;
 }
 
 .container-bottom > *:not(:last-child) {
