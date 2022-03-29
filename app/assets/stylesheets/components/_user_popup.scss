@@ -28,7 +28,7 @@
         }
 
         .tag {
-          padding: 4px 6px;
+          padding: 2px 4px;
           background: #7bc5bc;
           border: 1px solid white;
           border-radius: 8px;
@@ -53,18 +53,53 @@
 
 }
 .popup-container {
-  border-radius: 20px !important;
+  border-radius: 16px !important;
+}
 
+.modal-header {
+  background: $mint;
+  padding: 0px;
+  border: none;
+  color:white;
+  padding:16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
+
+.header-input {
+  // background: rgb(131, 1, 66);
+  display:flex;
+  gap:8px;
+  align-items: center;
+}
+
+.modal-body {
+  // background:darkcyan;
+  padding: 0px;
+  text-align: left;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding-top:16px;
+}
+
 .modal-content {
-  border-radius: 20px !important;
+  border-radius: 16px !important;
+  background:white;
+  border: none;
 }
+
 
 .popup-bottom {
   background-color: white;
+  //background:palegoldenrod;
   // color: white;
   padding: 16px;
   text-align:center;
-  border-bottom-left-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
+  border-bottom-left-radius: 16px !important;
+  border-bottom-right-radius: 16px !important;
+}
+
+.event-detail {
+  color: $grey-dark;
 }

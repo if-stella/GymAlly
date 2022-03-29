@@ -47,7 +47,7 @@
 .button-secondary:hover {
   background: #7BC5BC;
   border: solid #E2FFFA 1px;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .button-small {
@@ -71,12 +71,12 @@
   flex: none;
   order: 1;
   flex-grow: 0;
-  margin: 0px 4px;
-  padding: 8px;
+  margin: 0px;
+  padding: 6px;
 }
 
 .button-deny {
-  padding: 8px;
+  padding: 6px;
   background: #FFFFFF;
   border: 1px solid #7BC5BC;
   color: black;
@@ -85,7 +85,7 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 0px 4px;
+  margin: 0px;
 }
 
 .button-meetup {
