@@ -5,20 +5,31 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <% if meetup.user_one == current_user %>
-                <h5 class="modal-title" id="meetupModalLabel"><%= meetup.sport.name %> with <%= meetup.user_two.first_name %></h5>
-              <% else %>
-                <h5 class="modal-title" id="meetupModalLabel"><%= meetup.sport.name %> with <%= meetup.user_one.first_name %></h5>
-              <% end %>
-              <div class="button-secondary close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+              <div class="header-input">
+                <% if meetup.user_one == current_user %>
+                <%= cl_image_tag meetup.user_two.photo.key, class: "avatar-small avatar-bordered" %>
+                <p class="modal-title" id="meetupModalLabel">Let's do <div class="gymally-semibold"> <%= meetup.sport.name %></div>together! <% meetup.user_two.first_name %></p>
+                <% else %>
+                <%= cl_image_tag meetup.user_one.photo.key, class: "avatar-small avatar-bordered" %>
+                <p class="modal-title" id="meetupModalLabel">Let's do <div class="gymally-semibold"> <%= meetup.sport.name %></div>together! <% meetup.user_one.first_name %></p>
+                <% end %>
               </div>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              <!-- <div class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </div> -->
             </div>
             <div class="modal-body">
-              <i class="fa fa-solid fa-clock"></i> <%= meetup.date.strftime("%H:%M") %>
+              <div class="event-detail">
+                <i class="fa fa-solid fa-clock"></i> <%= meetup.date.strftime("%H:%M") %>
+              </div>
+              <div class="event-detail">
+                <i class="fa fa-solid fa-calendar"></i> <%= meetup.date.strftime("%a, %e. %B") %>
+              </div>
+
             </div>
-            <div class="modal-footer">
-              <div class="button-secondary gymally-semibold" data-bs-dismiss="modal"><%= link_to 'Cancel this training', friendship_delete_meetup_path(meetup.friendship, meetup), method: :delete, data: { confirm: "Are You sure you want to cancel this meetup?" } %></div>
+            <div class="popup-bottom">
+             <div class="button-secondary button-small" data-bs-dismiss="modal"><%= link_to 'Delete this appointment', friendship_delete_meetup_path(meetup.friendship, meetup), method: :delete, data: { confirm: "Are You sure you want to cancel this appointment?" } %></div>
             </div>
           </div>
         </div>

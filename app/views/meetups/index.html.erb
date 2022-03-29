@@ -13,8 +13,7 @@
       <% end %>
     <% end %>
   </div>
-
-  <div class="card-container">
+  <div class="card-container invitations">
     <% if @meetups_accepted && @meetups_accepted.length > 0 %>
     <h4>Upcoming</h4>
     <% @meetups_accepted.each do |invitation| %>
@@ -29,35 +28,37 @@
     <% end %>
     <% end %>
   </div>
-  <div class="card-container">
+  <div class="card-container invitations">
     <% if @meetups_requests && @meetups_requests.length > 0 %>
-      <h4>Meetup Requests - Outgoing</h4>
-      <% @meetups_requests.each do |invitation| %>
-      <% if current_user == invitation.user_one %>
-      <% user_one = invitation.user_two %>
-      <% else %>
-      <% user_one = invitation.user_one %>
-      <% end %>
-        <%= render "shared/meetup_invitation_card",
-            user: user_one,
-            type: "from_me",
-            invitation: invitation %>
-      <% end %>
+    <div class="separator-line"></div>
+    <h4>Meetup Requests - Outgoing</h4>
+    <% @meetups_requests.each do |invitation| %>
+    <% if current_user == invitation.user_one %>
+    <% user_one = invitation.user_two %>
+    <% else %>
+    <% user_one = invitation.user_one %>
+    <% end %>
+      <%= render "shared/meetup_invitation_card",
+          user: user_one,
+          type: "from_me",
+          invitation: invitation %>
+    <% end %>
     <% end %>
   </div>
-  <div class="card-container">
+  <div class="card-container invitations">
     <% if @meetups_invitations && @meetups_invitations.length > 0 %>
-      <h4>Meetup Requests - Incoming</h4>
-      <% @meetups_invitations.each do |invitation| %>
-      <% if current_user == invitation.user_one %>
-      <% user_one = invitation.user_two %>
-      <% else %>
-      <% user_one = invitation.user_one %>
-      <% end %>
-        <%= render "shared/meetup_invitation_card",
-            user: user_one,
-            type: "to_me",
-            invitation: invitation %>
+    <div class="separator-line"></div>
+    <h4>Meetup Requests - Incoming</h4>
+    <% @meetups_invitations.each do |invitation| %>
+    <% if current_user == invitation.user_one %>
+    <% user_one = invitation.user_two %>
+    <% else %>
+    <% user_one = invitation.user_one %>
+    <% end %>
+      <%= render "shared/meetup_invitation_card",
+          user: user_one,
+          type: "to_me",
+          invitation: invitation %>
       <% end %>
     <% end %>
   </div>

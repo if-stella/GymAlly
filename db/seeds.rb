@@ -28,7 +28,7 @@ Gym.create([{ name: 'Fitness First Pankow', address: "Wilhelm-Kuhr-Straße 9, Be
 
 # User.destroy_all
 puts "creating all sports"
-Sport.create([{ name: 'Running' }, { name: 'Weights' }, { name: 'Boxing' }, { name: 'Cycling' }, { name: 'Swimming' }, { name: 'Arms/Chest' }, { name: 'Yoga' }, { name: 'Legs/Bum' }, { name: 'Cardio' }, { name: 'Crossfit' }, { name: 'Core' }, { name: 'MMA' }])
+Sport.create([{ name: 'Weights' }, { name: 'Upper body' }, { name: 'Yoga' }, { name: 'Legs/Bum' }, { name: 'Cardio' }, { name: 'Crossfit' }, { name: 'Core' }, { name: 'MMA' }])
 puts "creating all dayssss"
 Weekday.create([{ name: 'Monday' }, { name: 'Tuesday' }, { name: 'Wednesday' }, { name: 'Thursday' }, { name: 'Friday' }, { name: 'Saturday' }, { name: 'Sunday' }])
 
