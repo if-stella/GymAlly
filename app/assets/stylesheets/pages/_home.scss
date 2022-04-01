@@ -187,15 +187,11 @@
   justify-content: center
 }
 
-.simple_form {
-  // width:100%;
-}
-
 .signup-container {
   padding:40px 24px;
   background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647963170/landing-stage_rrxzu3.jpg");
   background-size: cover;
-  height: 100vh;
+  background-repeat: no-repeat;
 
   .top-img {
     text-align: center;
@@ -214,6 +210,10 @@
     padding-top:24px;
     text-align:center;
   }
+}
+
+.enter-narrow {
+  height: 100vh;
 }
 
 @include media-breakpoint-up(md) {
