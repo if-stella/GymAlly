@@ -32,10 +32,10 @@ require("flatpickr/dist/flatpickr.css")
 // Manually register Flatpickr as a stimulus controller
 application.register('flatpickr', Flatpickr)
 
-// Make flashes disappear after 5 seconds
+// Make flashes disappear after 4 seconds
 import $ from "jquery";
 $(function(){
-  var flashDurationInSeconds = 5;
+  var flashDurationInSeconds = 4;
   var flashContainerId = 'flash-messages';
 
   function removeFlashMessages() {
