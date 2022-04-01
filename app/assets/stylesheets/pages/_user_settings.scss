@@ -72,11 +72,6 @@
   flex-grow:0;
 }
 
-.last-button {
-  // padding-top:24px;
-  text-align:center;
-}
-
 .modal-tag {
   padding: 2px 4px;
   background: #7bc5bc;
@@ -118,9 +113,5 @@
   .settings-half {
     gap: 16px;
     flex-direction: column;
-  }
-
-  .last-button {
-    //text-align:left;
   }
 }
