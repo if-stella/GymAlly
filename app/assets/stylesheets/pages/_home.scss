@@ -67,6 +67,10 @@
   display:none;
 }
 
+.form-button {
+  display:flex;
+}
+
 @include media-breakpoint-up(md) {
 
   .landing-box {
@@ -83,7 +87,7 @@
   }
 
   .button-primary {
-    width:240px;
+    width:100%;
   }
 
   h1 {
@@ -177,6 +181,10 @@
 
 .footer-home {
   justify-content: center
+}
+
+.simple_form {
+  // width:100%;
 }
 
 .signup-container {
