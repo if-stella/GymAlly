@@ -3,7 +3,7 @@
     <%= simple_form_for(user) do |f| %>
       <%= f.input :quote %>
       <%= f.association :sports, collection: sports.uniq, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}}%>
-      <%= f.association :gym %>
+      <%= f.association :gym, collection: gyms.uniq, input_html: {multiple: false, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
       <%= f.association :weekdays, collection: weekdays.uniq, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
       <%= f.submit "Save changes", class: "button-primary"%>
     <% end %>
