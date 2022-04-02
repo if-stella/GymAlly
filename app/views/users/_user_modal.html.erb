@@ -32,12 +32,12 @@
           <div class="u-d-box">
             <div class="gymally-small">Likes to train on:</div>
             <div class="settings-input modal-tags-box" >
-        <% user.weekdays.order(:id).each do |day| %>
+          <% user.weekdays.order(:id).each do |day| %>
           <div class="modal-tag">
             <%= day.name %>
              </div>
             <% end %>
-        </div>
+          </div>
           </div>
         </div>
 

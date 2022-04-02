@@ -32,6 +32,16 @@
   align-items: center;
 }
 
+.bg-white {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+    p {
+      text-align: center;
+    }
+  }
+
 .bg-mint {
   background: $mint;
   color:white;
@@ -74,9 +84,6 @@
 @include media-breakpoint-up(sm) {
   .button-primary {
     width:280px;
-  }
-  .last-button {
-    text-align:left;
   }
 }
 
@@ -122,7 +129,7 @@
   .stage-img-des {
     display:block;
     width: 60vh;
-    height: fit-content;
+    // height: fit-content;
   }
 
   .bg-white {
@@ -174,7 +181,7 @@
 
   .prod-img-des {
     display:block;
-    height: fit-content;
+    // height: fit-content;
   }
 
   .s-to-p {

@@ -22,24 +22,27 @@
           </div>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="gymally-xsmall likes-to-train">
-          <p><%= user.age %> year old <%= user.gender %> based at <%= user.gym.name %></p>
-        </div>
-        <div class="quote">
-          <p><%= user.quote %></p>
-        </div>
-        <div class="gymally-xsmall likes-to-train">
-          <p>Likes to train on:</p>
-        </div>
-        <div class="settings-input modal-tags-box" >
-        <% user.weekdays.order(:id).each do |day| %>
+
+        <div class="user-detail-content">
+          <div class="u-d-box">
+            <p><strong><%= user.age %></strong> year old <strong><%= user.gender %></strong> based at <strong><%= user.gym.name %></strong></p>
+          </div>
+
+          <div class="u-d-box">
+            <p>"<%= user.quote %>"</p>
+          </div>
+
+          <div class="u-d-box">
+            <div class="gymally-small">Likes to train on:</div>
+            <div class="settings-input modal-tags-box" >
+          <% user.weekdays.order(:id).each do |day| %>
           <div class="modal-tag">
             <%= day.name %>
              </div>
             <% end %>
+          </div>
+          </div>
         </div>
-
-
       </div>
       <% unless type == "friends" %>
         <div class="popup-bottom">
