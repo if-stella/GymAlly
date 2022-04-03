@@ -232,6 +232,11 @@
     display:flex;
     flex-direction:column;
     align-items: center;
+
+
+    .button-primary {
+      width: 100%;
+    }
   }
 
   h2 {
