@@ -1,85 +1,82 @@
 <div class="around">
-
-<div class="nav">
-  <div class="separator-line-light"></div>
-  <% if user_signed_in? %>
-
-		<div class="box">
-      <%= link_to users_path do %>
-        <% if params[:controller] == "users" && params[:action] == "index" %>
-        <div class="navic-box">
-        <%= image_tag "home-active.svg" %>
-        </div>
-        <div class="gymally-navbar actinav">Home</div>
-        <% else  %>
-        <div class="navic-box">
-        <%= image_tag "home.svg" %>
-        </div>
-        <div class="gymally-navbar">Home</div>
+  <div class="nav">
+    <div class="separator-line-light"></div>
+      <% if user_signed_in? %>
+      <div class="box">
+        <%= link_to users_path do %>
+          <% if params[:controller] == "users" && params[:action] == "index" %>
+          <div class="navic-box">
+          <%= image_tag "home-active.svg" %>
+          </div>
+          <div class="gymally-navbar actinav">Home</div>
+          <% else  %>
+          <div class="navic-box">
+          <%= image_tag "home.svg" %>
+          </div>
+          <div class="gymally-navbar">Home</div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="box">
+        <%= link_to friendships_path do %>
+        <% if params[:controller] == "friendships" && params[:action] == "index" %>
+          <div class="navic-box">
+          <%= image_tag "person-active.svg" %>
+          </div>
+          <div class="gymally-navbar actinav">Friends</div>
+          <% else  %>
+          <div class="navic-box">
+          <%= image_tag "person.svg" %>
+          </div>
+          <div class="gymally-navbar">Friends</div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="box">
+        <%= link_to chatrooms_path do %>
+        <% if params[:controller] == "chatrooms" && params[:action] == "index" %>
+          <div class="navic-box">
+          <%= image_tag "chat-active.svg" %>
+          </div>
+          <div class="gymally-navbar actinav">Chats</div>
+          <% else  %>
+          <div class="navic-box">
+          <%= image_tag "chat.svg" %>
+          </div>
+          <div class="gymally-navbar">Chats</div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="box">
+        <%= link_to gyms_path do %>
+        <% if params[:controller] == "gyms" && params[:action] == "index" %>
+          <div class="navic-box">
+          <%= image_tag "pin-active.svg" %>
+          </div>
+          <div class="gymally-navbar actinav">Map</div>
+          <% else  %>
+          <div class="navic-box">
+          <%= image_tag "pin.svg" %>
+          </div>
+          <div class="gymally-navbar">Map</div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="box">
+        <%= link_to meetups_path do %>
+        <% if params[:controller] == "meetups" && params[:action] == "index" %>
+          <div class="navic-box">
+          <%= image_tag "calendar-active.svg" %>
+          </div>
+          <div class="gymally-navbar actinav">Dates</div>
+          <% else  %>
+          <div class="navic-box">
+          <%= image_tag "calendar.svg" %>
+          </div>
+          <div class="gymally-navbar">Dates</div>
+        <% end %>
+        <% end %>
+      </div>
       <% end %>
-      <% end %>
-    </div>
-		<div class="box">
-      <%= link_to friendships_path do %>
-      <% if params[:controller] == "friendships" && params[:action] == "index" %>
-        <div class="navic-box">
-        <%= image_tag "person-active.svg" %>
-        </div>
-        <div class="gymally-navbar actinav">Friends</div>
-        <% else  %>
-        <div class="navic-box">
-        <%= image_tag "person.svg" %>
-        </div>
-        <div class="gymally-navbar">Friends</div>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="box">
-      <%= link_to chatrooms_path do %>
-      <% if params[:controller] == "chatrooms" && params[:action] == "index" %>
-        <div class="navic-box">
-        <%= image_tag "chat-active.svg" %>
-        </div>
-        <div class="gymally-navbar actinav">Chats</div>
-        <% else  %>
-        <div class="navic-box">
-        <%= image_tag "chat.svg" %>
-        </div>
-        <div class="gymally-navbar">Chats</div>
-      <% end %>
-      <% end %>
-    </div>
-		<div class="box">
-      <%= link_to gyms_path do %>
-      <% if params[:controller] == "gyms" && params[:action] == "index" %>
-        <div class="navic-box">
-        <%= image_tag "pin-active.svg" %>
-        </div>
-        <div class="gymally-navbar actinav">Map</div>
-        <% else  %>
-        <div class="navic-box">
-        <%= image_tag "pin.svg" %>
-        </div>
-        <div class="gymally-navbar">Map</div>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="box">
-      <%= link_to meetups_path do %>
-      <% if params[:controller] == "meetups" && params[:action] == "index" %>
-        <div class="navic-box">
-        <%= image_tag "calendar-active.svg" %>
-        </div>
-        <div class="gymally-navbar actinav">Dates</div>
-        <% else  %>
-        <div class="navic-box">
-        <%= image_tag "calendar.svg" %>
-        </div>
-        <div class="gymally-navbar">Dates</div>
-      <% end %>
-      <% end %>
-    </div>
-
-    <% end %>
-</div>
+  </div>
 </div>
