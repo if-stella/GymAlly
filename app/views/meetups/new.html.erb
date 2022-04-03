@@ -10,6 +10,7 @@
       defaultDate: Time.now,
       disableMobile: "true"
       } %>
+
       <h4>And a sport:</h4>
       <%= f.collection_select :sport, Sport.all, :id, :name %>
 

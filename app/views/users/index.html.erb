@@ -1,7 +1,7 @@
 <%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
 <div class="container">
 
-  <h4>People who are looking for an ally, at <%= @my_gym.name %>:</h4>
+  <h4>People who are looking for an ally, at <strong><%= @my_gym.name %></strong>:</h4>
   <div class="separator-line"></div>
   <div class="dashboard-filters">
     <div data-controller="filter" class="filter-top">
@@ -19,11 +19,13 @@
         <%= f.input :gym, collection: @gyms.uniq, :required => false %>
         <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
         <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-        <%= f.submit "Search", class: "button-primary" %>
-        <div class="filter-button">
-          <%= link_to users_path do %>
-            Reset filters
-          <% end %>
+        <div id="button-box">
+          <%= f.submit "Search", class: "button-primary" %>
+          <div class="filter-button">
+            <%= link_to users_path do %>
+              Reset filters
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
