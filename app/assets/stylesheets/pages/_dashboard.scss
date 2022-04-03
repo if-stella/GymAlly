@@ -3,6 +3,7 @@
   height:1px;
   background:#BFC6C5;
 }
+
 .select2-selection--multiple {
   padding-right: 30px !important;
 }
@@ -14,8 +15,6 @@
 .select2-results__option--highlighted {
   background-color: $mint-dark !important;
 }
-
-
 
 .select2-selection--multiple:after {
   content: "";
@@ -36,6 +35,13 @@
   color:white;
 }
 
+#select2-user_gym_id-container {
+  // background:green;
+  //height:36px;
+  //display:flex;
+ // align-items: center;
+}
+
 .select2-selection__choice__remove {
   color:white !important;
   border:none !important;
@@ -54,9 +60,13 @@
   margin-bottom: 16px;
 }
 
+#button-box {
+  display:flex;
+  flex-direction: column;
+}
+
 .filter-button a {
-  color:#060F0E;
-  text-decoration:underline;
+  color:#7BC5BC;
   font-weight:500;
   letter-spacing: 1px;
 }
@@ -67,12 +77,14 @@
 
 .filter-button {
   background:#ffffff;
-  padding:6px;
+  height:48px;
   margin-bottom: 6px;
   border-radius:8px;
   border:#7bc5bc solid 2px;
   text-align:center;
-  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   margin-bottom: 12px;
   margin-top: 12px;
 }
@@ -83,15 +95,10 @@
   justify-content:space-between;
 }
 
-.filter-top {
-  // background:pink;
-}
-
-
 #card-container {
   display:flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 12px;
 }
 
 #card-container h4{
@@ -102,22 +109,34 @@ padding-bottom:12px;
   overflow:hidden;
   display: flex;
   position: relative;
-  height:72px;
+  gap:8px;
+  align-items: center;
+  // padding:12px;
+  // border-radius: 8px;
+  // border-top-left-radius: 40px !important;
+  // border-bottom-left-radius: 40px !important;
+  // background: #f6fefc;
+  // box-shadow:  16px 16px 16px #f0f4f3,
+  //          -4px -4px 12px rgba(255, 255, 255, 50);
 
   .user-card-right {
+    //background:orange;
     flex-grow:1;
-    padding-left:12px;
-    padding-top:8px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:4px;
   }
 
   .user-card-top {
+    //background:orangered;
     display: flex;
     justify-content:space-between;
-    padding-bottom:4px;
     color: #060F0E;
   }
 
   .user-card-bottom {
+    //background:red;
     color:#5D6664;
   }
 
@@ -157,4 +176,35 @@ padding-bottom:12px;
   font-size: 14px;
   letter-spacing: 0.5px;
   color: $mint;
+}
+
+@include media-breakpoint-up(sm) {
+  #button-box {
+    flex-direction: row;
+    gap:24px;
+      .button-primary {
+        height:48px;
+        flex-grow:1;
+      }
+
+      .filter-button {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        width: 280px;
+        flex-grow:1;
+      }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #card-container {
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .user-card {
+    width:48%;
+    gap:16px;
+  }
 }
