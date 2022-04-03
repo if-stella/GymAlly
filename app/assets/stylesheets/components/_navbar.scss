@@ -1,18 +1,23 @@
-.nav {
-	position: fixed;
+.around {
+  position: fixed;
 	bottom: 0;
 	width: 100vw;
-	background: rgba(255, 255, 255, 0.95);
+  z-index: 6;
+}
+
+.nav {
+	// bottom: 0;
+	// width: 100vw;
+	background: linear-gradient(358deg, #FFFFFF 42.21%, rgba(255, 255, 255, 0) 199.67%);
+  backdrop-filter: blur(10px);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-  z-index: 6;
 }
 
 .navic-box {
   width: 100%;
   height:30px;
-  //background:darkblue;
 }
 
 .background-icon {
@@ -76,9 +81,37 @@
   text-align:center;
   text-decoration:none;
   display: block;
-  color:#060F0E;
+  color:#5F6665;
 }
 
 .box a:hover {
   color:#7BC5BC;
+}
+
+@include media-breakpoint-up(md) {
+  .separator-line-light {
+    display:none;
+  }
+
+  .nav {
+    border-radius: 48px;
+    border: 1px solid $grey-light;
+    width: 60vw;
+    margin-bottom:16px;
+  }
+
+  .box {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .gymally-navbar {
+    font-size: 14px;
+  }
+
+  .around {
+    // background:red;
+    display:flex;
+    justify-content: center;
+  }
 }

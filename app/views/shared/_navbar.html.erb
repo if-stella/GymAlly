@@ -1,9 +1,12 @@
+<div class="around">
+
 <div class="nav">
+  <div class="separator-line-light"></div>
   <% if user_signed_in? %>
 
 		<div class="box">
       <%= link_to users_path do %>
-      <% if params[:controller] == "users" && params[:action] == "index" %>
+        <% if params[:controller] == "users" && params[:action] == "index" %>
         <div class="navic-box">
         <%= image_tag "home-active.svg" %>
         </div>
@@ -16,7 +19,6 @@
       <% end %>
       <% end %>
     </div>
-
 		<div class="box">
       <%= link_to friendships_path do %>
       <% if params[:controller] == "friendships" && params[:action] == "index" %>
@@ -32,7 +34,6 @@
       <% end %>
       <% end %>
     </div>
-
     <div class="box">
       <%= link_to chatrooms_path do %>
       <% if params[:controller] == "chatrooms" && params[:action] == "index" %>
@@ -48,7 +49,6 @@
       <% end %>
       <% end %>
     </div>
-
 		<div class="box">
       <%= link_to gyms_path do %>
       <% if params[:controller] == "gyms" && params[:action] == "index" %>
@@ -64,7 +64,6 @@
       <% end %>
       <% end %>
     </div>
-
     <div class="box">
       <%= link_to meetups_path do %>
       <% if params[:controller] == "meetups" && params[:action] == "index" %>
@@ -81,11 +80,6 @@
       <% end %>
     </div>
 
-    <% else %>
-        <!--<li class="box">
-          <%= image_tag "login.svg" %>
-          <%= link_to "Login", new_user_session_path, class: "gymally-navbar" %>
-        </li>
-        -->
     <% end %>
-	</div>
+</div>
+</div>
