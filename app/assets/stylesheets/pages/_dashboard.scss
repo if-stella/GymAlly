@@ -14,8 +14,30 @@
   padding-right: 30px !important;
 }
 
-.select2-results__option {
+.select2-selection {
+  //background: yellow !important;
+  height: 38px !important;
+  display:flex !important;
   background:white !important;
+  border: #ced4da 1px solid !important;
+}
+
+.select2-selection__rendered {
+  display:flex !important;
+  align-items:center !important;
+  //background:red !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-left:8px !important;
+  color:#606564 !important;
+}
+
+.select2-results__option {
+  //background:orange !important;
+}
+
+.select2-results__option--selected {
+  background-color: $mint-light !important;
 }
 
 .select2-results__option--highlighted {
@@ -39,13 +61,20 @@
   background: $mint !important;
   border:none !important;
   color:white;
+  margin-left: 0px !important;
+  margin-right: 8px !important;
 }
 
-#select2-user_gym_id-container {
-  // background:green;
-  //height:36px;
-  //display:flex;
- // align-items: center;
+.select2-selection__arrow {
+  display:none;
+}
+
+.no-search .select2-search .select2-search--dropdown {
+  display:none
+}
+
+.select2-search__field {
+  display:none;
 }
 
 .select2-selection__choice__remove {
