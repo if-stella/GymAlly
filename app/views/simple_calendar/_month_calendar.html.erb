@@ -1,6 +1,6 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <span class="calendar-title"><h6><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></h6></span>
+    <span class="calendar-title"><h4><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></h4></span>
     <div class="prev-next">
       <span><%= link_to calendar.url_for_previous_view do %><i class="fa fa-solid fa-angle-left fa-2x"></i><% end %></span>
       <span><%= link_to calendar.url_for_next_view do %><i class="fa fa-solid fa-angle-right fa-2x"></i><% end %></span>
@@ -11,7 +11,7 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><h6><%= t('date.abbr_day_names')[day.wday] %></h6></th>
+          <th><p class="gymally-semibold"><%= t('date.abbr_day_names')[day.wday] %></p></th>
         <% end %>
       </tr>
     </thead>

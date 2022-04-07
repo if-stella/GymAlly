@@ -1,5 +1,10 @@
 .calendar-box {
-  background:white;
+
+  h4 {
+    color: $mint;
+    border-bottom: none;
+    padding-bottom:0px;
+  }
 }
 
 .simple-calendar {
@@ -24,9 +29,8 @@
     position: relative;
     padding-left: 6px;
     padding-right: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding: 6px;
+    //padding-top: 12px;
+    padding-bottom: 4px;
     color: $grey-dark;
   }
   .prev-next i {
@@ -65,7 +69,7 @@
     border:none;
   }
   .day {
-    background-color: white;
+    //background-color: white;
     border:none;
     border-radius: 12px;
     color: $grey-medium;
@@ -94,31 +98,101 @@
   .past {}
   .future {}
 
-  .start-date {}
-
-  .prev-month {}
-  .next-month { }
+  .prev-month {
+    background:none;
+  }
+  .next-month {
+    background:none;
+   }
   .current-month {
     color:$grey-dark;
   }
 
   .has-events {
     color: $mint;
-    height: 60px;
-    padding-bottom: 2px !important;
+    font-weight:bold;
+    //height: 60px;
+    //padding-bottom: 2px !important;
+
+    img {
+      display:none;
+    }
   }
   .modal-dialog {
     padding-top: 200px;
     border-radius: 50px !important;
   }
+  .start-date {
+  }
+
+  .today {
+    background:none;
+    background:none;
+    font-weight:bold;
+    color: $black;
+  }
+
+}
+
+.cal-details {
+  //background:red;
+}
+
+.cal-details > *:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .invitations {
   h4 {
     margin-bottom: 0px !important;
+    color: $grey-medium;
+    border-bottom: 1px solid $grey-medium;
   }
 
-  .separator-line {
-    margin-bottom: 16px !important;
+  .friend-card {
+    width:100%;
+  }
+}
+
+.invitations > *:not(:first-child) {
+  padding-top: 12px;
+}
+
+.cal-split {
+  display:flex;
+  flex-direction:column;
+}
+
+
+@include media-breakpoint-up(md) {
+
+
+  .cal-split {
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 40px;
+    gap:80px;
+  }
+
+  .cal-details {
+    width:480px;
+
+    h4 {
+      padding-bottom: 4px;
+    }
+
+    .avatar-small {
+      width:64px;
+      height:64px;
+    }
+  }
+
+  .cal-details > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .invitations > *:not(:first-child) {
+    padding-top: 16px;
   }
 }

@@ -2,13 +2,12 @@
   overflow:hidden;
   display: flex;
   position: relative;
-  height:72px;
+  //height:72px;
   align-items: center;
 
   .upcoming-card-right {
     flex-grow:1;
     padding-left:0px;
-    padding-top:8px;
   }
 
   .meetup-card-top {
@@ -34,7 +33,7 @@
   .upcoming-card-top {
     display: flex;
     padding-bottom:4px;
-    background:red;
+    //background:red;
     color: #060F0E;
   }
 

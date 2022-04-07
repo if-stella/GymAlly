@@ -1,37 +1,35 @@
 <%= render "shared/userbar", my_gym: @my_gym, user: current_user %>
 <div class="container">
-
-  <h4>People who are looking for an ally, at <strong><%= @my_gym.name %></strong>:</h4>
-  <div class="separator-line"></div>
   <div class="dashboard-filters">
     <div data-controller="filter" class="filter-top">
-    <div data-action ="click->filter#showForm" class="semibold">
-      <div class="filter-closed gymally-semibold">
-      Show all filters <%= image_tag "filter.svg" %>
-      </div>
-    </div>
-    <div>
-      <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
-      <div>
-        <%= f.input :gender, collection: @genders.uniq, :required => false %>
-        <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-        <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-        <%= f.input :gym, collection: @gyms.uniq, :required => false %>
-        <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
-        <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
-        <div id="button-box">
-          <%= f.submit "Search", class: "button-primary" %>
-          <div class="filter-button">
-            <%= link_to users_path do %>
-              Reset filters
-            <% end %>
-          </div>
+      <div data-action ="click->filter#showForm" class="semibold">
+        <div class="filter-closed gymally-semibold">
+          Show all filters <%= image_tag "filter.svg" %>
         </div>
       </div>
-      <% end %>
+      <div>
+        <%= simple_form_for :user, url: users_path, method: :get, html: {data: { filter_target: "form"}, class: "d-none"} do |f| %>
+        <div>
+          <%= f.input :gender, collection: @genders.uniq, :required => false %>
+          <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+          <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
+          <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+          <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
+          <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
+          <div id="button-box">
+            <%= f.submit "Search", class: "button-primary" %>
+            <div class="filter-button">
+              <%= link_to users_path do %>
+                Reset filters
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  </div>
+  <h4>People who are looking for an ally, at <strong><%= @my_gym.name %></strong>:</h4>
 
 
   <div id="card-container">

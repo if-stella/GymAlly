@@ -223,6 +223,13 @@
   height: 100vh;
 }
 
+h4 {
+  color: $grey-dark;
+  border-bottom: 1px solid $grey-medium;
+  padding-bottom:4px;
+}
+
+
 @include media-breakpoint-up(md) {
   .signup-container {
     padding:40px 80px;
@@ -242,6 +249,10 @@
   h2 {
     font-size:40px !important;
     line-height:48px !important;
+  }
+
+  h4 {
+    font-size: 22px !important;
   }
 
   .text-narrow {

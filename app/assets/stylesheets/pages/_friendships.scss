@@ -2,13 +2,11 @@
   overflow:hidden;
   display: flex;
   position: relative;
-  height:72px;
   align-items: center;
 
   .friend-card-right {
     flex-grow:1;
     padding-left:12px;
-    padding-top:8px;
   }
 
   .friend-card-top {
@@ -30,10 +28,27 @@
 
 }
 .greytext {
-  color: #5D6664;
+  color: $grey-dark;
+  font-weight: 400;
+}
+
+.grey-light-text {
+  color: $grey-medium;
   font-weight: 400;
 }
 
 .greentext {
   color: $mint !important;
+}
+
+.all-chats {
+  .user-card {
+    padding-bottom:16px;
+  }
+
+  h4 {
+    color: $grey-medium;
+    border-bottom: 1px solid $grey-medium;
+    padding-bottom:4px;
+  }
 }

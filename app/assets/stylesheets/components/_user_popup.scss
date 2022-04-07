@@ -92,12 +92,12 @@
 
 .popup-bottom {
   background-color: white;
-  //background:palegoldenrod;
-  // color: white;
   padding: 16px;
   text-align:center;
   border-bottom-left-radius: 16px !important;
   border-bottom-right-radius: 16px !important;
+  display: flex;
+  justify-content: center;
 }
 
 .event-detail {
