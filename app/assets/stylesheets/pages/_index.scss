@@ -17,3 +17,16 @@
 .select2 {
   width: 100% !important;
 }
+
+.all-friends {
+  h4 {
+    color: $grey-medium;
+    border-bottom: 1px solid $grey-medium;
+    padding-bottom:4px;
+  }
+}
+
+.all-friends-container {
+  //background:red;
+  padding-bottom:32px;
+}

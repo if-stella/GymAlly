@@ -188,6 +188,7 @@ padding-bottom:12px;
   #tag-container {
     display:flex;
   }
+
   .friendship-card-button {
     position: absolute;
     right: 0px;
@@ -241,5 +242,9 @@ padding-bottom:12px;
   .user-card {
     width:48%;
     gap:16px;
+  }
+
+  .friend-card {
+    width: 48%;
   }
 }

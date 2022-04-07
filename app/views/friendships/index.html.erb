@@ -1,47 +1,53 @@
 <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
-<div class="container">
-  <div class="card-container">
+<div class="container all-friends">
+  <div class="">
     <% if @friendships.length > 0 %>
       <h4> Your allies: </h4>
-      <% @friendships.each do |friendship| %>
-          <% current_user == friendship.user_one ? user_one = friendship.user_two : user_one = friendship.user_one %>
-          <% if friendship.chatroom %>
-            <%= link_to chatroom_path(friendship.chatroom) do %>
-              <%= render "shared/user_cards", user: user_one %>
+      <div class="all-friends-container">
+        <% @friendships.each do |friendship| %>
+            <% current_user == friendship.user_one ? user_one = friendship.user_two : user_one = friendship.user_one %>
+            <% if friendship.chatroom %>
+              <%= link_to chatroom_path(friendship.chatroom) do %>
+                <%= render "shared/user_cards", user: user_one %>
+              <% end %>
+            <% else %>
+              <%= link_to chatroom_create_path(id: friendship), method: :post do %>
+                <%= render "shared/user_cards", user: user_one %>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= link_to chatroom_create_path(id: friendship), method: :post do %>
-              <%= render "shared/user_cards", user: user_one %>
-            <% end %>
-          <% end %>
-      <% end %>
-      <% else %>
-        <h4> You do not have any allies here (yet!)</h4>
-        <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
+        <% end %>
+        <% else %>
+          <h4> You do not have any allies here (yet!)</h4>
+          <div class="button-primary"><%= link_to "Find some allies!", users_path %></div>
+        </div>
     <% end %>
   </div>
-  <div class="card-container">
+  <div class="">
     <% if @invitations.length > 0 %>
       <h4>Friend Requests - Incoming</h4>
-      <% @invitations.each do |invitation| %>
-        <%= render "shared/friendship_card",
-            user: invitation.user_one,
-            type: "to_me",
-            # description: "wants to be your ally",
-            invitation: invitation %>
-      <% end %>
+      <div class="all-friends-container">
+        <% @invitations.each do |invitation| %>
+          <%= render "shared/friendship_card",
+              user: invitation.user_one,
+              type: "to_me",
+              # description: "wants to be your ally",
+              invitation: invitation %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <div class="sent">
+
+  <div class="">
     <% if @requests.length > 0 %>
       <h4>Friendship Requests - Sent</h4>
-      <% @requests.each do |request| %>
-        <%= render "shared/friendship_card",
-            user: request.user_two,
-            type: "from_me",
-            # description: "request sent",
-            invitation: request%>
-      <% end %>
+      <div class="all-friends-container">
+        <% @requests.each do |request| %>
+          <%= render "shared/friendship_card",
+              user: request.user_two,
+              type: "from_me",
+              invitation: request%>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

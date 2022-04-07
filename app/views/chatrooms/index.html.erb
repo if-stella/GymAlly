@@ -1,7 +1,8 @@
 <%= render "shared/userbar", my_gym: current_user.gym, user: current_user %>
 <div class="container">
-  <div class="card-container">
+  <div class="all-chats">
     <% if !@chatrooms.empty? %>
+    <h4>Your current chats</h4>
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom[0]) do %>
           <div class="user-card">
@@ -26,7 +27,7 @@
               </div>
             </div>
             <div class="user-card-bottom gymally-small">
-            <div class="greytext">
+            <div class="grey-light-text">
               <%= chatroom[2] == "Start to chat" ? "" : chatroom[2].created_at.strftime("%l:%M %p") %>
               </div>
             </div>
