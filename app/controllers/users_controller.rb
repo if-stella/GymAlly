@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     if params[:user].present?
       # @users = User.where(gym: current_user.gym)
       @users = User.all
+      if current_user.gym == Gym.find_by(id: params[:user][:gym])
+        @my_gym = current_user.gym
+      else
+        @my_gym = Gym.find_by(id: params[:user][:gym])
+      end
       filtering_params(params[:user]).each do |key, value|
         if key == "sports"
           value.drop(1)
