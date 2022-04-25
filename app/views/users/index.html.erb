@@ -13,7 +13,7 @@
           <%= f.input :gender, collection: @genders.uniq, :required => false %>
           <%= f.input :weekdays, collection: @weekdays, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
           <%= f.input :sports, collection: @sports, :required => false, input_html: {multiple: true, data: {controller: 'select2', select2_options_value: {tags: true}}} %>
-          <%= f.input :gym, collection: @gyms.uniq, :required => false %>
+          <%= f.input :gym, collection: @gyms.uniq, selected: @my_gym %>
           <%= f.input :age1, :label => "Min. age", collection: @age, :required => false %>
           <%= f.input :age2, :label => "Max. age", collection: @age, :required => false %>
           <div id="button-box">
