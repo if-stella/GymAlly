@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if params[:user].present?
       # @users = User.where(gym: current_user.gym)
       @users = User.all
-      if current_user.gym == Gym.find_by(id: params[:user][:gym])
+      if params[:user][:gym] == "" || current_user.gym == Gym.find_by(id: params[:user][:gym])
         @my_gym = current_user.gym
       else
         @my_gym = Gym.find_by(id: params[:user][:gym])
