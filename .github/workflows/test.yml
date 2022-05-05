@@ -52,7 +52,7 @@ jobs:
         run: | # Pipe is important, adds line breaks
           cp config/database.github.yml config/database.yml
           bundle exec rails db:test:prepare
-      - name: Run model tests
-        run: bundle exec rails test
+      # - name: Run model tests
+      #   run: bundle exec rails test
       - name: Run system tests
         run: bundle exec rails test:system
