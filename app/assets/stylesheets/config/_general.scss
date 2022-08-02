@@ -24,7 +24,6 @@
 .button-primary:hover {
   background: #060F0E;
   border: solid #000000 1px;
-  color: #ffffff;
 }
 
 .button-secondary {
@@ -39,6 +38,31 @@
   border-radius:8px;
   border: solid #7BC5BC 1px;
 }
+
+.button-second {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #7BC5BC;
+  background: #ffffffd5;
+  text-align:center;
+  padding:10px;
+  border-radius:8px;
+  border: solid #E2FFFA 1px;
+  margin-top: 1em;
+}
+
+.button-second:hover {
+  background: #ffffff;
+  border: solid #7BC5BC 1px;
+}
+
+.button-second a{
+  color:#7BC5BC !important;
+}
+
+
 
 .button-secondary a{
   color:#7BC5BC !important;
