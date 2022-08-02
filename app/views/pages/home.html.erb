@@ -4,32 +4,39 @@
     <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647874947/stage-des_tkekp8.png" alt="" style="width:600px" class="stage-img-des">
     <div class="text-box">
       <h1>Find allies in your gym!</h1>
-      <div class="big-p">Find new friends, connect with them, train together, feel stronger!</div>
+      <div class="big-p">Find new friends, connect with them, train together, feel empowered!</div>
       <div class="button-primary">
       <%= link_to "Create account", new_user_registration_path %>
       </div>
+          <div class="button-second">
+    <!-- Correct link? -->
+      <%= link_to "Log in", new_user_session_path%>
+    </div>
+
     </div>
   </div>
 
   <div class="landing-box bg-white">
-    <div class="text-fix">
+    <div class="text-box">
+      <h2>Give it a try!</h2>
       <p>
-        <strong>Gymally</strong> is a team of <strong>four developers</strong> and <strong>one designer</strong> that have been working together for over <strong>10 days</strong>, to create an app that connects you to other people in the gym, without it getting awkward.
+        How about a little testrun? Just go check out our high-fidelity <strong><a href="https://www.figma.com/proto/ihZhWYNGGNfxr1zNoBdcGR/GymAlly?page-id=136%3A574&node-id=136%3A838&viewport=502%2C504%2C0.23&scaling=scale-down&starting-point-node-id=136%3A838&show-proto-sidebar=1" target="_blank" rel="noreferrer noopener">
+    Figma Prototype</a></strong>, or get in touch with one of our team-members, for a live-demonstration.
       </p>
     </div>
-    <div class="button-primary">
-      <%= link_to "Sign up", new_user_registration_path %>
-    </div>
+     <div class="figma-img"></div>
+    <!--
     <div class="last-button">
-    <!-- Correct link? -->
+     Correct link?
       <%= link_to "Log in", new_user_session_path, class: "text-link"%>
     </div>
+    -->
   </div>
 
-  <div class="landing-box bg-mint">
+  <div class="landing-box bg-mint productbox">
     <div class="top-box">
       <%= image_tag "logolarge.svg" %>
-      <p>This is a short text about Gymally that describes the awesome product again, because it actually is pretty awesome and we did a great job there.</p>
+      <p><strong>Gymally</strong> is a team of <strong>four developers</strong> and <strong>one designer</strong> that have been working together for over <strong>10 days</strong>, to create an app that connects you to other people in the gym, without it getting awkward.</p>
     </div>
     <div class="bottom-box">
       <div class="product-li">
@@ -79,16 +86,16 @@
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">🙂 Ida S.</a>
+              <a href="https://github.com/idaehis" target="_blank" rel="noreferrer noopener" class="text-white">🙂 Ida S.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">🤫 Lydia A.</a>
+              <a href="https://github.com/missalles" target="_blank" rel="noreferrer noopener" class="text-white">🤫 Lydia A.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">😝 Kang H.</a>
+              <a href="https://github.com/kanghsieh" target="_blank" rel="noreferrer noopener" class="text-white">😝 Kang H.</a>
             </li>
             <li>
-              <a href="#!" class="text-white">🥲 Stella R.</a>
+              <a href="https://github.com/if-stella" target="_blank" rel="noreferrer noopener" class="text-white">🥲 Stella R.</a>
             </li>
           </ul>
         </div>
@@ -126,9 +133,8 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Gymally
-    <a class="text-white" href="https://mdbootstrap.com/">All rights reserved</a>
+  <div class="text-center p-3 pfoot" style="background-color: rgba(0, 0, 0, 0.2);">
+    <p>© 2022 Gymally all rights reserved</p>
   </div>
   <!-- Copyright -->
 </footer>

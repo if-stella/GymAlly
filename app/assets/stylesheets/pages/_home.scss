@@ -13,13 +13,20 @@
   padding:40px 24px;
 }
 
-.landing-box h1{
-  margin-bottom:8px !important;
+
+.pfoot p{
+  font-size:0.75em !important;
 }
 
-.landing-box > *:not(:last-child) {
-  margin-bottom:24px;
+.landing-box h1{
+  padding-bottom:8px !important;
 }
+
+.landing-box h2 {
+  text-align: center;
+  color:#7BC5BC;
+}
+
 
 .first-box {
   background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647605961/stage_mobile-bg_i17erd.jpg");
@@ -32,14 +39,33 @@
   align-items: center;
 }
 
+.figma-img {
+  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1659449086/gymally/explain-2_1_etls4s.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  width:311px;
+  height:531px;
+  position:relative;
+  z-index:1;
+  flex-shrink:0;
+}
+
 .bg-white {
   display:flex;
   flex-direction: column;
   align-items: center;
+  justify-content:center;
 
     p {
       text-align: center;
     }
+  }
+
+  .productbox {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
   }
 
 .bg-mint {
@@ -81,51 +107,48 @@
   display:flex;
 }
 
-@include media-breakpoint-up(sm) {
-  .button-primary {
-    width:280px;
-  }
-}
-
 @include media-breakpoint-up(md) {
-
-  .landing-box {
-  padding:80px;
+  .button-second {
+    margin-top:0em;
   }
 
   .first-box{
     background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
     background-size: cover;
-    height:100%;
+    height:100vh;
     flex-direction:row;
     gap:40px;
   }
-
   h1 {
     font-size:72px !important;
     line-height:80px !important;
   }
-
+  h2 {
+    font-size:40px !important;
+    line-height:48px !important;
+  }
+  h4 {
+    font-size: 22px !important;
+  }
   .big-p {
     font-size:20px !important;
     line-height:150% !important;
     letter-spacing:1px;
     font-weight: 400;
   }
-
   .text-box{
     display:flex;
+    position:relative;
+    z-index:2;
     flex-direction: column;
     width: 500px;
     align-items: center;
     gap:24px;
     justify-content: center;
   }
-
   .stage-img-mob {
     display:none;
   }
-
   .stage-img-des {
     display:block;
     width: 60vh;
@@ -133,24 +156,12 @@
   }
 
   .bg-white {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-
-    .text-fix {
-      width:75%;
-      padding-bottom:0px;
-
-      p {
-        text-align: center;
-      }
-    }
+    flex-direction: row;
   }
 
-  .bg-mint {
-    display:flex;
-    flex-direction: column;
-    align-items: center
+  .figma-img {
+    width: 450px;
+    height: 768.5px;
   }
 
   .top-box {
@@ -163,30 +174,52 @@
       font-weight:400;
     }
   }
-
   .bottom-box {
     flex-direction:row !important;
     align-items:flex-start;
     gap:24px;
   }
-
   .product-li {
     flex-direction: column;
     width:24%;
   }
-
   .prod-img-mob {
     display:none;
   }
-
   .prod-img-des {
     display:block;
     // height: fit-content;
   }
-
   .s-to-p {
     font-size:16px;
     line-height:24px;
+  }
+  .signup-container {
+    padding:40px 80px;
+    background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
+    background-size: cover;
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    .button-primary {
+      width: 100%;
+    }
+  }
+  .text-narrow {
+    width:400px;
+  }
+}
+
+
+@include media-breakpoint-up(sm) {
+  .button-primary {
+    width:280px;
+  }
+
+  .button-second {
+    width:280px;
   }
 }
 
@@ -227,39 +260,4 @@ h4 {
   color: $grey-dark;
   border-bottom: 1px solid $grey-medium;
   padding-bottom:4px;
-}
-
-
-@include media-breakpoint-up(md) {
-  .signup-container {
-    padding:40px 80px;
-    background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
-    background-size: cover;
-    height: 100vh;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-
-
-    .button-primary {
-      width: 100%;
-    }
-  }
-
-  h2 {
-    font-size:40px !important;
-    line-height:48px !important;
-  }
-
-  h4 {
-    font-size: 22px !important;
-  }
-
-  .text-narrow {
-    width:400px;
-  }
-
-  .text-narrow {
-    width:400px;
-  }
 }
