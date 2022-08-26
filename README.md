@@ -17,7 +17,7 @@ Gymally is a team of four developers and one designer that have been working tog
 
 ### Features
 
-Find new friends, connect with them, train together, feel empowered!
+* Find new friends, connect with them, train together, feel empowered!
 * See who else is there in your gym, contact them and find new allies to achieve your goals!
 * Find people to chat with and connect, without feeling awkward...
 * Create appointments, to set everything in stone!
