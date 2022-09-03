@@ -1,15 +1,14 @@
 <div class="landing-container">
   <div class="landing-box first-box landing-desktop">
-    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647606136/landing-product-mobile_ozmdqw.png" alt="" style="width:240px" class="stage-img-mob">
-    <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647874947/stage-des_tkekp8.png" alt="" style="width:600px" class="stage-img-des">
+    <%= image_tag "stage_img_mob.png", class:'stage-img-mob' %>
+    <%= image_tag "stage_img_des.png", class:'stage-img-des' %>
     <div class="text-box">
-      <h1>Find allies in your gym!</h1>
+      <h1>Find allies in your gymyy!</h1>
       <div class="big-p">Find new friends, connect with them, train together, feel empowered!</div>
       <div class="button-primary">
       <%= link_to "Create account", new_user_registration_path %>
       </div>
           <div class="button-second">
-    <!-- Correct link? -->
       <%= link_to "Log in", new_user_session_path%>
     </div>
 
@@ -19,18 +18,9 @@
   <div class="landing-box bg-white">
     <div class="text-box">
       <h2>Give it a try!</h2>
-      <p>
-        How about a little testrun? Just go check out our high-fidelity <strong><a href="https://www.figma.com/proto/ihZhWYNGGNfxr1zNoBdcGR/GymAlly?page-id=136%3A574&node-id=136%3A838&viewport=502%2C504%2C0.23&scaling=scale-down&starting-point-node-id=136%3A838&show-proto-sidebar=1" target="_blank" rel="noreferrer noopener">
-    Figma Prototype</a></strong>, or get in touch with one of our team-members, for a live-demonstration.
-      </p>
+      <p>How about a little testrun? Just go check out our high-fidelity <strong><a href="https://www.figma.com/proto/ihZhWYNGGNfxr1zNoBdcGR/GymAlly?page-id=136%3A574&node-id=136%3A838&viewport=502%2C504%2C0.23&scaling=scale-down&starting-point-node-id=136%3A838&show-proto-sidebar=1" target="_blank" rel="noreferrer noopener">Figma Prototype</a></strong>, or get in touch with one of our team-members, for a live-demonstration.</p>
     </div>
-     <div class="figma-img"></div>
-    <!--
-    <div class="last-button">
-     Correct link?
-      <%= link_to "Log in", new_user_session_path, class: "text-link"%>
-    </div>
-    -->
+     <%= image_tag "explain_figma.png", class:'figma-img' %>
   </div>
 
   <div class="landing-box bg-mint productbox">
@@ -40,28 +30,24 @@
     </div>
     <div class="bottom-box">
       <div class="product-li">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-1_vwfjpe.png" alt="gymally device dashboard" style="width:120px;" class="prod-img-mob">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647897244/des-explain-1_k8n3nf.png" alt="gymally device dashboard" style="width:248px;" class="prod-img-des">
-        <div class="gymally-small s-to-p">See who else is there in your gym, contact them and find new allies to achieve your goals!
-        </div>
+        <%= image_tag "explain01_mob.png", class:'prod-img-mob' %>
+        <%= image_tag "explain01_des.png", class:'prod-img-des' %>
+        <div class="gymally-small s-to-p">See who else is there in your gym, contact them and find new allies to achieve your goals!</div>
       </div>
       <div class="product-li">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647897246/des-explain-2_f3szpw.png" alt="gymally device dashboard" style="width:248px;" class="prod-img-des">
-        <div class="gymally-small s-to-p">Find people to chat with and connect, without feeling awkward...
-        </div>
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-2_zkr5ia.png" alt="gymally device chat" style="width:120px;" class="prod-img-mob">
+        <%= image_tag "explain02_des.png", class:'prod-img-des' %>
+        <div class="gymally-small s-to-p">Find people to chat with and connect, without feeling awkward...</div>
+        <%= image_tag "explain02_mob.png", class:'prod-img-mob' %>
       </div>
       <div class="product-li">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647618130/explain-3_lufzex.png" alt="gymally device calendar" style="width:120px;" class="prod-img-mob">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647897247/des-explain-3_ma0abl.png" alt="gymally device dashboard" style="width:248px;" class="prod-img-des">
-        <div class="gymally-small s-to-p">Create appointments, to set everything in stone!
-        </div>
+        <%= image_tag "explain03_mob.png", class:'prod-img-mob' %>
+        <%= image_tag "explain03_des.png", class:'prod-img-des' %>
+        <div class="gymally-small s-to-p">Create appointments, to set everything in stone!</div>
       </div>
       <div class="product-li">
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647897248/des-explain-4_v7o0le.png" alt="gymally device dashboard" style="width:248px;" class="prod-img-des">
-        <div class="gymally-small s-to-p">Check out other gyms in your neighborhood, to connect with more allies around you!
-        </div>
-        <img src="https://res.cloudinary.com/dr24t0rw2/image/upload/v1647617929/explain-4_mbjdys.png" alt="gymally device map" style="width:120px;" class="prod-img-mob">
+        <%= image_tag "explain04_des.png", class:'prod-img-des' %>
+        <div class="gymally-small s-to-p">Check out other gyms in your neighborhood, to connect with more allies around you!</div>
+        <%= image_tag "explain04_mob.png", class:'prod-img-mob' %>
       </div>
   </div>
 </div>

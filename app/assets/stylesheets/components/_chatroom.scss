@@ -1,5 +1,5 @@
 .chatroom {
-  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1646928210/chat-bg_abl7n0.jpg");
+  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1647875915/desktop-stage-bg_vetnvp.jpg");
   background-size: cover;
   height: calc(100vh - 65px);
   display: flex;
@@ -17,17 +17,14 @@
     background:#7BC5BC;
     height:64px;
     padding: 16px;
-    // padding: 11px 24px;
 
     .chatroom-head-left {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      // background:red;
 
       * {
-        // display: block;
         margin-right: 12px;
 
         img {
