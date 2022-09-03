@@ -1,5 +1,3 @@
-![GymAlly](https://res.cloudinary.com/dr24t0rw2/image/upload/v1654810400/Thumbnail_gv7lta.jpg)
-
 ## GymAlly
 
 [Link to project](http://www.gymally.fitness)

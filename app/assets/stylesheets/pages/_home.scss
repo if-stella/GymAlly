@@ -9,7 +9,6 @@
 }
 
 .landing-box {
-  // background:blue;
   padding:40px 24px;
 }
 
@@ -40,9 +39,6 @@
 }
 
 .figma-img {
-  background-image: url("https://res.cloudinary.com/dr24t0rw2/image/upload/v1659449086/gymally/explain-2_1_etls4s.png");
-  background-size:cover;
-  background-repeat: no-repeat;
   width:311px;
   height:531px;
   position:relative;
@@ -73,7 +69,6 @@
   color:white;
 
   .top-box {
-    //background:greenyellow;
     text-align:center;
     }
 
@@ -82,13 +77,11 @@
     }
 
     .bottom-box {
-      //background:green;
       display:flex;
       flex-direction:column;
     }
 
     .product-li {
-      // background:teal;
       display:flex;
       align-items:center;
       justify-content: center;
@@ -99,8 +92,19 @@
   display:none;
 }
 
+.stage-img-mob {
+  display:block;
+  width: 240px;
+}
+
 .prod-img-des {
+  width:248px;
   display:none;
+}
+
+.prod-img-mob {
+  width:120px;
+  display:block;
 }
 
 .form-button {
@@ -149,10 +153,10 @@
   .stage-img-mob {
     display:none;
   }
+
   .stage-img-des {
     display:block;
-    width: 60vh;
-    // height: fit-content;
+    width: 600px;
   }
 
   .bg-white {
@@ -183,13 +187,7 @@
     flex-direction: column;
     width:24%;
   }
-  .prod-img-mob {
-    display:none;
-  }
-  .prod-img-des {
-    display:block;
-    // height: fit-content;
-  }
+
   .s-to-p {
     font-size:16px;
     line-height:24px;
@@ -210,6 +208,11 @@
   .text-narrow {
     width:400px;
   }
+
+
+  .prod-img-des {
+    display:block;
+  }
 }
 
 
@@ -220,6 +223,14 @@
 
   .button-second {
     width:280px;
+  }
+
+  .prod-img-des {
+    display:block;
+  }
+
+  .prod-img-mob {
+    display:none;
   }
 }
 
