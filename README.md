@@ -1,4 +1,4 @@
-![GymAlly](https://res.cloudinary.com/dhrtgukmg/image/upload/v1662731268/Gymally/gymally-cover_n84b3z.jpg
+![GymAlly](https://res.cloudinary.com/dhrtgukmg/image/upload/v1662731268/Gymally/gymally-cover_n84b3z.jpg)
 ## GymAlly
 
 [Link to project](http://www.gymally.fitness)
